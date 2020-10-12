@@ -3,6 +3,7 @@
     "count": 4,
     "description": "Defend the Earth!",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
+    "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/200510/capsule_616x353.jpg?t=1587584126",
     "price": 2.4,
     "title": "XCOM"
   },
@@ -10,6 +11,7 @@
     "count": 6,
     "description": "Shepard",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLlaJBAPo69-Ppe0f4b3VgHw-o6trDKPF_2g&usqp=CAU",
     "price": 10,
     "title": "Mass Effect"
   },
@@ -17,6 +19,7 @@
     "count": 7,
     "description": "Grow your dynasty!",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
+    "image": "https://dev.by/storage/images/10/11/00/15/derived/ae450abbc524da1685f11ea149457a2f.jpg",
     "price": 23,
     "title": "Crusader Kings 3"
   },
@@ -24,6 +27,7 @@
     "count": 12,
     "description": "There is 1 impostor among us.",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/8/84/Among_Us.png",
     "price": 15,
     "title": "Among Us"
   },
@@ -31,6 +35,7 @@
     "count": 7,
     "description": "Aka doka2",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
+    "image": "https://static-prod.weplay.tv/2019-12-20/88587a3ed11a242cf10460db3eb591f8_large_cover.302823-D28457-7CA56C.jpeg",
     "price": 23,
     "title": "Dota 2"
   },
@@ -38,6 +43,7 @@
     "count": 8,
     "description": "Godlike",
     "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
+    "image": "https://miketendo64.com/wp-content/uploads/2018/11/SMITE-Box-Art-Key-Art.png",
     "price": 15,
     "title": "Smite"
   },
@@ -45,6 +51,7 @@
     "count": 2,
     "description": "Valorant killer",
     "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
+    "image": "https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_RogueCompany_image1600w.jpg",
     "price": 23,
     "title": "Rogue Company"
   },
@@ -52,6 +59,7 @@
     "count": 3,
     "description": "One man army!",
     "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
+    "image": "https://static.tvtropes.org/pmwiki/pub/images/rwr_best_art.jpg",
     "price": 15,
     "title": "Running With Rifles"
   }
