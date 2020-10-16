@@ -30,6 +30,7 @@ plugins:
 custom:
   client:
     bucketName: macbook-shop
+    distributionFolder: build
 
 # you can overwrite defaults here
 #  stage: dev
