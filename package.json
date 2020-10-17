@@ -9,7 +9,10 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
-    "postdeploy": "aws cloudfront create-invalidation --distribution-id E37RJOIJPC0UVT --paths \"/*\""
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E37RJOIJPC0UVT --paths \"/*\"",
+    "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
+    "cloudfront:build:deploy": "npm run build && npm run client:deploy && sls invalidateCloudFrontCache",
+    "cloudfront:update:build:deploy": "sls deploy && npm run cloudfront:build:deploy"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -36,7 +39,8 @@
     "react-scripts": "3.4.1",
     "serverless-finch": "^2.6.0",
     "typescript": "~3.7.2",
-    "yup": "^0.29.1"
+    "yup": "^0.29.1",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
