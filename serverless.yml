@@ -1,0 +1,17 @@
+service: aws-fe-task2.1
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: production
+  region: eu-west-1
+  profile: default
+
+plugins:
+  - serverless-finch
+ 
+custom:
+  client:
+    bucketName: aws-fe-task2.1
+    distributionFolder: build
