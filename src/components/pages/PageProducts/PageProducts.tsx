@@ -14,6 +14,7 @@ export default function PageProducts() {
 
   return (
     <div className={classes.content}>
+      AHurynovich's app (Shagon1k)
       <Products/>
     </div>
   );
