@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "deploy:s3": "serverless client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
+    "deploy": "npm run build && npm run deploy:s3 && npm run remove-cache",
+    "remove-cache": "sls invalidateCloudFrontCache",
+    "infra": "sls deploy",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,7 +42,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless-finch": "2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "eslintConfig": {
     "extends": "react-app"
