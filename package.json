@@ -8,7 +8,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serverless": "serverless",
-    "deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change"
+    "deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
+    "client:deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
+    "client:deploy:nc": "yarn client:deploy --no-confirm",
+    "build:deploy": "yarn build && yarn client:deploy",
+    "build:deploy:nc": "yarn build && yarn client:deploy:nc"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
