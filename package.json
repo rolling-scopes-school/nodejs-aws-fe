@@ -21,6 +21,7 @@
     "cloudfront:build:deploy:nc": "yarn client:build:deploy:nc && yarn cloudfront:invalidateCache",
     "cloudfront:update:build:deploy": "yarn cloudfront:setup && yarn cloudfront:build:deploy",
     "cloudfront:update:build:deploy:nc": "yarn cloudfront:setup && yarn cloudfront:build:deploy:nc"
+    "deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
