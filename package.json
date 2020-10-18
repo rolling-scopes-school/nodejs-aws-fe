@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:s3": "serverless client deploy --no-config-change --no-policy-change --no-cors-change"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -32,6 +33,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "typescript": "~3.7.2",
     "yup": "^0.29.1"
   },
