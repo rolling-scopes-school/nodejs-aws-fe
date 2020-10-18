@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Candies!",
+  "name": "Candies! - a shop for sweets and candies (RSSchool training project)",
   "icons": [
     {
       "src": "favicon.ico",
