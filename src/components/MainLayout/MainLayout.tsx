@@ -8,7 +8,7 @@ import Header from "components/MainLayout/components/Header";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © Serverless '}
+      {'Copyright © Serverless CloudFormation '}
       <Link color="inherit" href="https://material-ui.com/">
         My Store
       </Link>{' '}
