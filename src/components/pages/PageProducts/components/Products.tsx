@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '75%', // 4:3
   },
   cardContent: {
     flexGrow: 1,
@@ -48,8 +48,8 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image="https://source.unsplash.com/random"
-              title="Image title"
+              image={product.imageUrl || "https://source.unsplash.com/560x420?candies"}
+              title={product.description}
             />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
