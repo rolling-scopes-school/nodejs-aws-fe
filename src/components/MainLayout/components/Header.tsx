@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    toolbar: {
+      backgroundColor: '#2bffa3',
+      color: theme.palette.common.black,
+    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
@@ -22,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     homeLink: {
-      color: 'white',
+      color: 'inherit',
       textDecoration: 'none'
     }
   }),
@@ -44,9 +48,9 @@ export default function Header() {
 
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">My Store!</Link>
+          <Link className={classes.homeLink} to="/">Easy&Dizzy</Link>
         </Typography>
 
         {auth && (

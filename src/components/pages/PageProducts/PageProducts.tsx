@@ -4,7 +4,7 @@ import Products from "components/pages/PageProducts/components/Products";
 
 const useStyles = makeStyles((theme) => ({
   content: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: 'inherit',
     padding: theme.spacing(3, 0, 3),
   },
 }));
