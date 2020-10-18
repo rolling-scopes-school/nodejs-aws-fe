@@ -12749,6 +12749,9 @@ serverless-finch@^2.6.0:
     minimatch "^3.0.4"
     prompt-confirm "^1.2.0"
 
+"serverless-single-page-app-plugin@file:./serverless-single-page-app-plugin":
+  version "1.0.1"
+
 serverless@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/serverless/-/serverless-2.8.0.tgz#9f0ba9b81f5690587a7de5ab540ecf10ecdc1421"
