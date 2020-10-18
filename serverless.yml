@@ -1,0 +1,33 @@
+service: nodejs-aws-frontend
+frameworkVersion: '2'
+
+plugins:
+  - serverless-finch
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+#  stage: dev
+#  region: us-east-1
+
+custom:
+  client:
+    bucketName: nodejs-aws-task2-manual
+    distributionFolder: build
+ 
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+
+# you can add CloudFormation resource templates here
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"
