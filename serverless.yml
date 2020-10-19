@@ -1,11 +1,11 @@
-service: rs-school-app-shagon1k
+service: rs-school-app-shagon1k-eu
 
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: nodejs12.x
-# region: eu-west-1
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -13,7 +13,7 @@ plugins:
 
 custom:
   client:
-    bucketName: rs-school-app-shagon1k
+    bucketName: rs-school-app-shagon1k-eu
     # [other configuration parameters]
     distributionFolder: build
     indexDocument: index.html
@@ -60,7 +60,7 @@ resources:
       Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
       Properties:
         CloudFrontOriginAccessIdentityConfig:
-          Comment: access-identity-S3-ahurynovich
+          Comment: access-identity-S3-ahurynovich-eu
 
     ## Specifying the CloudFront Distribution to server your Web Application
     WebAppCloudFrontDistribution:
