@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: nodejs-aws-fe
+service: rs-school-app-baderfall
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -29,12 +29,13 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
+  ## Serverless-finch configuration
   client:
-    bucketName: nodejs-aws-fe-baderfall-2
+    bucketName: rs-school-app-baderfall
     distributionFolder: build
-    manageResources: true
-
-  # serverless-single-page-app-plugin
+    indexDocument: index.html
+    manageResources: false
+  ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -71,9 +72,9 @@ custom:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 
-functions:
-  hello:
-    handler: handler.hello
+#functions:
+#  hello:
+#    handler: handler.hello
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
