@@ -1,0 +1,17 @@
+service: epam-nodejs-aws-fe-application
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: epam-nodejs-aws-fe-application
+    distributionFolder: build
+    indexDocument: index.html
+    manageResources: false
