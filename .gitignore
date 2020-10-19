@@ -10,10 +10,8 @@ node_modules
 
 # production
 build
-.serverless
 
 # package directories
-node_modules
 jspm_packages
 
 # Serverless directories
