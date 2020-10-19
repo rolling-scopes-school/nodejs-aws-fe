@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: nodejs-aws-fe
+service: nodejs-aws-fe-serverless-1
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -29,13 +29,12 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
-  ## Serverless-finch configuration
   client:
-    bucketName: website-boonnqn
+    bucketName: nodejs-aws-fe-serverless-1
     distributionFolder: build
-    indexDocument: index.html
-    manageResources: false
-  ## Serverless-single-page-app-plugin configuration:
+    manageResources: true
+
+  # serverless-single-page-app-plugin
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
 
