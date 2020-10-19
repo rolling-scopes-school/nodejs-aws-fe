@@ -8,7 +8,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "client:deploy": "serverless client deploy --no-config-change --no-policy-change --no-corse-change",
-    "client:build:deploy": "npm run build && npm run client:deploy"
+    "client:build:deploy": "npm run build && npm run client:deploy",
+    "cloudfront:setup": "serverless deploy",
+    "cloudfront:domainInfo": "serverless domainInfo",
+    "cloudfront:invalidateCache": "serverless invalidateCloudFrontCache",
+    "cloudfront:build:deploy": "npm run client:build:deploy && npm run cloudfront:invalidateCache",
+    "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -33,7 +38,6 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "serverless-finch": "^2.6.0",
     "typescript": "~3.7.2",
     "yup": "^0.29.1"
   },
@@ -41,7 +45,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin/"
   },
   "eslintConfig": {
     "extends": "react-app"
