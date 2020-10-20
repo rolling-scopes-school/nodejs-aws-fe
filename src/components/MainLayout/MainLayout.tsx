@@ -8,8 +8,8 @@ import Header from "components/MainLayout/components/Header";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      {'Copyright © Malodar '}
+      <Link color="inherit" href="https://di6y002rp8aw5.cloudfront.net/">
         My Store
       </Link>{' '}
       {new Date().getFullYear()}
