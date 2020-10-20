@@ -12,7 +12,7 @@ plugins:
 
 custom:
   client:
-    bucketName: aws-fe-balov-4
+    bucketName: aws-fe-balov-5
     distributionFolder: build
 
   s3LocalPath: ${self:custom.client.distributionFolder}/
