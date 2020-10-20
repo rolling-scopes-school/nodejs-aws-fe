@@ -27,3 +27,8 @@ yarn-error.log*
 .vscode
 
 Tempnodejsnpm-cache
+
+jspm_packages
+
+# Serverless directories
+.serverless
