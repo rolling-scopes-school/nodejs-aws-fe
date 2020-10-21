@@ -2,7 +2,6 @@
 
 # dependencies
 node_modules
-jspm_packages
 /.pnp
 .pnp.js
 
