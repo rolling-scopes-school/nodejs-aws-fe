@@ -1,0 +1,16 @@
+# Happy Coding!
+
+service: task2-aws-sls
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: task21-aws-manual-setup
+    distributionFolder: build
