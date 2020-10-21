@@ -4,12 +4,15 @@
 node_modules
 /.pnp
 .pnp.js
+jspm_packages
 
 # testing
 /coverage
 
 # production
 build
+
+# Serverless directories
 .serverless
 
 # misc
