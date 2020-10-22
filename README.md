@@ -43,3 +43,20 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Links for Task2
+
+### S3 bucket has been created and configured properly. The app has been uploaded to the bucket and is available though the Internet. Nothing else has been done.
+
+- Link to S3 bucket - https://s3.console.aws.amazon.com/s3/buckets/gelelus-rs-first/?region=us-east-1&tab=overview
+- Link to S3 website - http://gelelus-rs-first.s3-website-us-east-1.amazonaws.com
+
+### In addition to the previous work a CloudFront distribution is created and configured properly and the site is served now with CloudFront and is available through the Internet over CloudFront URL, not S3-website link (due to changes in bucket’s policy...).
+
+- Link to CloudFront website - https://d4vjyxpw6ibcq.cloudfront.net/
+
+- Link to S3 website - http://gelelus-rs-app-first.s3.amazonaws.com/
+
+### Serverless-finch and serverless-single-page-app plugins are added and configured. The app can be built and deployed by running npm script command.
+
+- Link to CloudFront website - https://dlvllyd9xm1fd.cloudfront.net/
