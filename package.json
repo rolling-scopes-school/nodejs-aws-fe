@@ -5,6 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -32,7 +33,8 @@
     "lodash": "^4.17.19",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "enzyme-to-json": "^3.4.4"
+    "enzyme-to-json": "^3.4.4",
+    "serverless-finch": "^2.6.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
