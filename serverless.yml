@@ -130,3 +130,5 @@ resources:
     WebAppCloudFrontDistributionOutput:
       Value:
         'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+
