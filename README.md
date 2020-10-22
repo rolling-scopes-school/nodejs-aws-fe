@@ -1,3 +1,19 @@
+## Task 2
+
+Manually configured s3/cloudfront resources:
+
+S3 link - http://nodejs-aws-task2-manual.s3-website.us-east-2.amazonaws.com
+
+Cloudfront link - https://d1306dz1u1c9da.cloudfront.net
+
+Automated configured s3/cloudfront resources:
+
+S3 link - http://nodejs-aws-task2-auto.s3-website.us-east-2.amazonaws.com
+
+Cloudfront link - https://dibzgqdmk7fo5.cloudfront.net
+
+--------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

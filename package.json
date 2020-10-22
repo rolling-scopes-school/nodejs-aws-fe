@@ -8,11 +8,19 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "serverless": "serverless",
-    "deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
     "client:deploy:nc": "yarn client:deploy --no-confirm",
-    "build:deploy": "yarn build && yarn client:deploy",
-    "build:deploy:nc": "yarn build && yarn client:deploy:nc"
+    "client:build:deploy": "yarn build && yarn client:deploy",
+    "client:build:deploy:nc": "yarn build && yarn client:deploy:nc",
+    "cloudfront:setup": "serverless deploy",
+    "cloudfront:domainInfo": "serverless domainInfo",
+    "cloudfront:invalidateCache": "serverless invalidateCloudFrontCache",
+    "cloudfront:deploy": "yarn client:deploy && yarn cloudfront:invalidateCache",
+    "cloudfront:deploy:nc": "yarn client:deploy:nc && yarn cloudfront:invalidateCache",
+    "cloudfront:build:deploy": "yarn client:build:deploy && yarn cloudfront:invalidateCache",
+    "cloudfront:build:deploy:nc": "yarn client:build:deploy:nc && yarn cloudfront:invalidateCache",
+    "cloudfront:update:build:deploy": "yarn cloudfront:setup && yarn cloudfront:build:deploy",
+    "cloudfront:update:build:deploy:nc": "yarn cloudfront:setup && yarn cloudfront:build:deploy:nc"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
