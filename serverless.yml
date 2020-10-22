@@ -30,7 +30,7 @@ plugins:
 
 custom:
   client:
-    bucketName: world-of-beercraft
+    bucketName: world-of-beer-craft
     distributionFolder: build
 
   ## serverless-single-page-app-plugin configuration:
@@ -38,7 +38,7 @@ custom:
   s3BucketName: ${self:custom.client.bucketName}
 # you can overwrite defaults here
 #  stage: dev
-#  region: us-east-1
+#  region: eu-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
