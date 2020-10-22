@@ -1,5 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
 # dependencies
 node_modules
 /.pnp
@@ -10,6 +17,7 @@ node_modules
 
 # production
 build
+dist
 .serverless
 
 # misc
