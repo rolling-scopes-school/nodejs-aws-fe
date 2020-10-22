@@ -8,7 +8,8 @@ import Header from "components/MainLayout/components/Header";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Copyright © BY KONSTANTIN '}
+      {' After created cloud front distribution '}
       <Link color="inherit" href="https://material-ui.com/">
         My Store
       </Link>{' '}
