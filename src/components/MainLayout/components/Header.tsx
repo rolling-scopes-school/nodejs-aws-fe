@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-const LinkHeader = (props) => (
+const LinkHeader: React.FC<{className: string}> = (props) => (
   <Link className={props.className} to="/">
     {'<EPAM> My Store'}
   </Link>
