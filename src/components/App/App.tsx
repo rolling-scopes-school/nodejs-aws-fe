@@ -20,6 +20,7 @@ function App() {
       <Switch>
         <Route path="/">
           <MainLayout>
+            <h1>THE BEST STORE EVER!</h1>
             <Route exact path="/">
               <PageProducts/>
             </Route>
