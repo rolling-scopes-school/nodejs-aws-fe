@@ -1,4 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task 2
+1. Manual deploy
+   - the bucket should show 403 as the policy was changed by automated deploy: 
+   http://bhondu-rs-app-bucket1.s3-website-eu-west-1.amazonaws.com/
+2. Serverless-finch
+    - cloudfront distribution: 
+    https://d36x6zee1yx7ip.cloudfront.net/   
+3. Serverless single page app
+    - Automatically created bucket:
+    http://bhondu-rs-app-bucket2.s3-website-us-east-1.amazonaws.com/
+    - Automatically deployed CloudFround distribution (link obtained by `sls domainInfo`): 
+    https://decd5wcltd1vz.cloudfront.net
+  
+
 
 ## Available Scripts
 
