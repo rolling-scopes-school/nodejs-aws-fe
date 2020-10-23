@@ -43,3 +43,20 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Manual deployment:
+
+## Link to S3 bucket/website: 
+http://halinapp-rs-school-app.s3-website-eu-west-1.amazonaws.com/
+
+## Link to CloudFront website:
+https://d2l8qv195l48qe.cloudfront.net/
+
+# Automated deployment using serverless-finch + serverless single-page-app plugins
+
+## Link to S3 bucket/website:
+http://halinapp-rs-school-app-2.s3-website-eu-west-1.amazonaws.com/
+
+## Link to CloudFront website:
+https://d31o38wsvksq0v.cloudfront.net/
