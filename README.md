@@ -1,3 +1,15 @@
+# Task 2
+
+Manual configured resources:
+
+    S3 endpoint - http://aws-training-manually-created.s3-website-eu-west-1.amazonaws.com
+    Cloudfront endpoint - https://d23u553po7awli.cloudfront.net/
+
+Automated configured resources:
+
+    S3 endpoint - http://aws-training-automatically-created.s3.amazonaws.com/
+    Cloudfront endpoint - https://d1qiw31yfdcxun.cloudfront.net/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
