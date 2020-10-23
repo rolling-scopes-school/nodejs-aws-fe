@@ -1,3 +1,11 @@
+# Task 2 results
+
+* S3 bucket created manually (should respond with 403): http://fe-cloudfront-manual.s3-website-eu-west-1.amazonaws.com
+* CloudFront discribution created manually (origin is S3 bucket above): https://d1d8m9r2hmr3yx.cloudfront.net
+* S3 bucket created automatically via CloudFormation stack (should respond with 403): http://nodejs-app-fe.s3-website-eu-west-1.amazonaws.com
+* CloudFront distribution created automatically via via CloudFormation stack (origin is S3 bucket above): https://d24vcleeydf9fi.cloudfront.net
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
