@@ -1,3 +1,10 @@
+## Manual configured s3/cloudfront resources, S3 link: 
+
+[http://panibrat-tiny-shop.s3-website-us-east-1.amazonaws.com/](http://panibrat-tiny-shop.s3-website-us-east-1.amazonaws.com/)  (should be 403)
+
+## Automated configured s3/cloudfront resources:
+[My Panibrat tiny Shop](https://d2q9oyzdq8h9iv.cloudfront.net/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
