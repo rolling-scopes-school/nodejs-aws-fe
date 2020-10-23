@@ -1,3 +1,7 @@
+### S3: [http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/](http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/)
+
+### Cloudfront: [https://d32im54khuxqnq.cloudfront.net/](https://d32im54khuxqnq.cloudfront.net/)
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
