@@ -1,3 +1,14 @@
+## Links for Task2  
+
+Manual configured S3/CloudFrond resources:
+S3 link - http://rss-aws-app.s3-website-eu-west-1.amazonaws.com/
+CloudFront link - https://d3rdi212t1dvge.cloudfront.net/
+
+Automate configured S3/CloudFrond resources:
+S3 link - http://rss-second-aws-app.s3-website-eu-west-1.amazonaws.com/
+CloudFront link - https://d3gqyf3iecrlqi.cloudfront.net
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
