@@ -11,6 +11,7 @@ node_modules
 # production
 build
 .serverless
+jspm_packages
 
 # misc
 .DS_Store
