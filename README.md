@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 2.1 Manual deployment
+S3 link: http://my-first-app1.s3-website.us-east-2.amazonaws.com/
+
+CloudFront URL: (аккаунт не верифицирован)
+
+
 
 ## Available Scripts
 
