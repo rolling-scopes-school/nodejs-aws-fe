@@ -1,3 +1,9 @@
+# package directories
+jspm_packages
+
+# Serverless directories
+.serverless
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -10,7 +16,6 @@ node_modules
 
 # production
 build
-.serverless
 
 # misc
 .DS_Store
