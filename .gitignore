@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+jspm_packages
 /.pnp
 .pnp.js
 
@@ -11,6 +12,7 @@ node_modules
 # production
 build
 .serverless
+
 
 # misc
 .DS_Store
