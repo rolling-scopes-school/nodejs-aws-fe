@@ -37,7 +37,7 @@ const initialAddressValues: any = AddressSchema.cast();
 
 const CartIsEmpty = () => (
   <Typography variant="h6" gutterBottom>
-    The cart is empty. Didn't you like anything in our shop?
+    The cart is empty. Did not you like anything in our shop?
   </Typography>
 );
 
