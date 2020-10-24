@@ -50,17 +50,47 @@ Manually created S3 bucket with http web access (restricted policy, returns 403)
 http://rsaosin-candies.s3-website-eu-west-1.amazonaws.com/
 
 Cloudfront distribution (https) for manually created S3 bucket:
-https://d3jimd4n9ssw50.cloudfront.net
+https://d3jimd4n9ssw50.cloudfront.net/
 
-Scripts:
+S3 bucket web access created by CloudFormation (returns 403):
+http://rsaosin-candies-webapp.s3-website-eu-west-1.amazonaws.com/
+
+Cloudfront distribution created by CloudFormation:
+https://dvujynd51el0m.cloudfront.net/
+
+To setup CloudFormation stack, build, and deploy all in one command, do:
 ```sh
-# copy ./build to s3 bucket
+yarn run cf:setup:build:deploy:nc
+``` 
+
+**Scripts:**
+```sh
+# copy ./build to s3 bucket:
 yarn run deploy:s3 
-# copy ./build to s3 bucket (here and later on ":nc" means "no confirmations")
+
+# copy ./build to s3 bucket (here and later on ":nc" means "no confirmations"):
 yarn run deploy:s3:nc 
-# build and copy to s3 bucket
+
+# build and copy to s3 bucket:
 yarn run build:deploy:s3
 yarn run build:deploy:s3:nc
+
+# create or update CloudFormation stack:
+cf:setup
+
+# get domain info from deployed CF stack (CloudFront distribution domain):
+cf:domain-info
+
+# invalidate CloudFront cache:
+cf:invalidate-cache
+
+# build, deploy to S3, invalidate cache, and get domain info:
+cf:build:deploy
+cf:build:deploy:nc
+
+# the same as above, but update the CF stack first:
+cf:setup:build:deploy
+cf:setup:build:deploy:nc
 ```
 
 

@@ -2325,6 +2325,11 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"@unitsix/serverless-spa-plugin@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@unitsix/serverless-spa-plugin/-/serverless-spa-plugin-0.0.1.tgz#9ffda2b1260b5e50e1d1f9044d6772afba87eebe"
+  integrity sha512-GEybaOzlxOeEC05bh69NIl+g/4FRYg5/++x/VI86SWkj0bnU9XguUwISXYVaOICvt+vbOBvVdA0k8Ke//ZJSGQ==
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"
