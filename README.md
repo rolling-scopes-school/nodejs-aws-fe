@@ -1,9 +1,24 @@
+# Test links
+
+[S3 bucket manual setuped link](http://rn-app-manual-bucket.s3-website-eu-west-1.amazonaws.com/)
+
+[Cloud front manual distribution setup](https://d1lbu85jecwr72.cloudfront.net/)
+
+[Auto created S3 bucket](http://my-own-rs-app-auto-deploy.s3-website-us-east-1.amazonaws.com/)
+
+[auto deployed Cloud Front Link](https://d1yt44cv1pdelq.cloudfront.net/)
+
+To check the automated script you can make changes to layoutl and run:
+`npm run cloudfront:update:build:deploy`
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:  
-You can use NPM instead of YARN (Up to you)  
+You can use NPM instead of YARN (Up to you)
 
 ### `yarn start` OR `npm run start`
 
