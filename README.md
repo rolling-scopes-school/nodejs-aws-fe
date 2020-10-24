@@ -1,6 +1,15 @@
-### S3: [http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/](http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/)
+### Manually configured S3/Cloudfront resources
 
-### Cloudfront: [https://d32im54khuxqnq.cloudfront.net/](https://d32im54khuxqnq.cloudfront.net/)
+#### S3: [http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/](http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/)
+
+#### Cloudfront: [https://d32im54khuxqnq.cloudfront.net/](https://d32im54khuxqnq.cloudfront.net/)
+
+### Automatically configured S3/Cloudfront resources
+
+#### S3: [http://myawsrsapp2.s3-website-eu-west-1.amazonaws.com/](http://myawsrsapp2.s3-website-eu-west-1.amazonaws.com/)
+
+#### Cloudfront: [https://d57iuemqb7f9r.cloudfront.net/](https://d57iuemqb7f9r.cloudfront.net/)
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
