@@ -21,6 +21,6 @@
     "baseUrl": "src"
   },
   "include": [
-    "src"
+    "src", "serverless-single-page-app-plugin"
   ]
 }
