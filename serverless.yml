@@ -1,0 +1,14 @@
+service: aws-rs-school-course-app
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: manual-task2-bucket
+    distributionFolder: build
