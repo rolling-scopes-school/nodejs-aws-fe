@@ -8,9 +8,6 @@
 
 [auto deployed Cloud Front Link](https://d1yt44cv1pdelq.cloudfront.net/)
 
-To check the automated script you can make changes to layoutl and run:
-`npm run cloudfront:update:build:deploy`
-
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
