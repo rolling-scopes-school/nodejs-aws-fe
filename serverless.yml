@@ -1,0 +1,16 @@
+service: candies-store-client
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: rsaosin-candies
+    distributionFolder: build
+    indexDocument: index.html

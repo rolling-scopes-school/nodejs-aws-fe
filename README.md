@@ -43,3 +43,24 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Deployment
+
+Manually created S3 bucket with http web access (restricted policy, returns 403):
+http://rsaosin-candies.s3-website-eu-west-1.amazonaws.com/
+
+Cloudfront distribution (https) for manually created S3 bucket:
+https://d3jimd4n9ssw50.cloudfront.net
+
+Scripts:
+```sh
+# copy ./build to s3 bucket
+yarn run deploy:s3 
+# copy ./build to s3 bucket (here and later on ":nc" means "no confirmations")
+yarn run deploy:s3:nc 
+# build and copy to s3 bucket
+yarn run build:deploy:s3
+yarn run build:deploy:s3:nc
+```
+
+
