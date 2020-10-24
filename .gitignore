@@ -4,6 +4,10 @@
 node_modules
 /.pnp
 .pnp.js
+jspm_packages
+
+# Serverless directories
+.serverless
 
 # testing
 /coverage
