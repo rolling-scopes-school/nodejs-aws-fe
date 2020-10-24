@@ -1,0 +1,6 @@
+plugins:
+  - serverless-finch
+ 
+custom:
+  client:
+    bucketName: unique-s3-bucketname
