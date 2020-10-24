@@ -5,8 +5,18 @@ import App from 'components/App/App';
 import {store} from 'store/store';
 import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import CssBaseline from "@material-ui/core/CssBaseline";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { orange, red } from '@material-ui/core/colors';
 import axios from 'axios';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: orange,
+    secondary: red,
+  },
+});
 
 axios.interceptors.response.use(
   response => {
@@ -22,10 +32,12 @@ axios.interceptors.response.use(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <CssBaseline/>
-      <App/>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <CssBaseline/>
+        <App/>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

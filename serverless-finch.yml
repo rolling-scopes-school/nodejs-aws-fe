@@ -1,0 +1,14 @@
+service:
+  name: finch-website
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: yankouskia-finch-bucket
+    distributionFolder: build
