@@ -1,24 +1,24 @@
 [
   {
     "count": 4,
-    "description": "Short Product Description1",
+    "description": "It's the only Japanese film on the list and later was remade as The Magnificent Seven, a Western with Steve McQueen and Charles Bronson",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
     "price": 2.4,
-    "title": "ProductOne"
+    "title": "The Seven Samurai"
   },
   {
     "count": 6,
-    "description": "Short Product Description3",
+    "description": "It's actually not Tarantino's debut feature; the first film he directed was 1987's My Best Friend's Birthday, much of which was destroyed in a lab fire.",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
     "price": 10,
-    "title": "ProductNew"
+    "title": "Reservoir Dogs"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
+    "description": "The film that forever changed the way people think about Robert Stack, Lloyd Bridges, Peter Graves, Barbara Billingsley and especially Nielsen",
+    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a7",
     "price": 23,
-    "title": "ProductTop"
+    "title": "Airplane!"
   },
   {
     "count": 12,
@@ -29,10 +29,10 @@
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
+    "description": "Peter O'Toole turned down the title role, so Lean settled on another Lawrence of Arabia star, which is how Sharif went from playing an Arab prince to a Russian physician.",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
     "price": 23,
-    "title": "Product"
+    "title": "Doctor Zhivago"
   },
   {
     "count": 8,
@@ -43,16 +43,16 @@
   },
   {
     "count": 2,
-    "description": "Short Product Descriptio1",
-    "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
+    "description": "When John Cazale got sick during filming, the studio wanted to recast, but Streep threatened to walk off the picture if it did.",
+    "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a9",
     "price": 23,
-    "title": "Product2"
+    "title": "The Deer Hunter"
   },
   {
     "count": 3,
-    "description": "Short Product Description7",
-    "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
+    "description": "Stallone wrote the script's first draft in just three days, then refused to sell it unless he was cast in the lead role.",
+    "id": "7567ec4b-b10c-45c5-9345-fc73c48a80b1",
     "price": 15,
-    "title": "ProductName"
+    "title": "Rocky"
   }
 ]
