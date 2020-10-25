@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardContent: {
     flexGrow: 1,
+    color: '#D2691E'
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -48,8 +49,8 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image="https://source.unsplash.com/random"
-              title="Image title"
+              image="https://source.unsplash.com/featured/?flower-field"
+              title="Product"
             />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
