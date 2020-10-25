@@ -1,4 +1,7 @@
+https://d2pbw349gc47g1.cloudfront.net/
+
 http://rss.s3-website-eu-west-1.amazonaws.com/
+
 ```com.amazonaws.services.cloudfront.model.AccessDeniedException: Your account must be verified before you can add new CloudFront resources. To verify your account, please contact AWS Support (https://console.aws.amazon.com/support/home#/) and include this error message. (Service: AmazonCloudFront; Status Code: 403; Error Code: AccessDenied; Request ID: 1749cd92-f797-443d-8a01-ef646024b46d; Proxy: null)```
 Все настроено, жду подтверждение аккаунта
 
