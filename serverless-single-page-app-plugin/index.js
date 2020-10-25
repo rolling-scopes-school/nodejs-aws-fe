@@ -44,7 +44,7 @@ class ServerlessPlugin {
     if (this.serverless.variables.service.provider.profile) {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
-    const result = spawnSync(command, args);
+    const result = spawnSync(command, args, { shell: true });
 
     const stdout = typeof result.stdout === 'string' ? result.stdout : result.stdout && result.stdout.toString() ;
     const sterr = typeof result.stderr === 'string' ? result.stderr : result.stderr && result.stderr.toString();
