@@ -23,6 +23,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -124,8 +125,8 @@ resources:
         BucketName: ${self:custom.s3BucketName}
         AccessControl: PublicRead
         WebsiteConfiguration:
-          IndexDocument: index.html
-          ErrorDocument: index.html
+          IndexDocument: ${self:custom.client.indexDocument}
+          ErrorDocument: ${self:custom.client.indexDocument}
         # VersioningConfiguration:
         #   Status: Enabled
 
@@ -160,7 +161,7 @@ resources:
       Properties:
         DistributionConfig:
           Origins:
-            - DomainName: ${self:custom.s3BucketName}.s3.amazonaws.com
+            - DomainName: !GetAtt WebAppS3Bucket.RegionalDomainName
               ## An identifier for the origin which must be unique within the distribution
               Id: myS3Origin
               ## In case you don't want to restrict the bucket access use CustomOriginConfig and remove S3OriginConfig
@@ -176,13 +177,13 @@ resources:
           ## Uncomment the following section in case you are using a custom domain
           # Aliases:
           # - mysite.example.com
-          DefaultRootObject: index.html
+          DefaultRootObject: ${self:custom.client.indexDocument}
           ## Since the Single Page App is taking care of the routing we need to make sure ever path is served with index.html
           ## The only exception are files that actually exist e.h. app.js, reset.css
           CustomErrorResponses:
             - ErrorCode: 404
               ResponseCode: 200
-              ResponsePagePath: /index.html
+              ResponsePagePath: /${self:custom.client.indexDocument}
           DefaultCacheBehavior:
             AllowedMethods: [ 'GET', 'HEAD', 'OPTIONS' ]
             CachedMethods: [ 'GET', 'HEAD', 'OPTIONS' ]
