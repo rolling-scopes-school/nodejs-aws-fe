@@ -12,6 +12,10 @@ node_modules
 build
 .serverless
 
+# package directories
+node_modules
+jspm_packages
+
 # misc
 .DS_Store
 .env.local
