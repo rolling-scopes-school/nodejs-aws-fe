@@ -1,8 +1,6 @@
 "use strict";
 
 const spawnSync = require("child_process").spawnSync;
-const execSync = require("child_process").execSync;
-
 
 class ServerlessPlugin {
   constructor(serverless, options) {
@@ -40,9 +38,7 @@ class ServerlessPlugin {
     if (this.serverless.variables.service.provider.profile) {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
-    // spawnSync returns null on windows 10, so it was replaced by execSync 
-    // const result = spawnSync(command, args);
-    const result = execSync(command, args);
+    const result = spawnSync(command, args, {shell: true});
     const stdout = result.stdout.toString();
     const sterr = result.stderr.toString();
     if (stdout) {
