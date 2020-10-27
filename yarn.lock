@@ -10580,6 +10580,9 @@ serverless-finch@^2.6.0:
     minimatch "^3.0.4"
     prompt-confirm "^1.2.0"
 
+"serverless-single-page-app-plugin@file:./serverless-single-page-app-plugin":
+  version "1.0.0"
+
 set-blocking@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/set-blocking/-/set-blocking-2.0.0.tgz#045f9782d011ae9a6803ddd382b24392b3d890f7"
