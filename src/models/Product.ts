@@ -5,6 +5,8 @@ export type Product = {
   title: string,
   description: string,
   price: number,
+  imageUrl: string,
+  imageTitle: string,
 };
 
 export const ProductSchema = Yup.object().shape({
