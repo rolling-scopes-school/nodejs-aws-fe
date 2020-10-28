@@ -43,3 +43,17 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Task 2
+
+### Manual configured S3/CloudFront resourses:
+
+S3 link [http://macbook-shop.s3-website-eu-west-1.amazonaws.com/](http://macbook-shop.s3-website-eu-west-1.amazonaws.com/)
+
+CloudFront link [https://d31azv1rd8bg51.cloudfront.net/](https://d31azv1rd8bg51.cloudfront.net/)
+
+### Automated configured S3/CloudFront resourses:
+
+S3 link [http://macbook-shop-2.s3-website-eu-west-1.amazonaws.com/](http://macbook-shop-2.s3-website-eu-west-1.amazonaws.com/)
+
+CloudFront link [https://d2lsb4xgmff0fw.cloudfront.net/](https://d2lsb4xgmff0fw.cloudfront.net/)
