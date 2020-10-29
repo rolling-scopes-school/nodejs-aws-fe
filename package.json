@@ -6,10 +6,5 @@
   "author": "Denys Kovalishyn <Denys_Kovalishyn@epam.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "serverless-plugin-monorepo": "^0.9.0"
-  }
+  "workspaces": ["packages/*"]
 }
