@@ -1,58 +1,58 @@
 [
   {
     "count": 4,
-    "description": "Short Product Description1",
+    "description": "Walden Magic Model Tuflite C-Tech surfboard 8ft 0 - Aqua/White",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    "price": 2.4,
-    "title": "ProductOne"
+    "price": 829.5,
+    "title": "longboard-8ft-aqua"
   },
   {
     "count": 6,
-    "description": "Short Product Description3",
+    "description": "Harley Ingleby Thunderbolt Moe surfboard 8ft 0 - Xeon Black/Brushed Grey Clear",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
-    "price": 10,
-    "title": "ProductNew"
+    "price": 1275,
+    "title": "longboard-8ft-grey"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
+    "description": "Harley Ingleby Thunderbolt Moe surfboard 8ft 0 - Xeon Black/Brushed Grey Blue Tint",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "ProductTop"
+    "price": 1275,
+    "title": "longboard-8ft-xeon"
   },
   {
     "count": 12,
-    "description": "Short Product Description7",
+    "description": "Mark Phipps One Bad Egg surfboard 6ft 6 FCS II - Grey",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductTitle"
+    "price": 690,
+    "title": "midboard-6ft6-grey-black"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
+    "description": "Channel Islands Mid surfboard 7ft 2 FCS II - Turquoise Resin Tint",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "Product"
+    "price": 790,
+    "title": "midboard-7ft2-blue"
   },
   {
     "count": 8,
-    "description": "Short Product Description4",
+    "description": "Album Sunstone surfboard 5ft 2 Futures - Sky/Yellow Resin Tint",
     "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    "price": 15,
-    "title": "ProductTest"
+    "price": 875,
+    "title": "shortboard-5ft2-golden-blue"
   },
   {
     "count": 2,
-    "description": "Short Product Descriptio1",
+    "description": "Lost Hydra surfboard 5ft 5 Futures - Blue/Sky",
     "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    "price": 23,
-    "title": "Product2"
+    "price": 645,
+    "title": "shortboard-5ft5-blue-sky"
   },
   {
     "count": 3,
-    "description": "Short Product Description7",
+    "description": "Lost Cobra Killer surfboard 5ft 7 Futures - Tan",
     "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductName"
+    "price": 750,
+    "title": "shortboard-5ft7-tan"
   }
 ]
