@@ -31,7 +31,7 @@ plugins:
 
 custom:
   client:
-    bucketName: macbook-shop-2
+    bucketName: macbook-shop
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
