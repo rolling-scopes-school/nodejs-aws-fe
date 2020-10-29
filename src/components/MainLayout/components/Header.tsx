@@ -28,6 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+
+const LinkHeader: React.FC<{className: string}> = (props) => (
+  <Link className={props.className} to="/">
+    {'<EPAM> My Store'}
+  </Link>
+)
+
 export default function Header() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -43,10 +50,10 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="secondary">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">My Store!</Link>
+          <LinkHeader className={classes.homeLink} />
         </Typography>
 
         {auth && (
