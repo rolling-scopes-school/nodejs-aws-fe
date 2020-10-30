@@ -7,12 +7,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+  
+    "deploy": "sls deploy",
+    "invalidate": "sls invalidateCloudFrontCache",
+    "domain:info": "sls domainInfo",
+    "sync": "sls syncToS3",
 
-    "deploy:finch": "sls client deploy -c serverless-finch.yml --region eu-west-1",
-    "remove:finch": "sls client remove -c serverless-finch.yml --region eu-west-1",
-
-    "deploy:cloudfront": "sls deploy --region eu-west-1",
-    "remove:cloudfront": "sls remove --region eu-west-1"
+    "go": "yarn build && yarn deploy && yarn sync && yarn invalidate && yarn domain:info"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -32,6 +33,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "serverless": "^2.9.0",
     "typescript": "~3.7.2",
     "yup": "^0.29.1"
   },
@@ -47,7 +49,7 @@
     "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.1.5",
     "serverless-finch": "^2.6.0",
-    "serverless-single-page-app-plugin": "^1.0.2"
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "eslintConfig": {
     "extends": "react-app"

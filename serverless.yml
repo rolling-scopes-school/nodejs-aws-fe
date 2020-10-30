@@ -1,30 +1,23 @@
-service:
-  name: webapp-website
+service: yankouskia-node-course-frontend
+frameworkVersion: '2'
+
+plugins:
+  - serverless-single-page-app-plugin
+
+custom:
+  s3Bucket: yankouskia-node-course-frontend-bucket
 
 provider:
   name: aws
   runtime: nodejs12.x
-
-plugins:
-  - serverless-single-page-app-plugin
-  - serverless-finch
-
-custom:
-  client:
-    bucketName: yankouskia-webapp-bucket
-    distributionFolder: build
-    indexDocument: index.html
-    manageResources: false
-  s3LocalPath: ${self:custom.client.distributionFolder}/
-  s3BucketName: ${self:custom.client.bucketName}
-
+  region: eu-west-1
 
 resources:
   Resources:
     WebAppS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${self:custom.s3BucketName}
+        BucketName: ${self:custom.s3Bucket}
         AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
@@ -41,13 +34,13 @@ resources:
               Principal: "*"
               Action:
               - s3:GetObject
-              Resource: arn:aws:s3:::${self:custom.s3BucketName}/*
+              Resource: arn:aws:s3:::${self:custom.s3Bucket}/*
     WebAppCloudFrontDistribution:
       Type: AWS::CloudFront::Distribution
       Properties:
         DistributionConfig:
           Origins:
-            - DomainName: ${self:custom.s3BucketName}.s3.amazonaws.com
+            - DomainName: ${self:custom.s3Bucket}.s3.amazonaws.com
               Id: WebApp
               CustomOriginConfig:
                 HTTPPort: 80
