@@ -23,6 +23,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -30,7 +31,7 @@ plugins:
 
 custom:
   client:
-    bucketName: rs-store-app-auto
+    bucketName: rs-store-app
     distributionFolder: build
 
   s3LocalPath: ${self:custom.client.distributionFolder}/
