@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import {Product} from "models/Product";
-import {formatAsPrice} from "utils/utils";
+import { makeStyles } from '@material-ui/core/styles';
+import { Product } from "models/Product";
+import { formatAsPrice } from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-// import axios from 'axios';
-// import API_PATHS from "constants/apiPaths";
-import productList from "./productList.json";
+import axios from 'axios';
+import API_PATHS from "constants/apiPaths";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -21,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
+    backgroundSize: 'contain'
   },
   cardContent: {
     flexGrow: 1,
@@ -36,9 +36,8 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
+    axios.get(`${API_PATHS.bff}/products/`)
+      .then(res => setProducts(res.data));
   }, [])
 
   return (
@@ -48,7 +47,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={product.images?.[0] ?? "https://source.unsplash.com/random"}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>

@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import {OrderItem} from "models/Order";
+import React, { useEffect, useState } from 'react';
+import { OrderItem } from "models/Order";
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PaperLayout from "components/PaperLayout/PaperLayout";
 import Typography from "@material-ui/core/Typography";
 import API_PATHS from "constants/apiPaths";
-import {CartItem} from "models/CartItem";
-import {Product} from "models/Product";
+import { CartItem } from "models/CartItem";
+import { Product } from "models/Product";
 import ReviewOrder from "components/pages/PageCart/components/ReviewOrder";
-import {ORDER_STATUS, ORDER_STATUS_FLOW} from "constants/order";
+import { ORDER_STATUS, ORDER_STATUS_FLOW } from "constants/order";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Field, Formik, FormikProps, FormikValues} from "formik";
+import { Field, Formik, FormikProps, FormikValues } from "formik";
 import Grid from "@material-ui/core/Grid";
-import {TextField} from "formik-material-ui";
+import { TextField } from "formik-material-ui";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
@@ -66,7 +66,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             fullWidth
             helperText={helperText}
           >
-            {ORDER_STATUS_FLOW.map((status,index) => (
+            {ORDER_STATUS_FLOW.map((status, index) => (
               <MenuItem key={index} value={status}>
                 {status}
               </MenuItem>
@@ -99,14 +99,14 @@ const Form = (props: FormikProps<FormikValues>) => {
 }
 
 export default function PageOrder() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [order, setOrder] = useState<any>({});
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onChangeStatus = (values: FormikValues) => {
     return axios.put(`${API_PATHS.order}/order/${order.id}/status`, values)
-      .then(({data}) => setOrder(data));
+      .then(({ data }) => setOrder(data));
   };
 
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function PageOrder() {
       axios.get(`${API_PATHS.order}/order/${id}`)
     ];
     Promise.all(promises)
-      .then(([{data: products}, {data: order}]) => {
+      .then(([{ data: products }, { data: order }]) => {
         const cartItems: CartItem[] = order.items.map((i: OrderItem) => ({
           product: products.find((p: Product) => p.id === i.productId),
           count: i.count
@@ -152,7 +152,7 @@ export default function PageOrder() {
         Change status:
       </Typography>
       <Formik
-        initialValues={{status: lastStatusItem.status, comment: ''}}
+        initialValues={{ status: lastStatusItem.status, comment: '' }}
         enableReinitialize
         onSubmit={onChangeStatus}
       >
