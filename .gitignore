@@ -4,6 +4,7 @@
 node_modules
 /.pnp
 .pnp.js
+jspm_packages
 
 # testing
 /coverage
@@ -25,3 +26,6 @@ yarn-error.log*
 
 /.idea
 .vscode
+
+# Serverless directories
+.serverless
