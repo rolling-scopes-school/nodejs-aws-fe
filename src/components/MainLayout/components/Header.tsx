@@ -43,10 +43,10 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar style={{ backgroundColor: '#006400' }} position="static">
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">My Store!</Link>
+        <Typography variant="h5" className={classes.title}>
+          <Link className={classes.homeLink} to="/">Kalita Store!</Link>
         </Typography>
 
         {auth && (
