@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: example-serverless-react
+service: example-react-app
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -25,8 +25,8 @@ provider:
   runtime: nodejs12.x
 
 # you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  stage: dev
+  region: eu-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -118,7 +118,7 @@ plugins:
 
 custom:
   client:
-    bucketName: example-app-bucket
+    bucketName: another-example-app-bucket
     distributionFolder: build
   s3Bucket: ${self:custom.client.bucketName}
   s3LocalPath: ${self:custom.client.distributionFolder}
