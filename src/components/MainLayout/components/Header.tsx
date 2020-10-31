@@ -46,7 +46,7 @@ export default function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/" style={{ color: 'red' }}>My visible changes!</Link>
+          <Link className={classes.homeLink} to="/">&#128366; iBoock Store</Link>
         </Typography>
 
         {auth && (
