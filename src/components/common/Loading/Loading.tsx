@@ -3,8 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   loading: {
-    margin: theme.spacing(3, 'auto', 3),
-    width: '100%'
+    margin: theme.spacing(3, 'auto', 3)
   },
 }));
 
