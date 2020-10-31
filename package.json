@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "client:deploy": "npm run build && serverless client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
-    "client:build:deploy":  "npm run build && npm run client:deploy",
+    "client:build:deploy": "npm run build && npm run client:deploy",
     "cloudfront:setup": "sls deploy",
     "cloudfront:domainInfo": "sls domainInfo",
     "cloudfront:invalidateCache": "aws cloudfront create-invalidation --distribution-id E2S4RPYXO8WK30 --paths \"/*\"",
