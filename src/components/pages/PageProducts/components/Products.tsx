@@ -59,8 +59,10 @@ const renderProducts = (products: Product[], classes: any) =>
 export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setLoading] = useState<Boolean>(false);
 
   useEffect(() => {
+    setLoading(true);
     axios.get(`${API_PATHS.product}/products`, {
       headers: {
         'Accept': 'application/json',
@@ -69,12 +71,13 @@ export default function Products() {
     })
     .then(res => {
       setProducts(res?.data?.data || []);
+      setLoading(false);
     });
   }, [])
 
   return (
     <Grid container spacing={4}>
-      {products.length === 0 ? <Loading /> : renderProducts(products, classes)}
+      { isLoading ? <Loading /> : renderProducts(products, classes) }
     </Grid>
   );
 }
