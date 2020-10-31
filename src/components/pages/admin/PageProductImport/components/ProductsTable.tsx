@@ -49,7 +49,7 @@ export default function ProductsTable() {
                 {product.title}
               </TableCell>
               <TableCell align="right">{product.description}</TableCell>
-              <TableCell align="right">{formatAsPrice(product.price)}</TableCell>
+              <TableCell align="right">{formatAsPrice(product.price.value)}</TableCell>
               <TableCell align="right">{product.count}</TableCell>
               <TableCell align="right">
                 <Button size="small" color="primary" component={Link} to={`/admin/product-form/${product.id}`}>
