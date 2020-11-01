@@ -1,3 +1,19 @@
+## Task 2 description
+
+Manual configured s3/cloudfront resources:
+
+S3 link - http://my-shop-fe-app.s3-website-us-east-1.amazonaws.com/
+
+Cloudfront link - https://d267hei1rkvzh8.cloudfront.net/
+
+Automated configured s3/cloudfront resources:
+
+S3 link - http://my-shop-fe-auto-app.s3-website-us-east-1.amazonaws.com
+
+Cloudfront link - https://d3pv02ibz8182h.cloudfront.net
+
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
