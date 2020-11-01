@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: oigen43-store
+service: cloud-shop-backend
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -30,7 +30,7 @@ plugins:
 
 custom:
   client:
-    bucketName: oigen43-store
+    bucketName: cloud-shop-backend
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
