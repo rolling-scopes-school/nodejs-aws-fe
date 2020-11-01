@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Backend part located here:
+https://github.com/OlgaGnatenko/nodejs-aws-be/pull/1
 
 ## Available Scripts
 
