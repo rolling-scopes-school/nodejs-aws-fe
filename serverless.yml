@@ -23,6 +23,7 @@ frameworkVersion: "2"
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -38,7 +39,6 @@ custom:
   s3BucketName: ${self:custom.client.bucketName}
   # you can overwrite defaults here
   #  stage: dev
-  region: eu-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
