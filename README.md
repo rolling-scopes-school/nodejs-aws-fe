@@ -43,3 +43,16 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+Homework:
+
+Task 2 (Serve SPA in AWS)
+Done:
+
+2.1 (manual deployment):
+S3 Bucket Site: http://my-first-app-nodejs-aws.s3-website-eu-west-1.amazonaws.com/
+CloudFront Site: https://d3ot69vm4pyofh.cloudfront.net/
+
+2.2 (automated deployment using serverless-finch + serverless single-page-app plugins):
+S3 Bucket Site: http://my-first-app-nodejs-aws-serverless.s3-website-eu-west-1.amazonaws.com
+CloudFront Site: https://d3kvdgim68q42d.cloudfront.net/
