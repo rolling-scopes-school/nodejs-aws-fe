@@ -1,12 +1,13 @@
 # Happy Coding!
 
-service:  task2-sls-auto
+service: rsschool-frontend-service
 frameworkVersion: '2'
 
 provider:
   name: aws
-  region: us-east-1
+  region: eu-west-1
   runtime: nodejs12.x
+  stage: dev
 
 plugins:
   - serverless-finch
@@ -19,9 +20,8 @@ plugins:
 
 
 custom:
-
   client:
-    bucketName: task2-sls-auto
+    bucketName: rsschool-frontend
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
