@@ -9,16 +9,16 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-// import axios from 'axios';
-// import API_PATHS from "constants/apiPaths";
-import productList from "./productList.json";
+import axios from 'axios';
+import API_PATHS from "constants/apiPaths";
+
 
 const useStyles = makeStyles((theme) => ({
   card: {
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-  },
+  }, 
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
@@ -30,15 +30,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(6),
   },
 }));
-
+ 
 export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
+    axios.get(`${API_PATHS.bff}/products`)
+      .then(res => setProducts(res.data));
   }, [])
 
   return (
@@ -48,7 +47,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image="https://source.unsplash.com/random"
+              image="https://proprikol.ru/wp-content/uploads/2020/09/kartinki-mashinki-1.jpg"
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
