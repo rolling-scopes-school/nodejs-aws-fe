@@ -53,6 +53,9 @@ export default function Products() {
                 {product.title}
               </Typography>
               <Typography>
+                {product.description}
+              </Typography>
+              <Typography>
                 {formatAsPrice(product.price)}
               </Typography>
             </CardContent>
