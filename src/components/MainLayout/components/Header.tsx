@@ -9,6 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Cart from "components/MainLayout/components/Cart";
 import {Link} from 'react-router-dom';
+import {APP_NAME} from "constants/appName";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,7 +47,7 @@ export default function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">RS App Store</Link>
+          <Link className={classes.homeLink} to="/">{APP_NAME}</Link>
         </Typography>
 
         {auth && (

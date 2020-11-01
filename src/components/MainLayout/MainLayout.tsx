@@ -4,13 +4,14 @@ import {makeStyles} from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import Header from "components/MainLayout/components/Header";
+import {APP_NAME} from "constants/appName";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        RS App Store
+          {APP_NAME}
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
