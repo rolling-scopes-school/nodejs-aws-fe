@@ -23,7 +23,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     homeLink: {
       color: 'white',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      textShadow: '1px 1px 3px rgba(0,0,0,.5)',
+      fontFamily: 'Roboto, sans-serif',
+      fontWeight: 100,
+    },
+    menu: {
+      backgroundImage: "url('/assets/bgc/bg_1.png')",
+      backgroundRepeat: 'repeat, repeat',
+      backgroundSize: '15%',
+      backgroundColor: '#382106',
     }
   }),
 );
@@ -43,10 +52,10 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" className={classes.menu}>
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">&#128366; iBoock Store</Link>
+          <Link className={classes.homeLink} to="/">iBook &#128366; Store</Link>
         </Typography>
 
         {auth && (

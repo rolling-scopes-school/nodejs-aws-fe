@@ -9,9 +9,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-// import axios from 'axios';
-// import API_PATHS from "constants/apiPaths";
-import productList from "./productList.json";
+import axios from 'axios';
+import API_PATHS from "constants/apiPaths";
+import Propgress from './Progress';
+// import productList from "./productList.json";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -34,12 +35,25 @@ const useStyles = makeStyles((theme) => ({
 export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
+  const [isFetching, setIsFetching] = useState<Boolean>(false);
 
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
+    setIsFetching(true);
+    axios.get(`${API_PATHS.product}/products`)
+      .then(res => {
+        setProducts(res.data);
+        setIsFetching(false);
+      });
+    // setProducts(productList);
   }, [])
+
+  if (isFetching) {
+    return (
+      <>
+        <Propgress />
+      </>
+    )
+  }
 
   return (
     <Grid container spacing={4}>
