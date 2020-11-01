@@ -11,7 +11,7 @@
     "deploy": "sls deploy",
     "invalidate": "sls invalidateCloudFrontCache",
     "domain:info": "sls domainInfo",
-    "sync": "sls syncToS3",
+    "sync": "aws s3 sync build/ s3://yankouskia-node-course-frontend-bucket/",
 
     "go": "yarn build && yarn deploy && yarn sync && yarn invalidate && yarn domain:info"
   },
