@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: bhondu-first-aws-app
+service: bhondu-nodejs-aws-fe
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -23,6 +23,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -31,17 +32,16 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: bhondu-rs-app-bucket2
+    bucketName: bhondu-nodejs-aws-fe
     distributionFolder: build
-    indexDocument: index.html
-    manageResources: false
+    region: eu-west-1
+    #indexDocument: index.html
+    # manageResources: false
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
 
 # you can overwrite defaults here
-  stage: dev
-  region: eu-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
