@@ -46,7 +46,7 @@ const renderProducts = (products: Product[], classes: any) =>
             {product.title}
           </Typography>
           <Typography>
-            {formatAsPrice(product.price.value)}
+            {formatAsPrice(product.price)}
           </Typography>
         </CardContent>
         <CardActions>
