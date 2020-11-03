@@ -3,16 +3,8 @@ https://github.com/OlgaGnatenko/nodejs-aws-be/pull/1
 
 ## Project links 
 
-### Manual deployment to S3
-- S3 reference: [http://nodejs-aws-app-1.s3-website-eu-west-1.amazonaws.com/](http://nodejs-aws-app-1.s3-website-eu-west-1.amazonaws.com/)
-- CloudFront distribution: [https://d2uaps6hhcupj9.cloudfront.net/](https://d2uaps6hhcupj9.cloudfront.net/)
-
-### Automated deployment to S3:
-- Direct link (results in 403 since Public access is not allowed): [http://nodejs-aws-app-second-automated.s3-website-us-east-1.amazonaws.com/](http://nodejs-aws-app-second-automated.s3-website-us-east-1.amazonaws.com/)
+Product list available here:
 - CloudFront distribution: [https://d2joi2c0vsqdd3.cloudfront.net/](https://d2joi2c0vsqdd3.cloudfront.net/)
-
-## S3 bucket list (shows the work done)
-[Screenshot of S3 console](https://i.imgur.com/NkJJhn0.png)
 
 ## Available Scripts
 
