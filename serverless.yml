@@ -24,6 +24,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: eu-west-1
+  stage: dev
 
 plugins:
   - serverless-finch
@@ -38,10 +39,6 @@ custom:
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
