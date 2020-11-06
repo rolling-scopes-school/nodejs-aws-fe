@@ -1,7 +1,7 @@
-import { cors } from './cors';
-import { handler } from './getProductById';
+import { cors } from '../cors';
+import { getProductById } from './getProductById';
 
-jest.mock('./products', () => ({ products: [{ id: '1' }] }));
+jest.mock('../products', () => ({ products: [{ id: '1' }] }));
 
 describe('getProductsById', () => {
   const context = {} as any;
@@ -13,7 +13,7 @@ describe('getProductsById', () => {
       },
     } as any;
 
-    expect(await handler(event, context, jest.fn())).toEqual({
+    expect(await getProductById(event, context, jest.fn())).toEqual({
       statusCode: 404,
       body: 'Product not found.',
       headers: cors,
@@ -27,7 +27,7 @@ describe('getProductsById', () => {
       },
     } as any;
 
-    expect(await handler(event, context, jest.fn())).toEqual({
+    expect(await getProductById(event, context, jest.fn())).toEqual({
       statusCode: 200,
       body: JSON.stringify({ id: '1' }, null, 2),
       headers: cors,
