@@ -8,64 +8,87 @@ info:
 host: "zoo-market.com"
 basePath: "/v1"
 tags:
-- name: "products"
-  description: "Everything for your Pets"
+  - name: "products"
+    description: "Everything for your Pets"
 schemes:
-- "https"
+  - "https"
 paths:
   /products:
     get:
       tags:
-      - "products"
+        - "products"
       summary: "Get list of all products"
       description: ""
       operationId: "getProductsList"
       produces:
-      - "application/json"
-      responses: 
-       "200":
+        - "application/json"
+      responses:
+        "200":
           description: "Successful operation"
           schema:
             type: "array"
             items:
               $ref: "#/definitions/Product"
+    post:
+      tags:
+        - "products"
+      summary: "Add new product"
+      parameters:
+        - in: body
+          name: product
+          schema:
+            $ref: "#/definitions/Product"
+      operationId: addProduct
+      produces:
+        - "application/json"
+        - "text"
+      responses:
+        "201":
+          description: "Successfully added"
+          schema:
+            $ref: "#/definitions/Product"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
   /products/{id}:
     get:
       tags:
-      - "products"
+        - "products"
       summary: "Get product by id"
-      parameters: 
-      - in: path
-        name: "id"
-        description: "Product id"
-        required: true
-        type: string
+      parameters:
+        - in: path
+          name: "id"
+          description: "Product id"
+          required: true
+          type: "string"
       responses:
         "200":
           description: "Successful response"
           schema:
             $ref: "#/definitions/Product"
-        "404": 
+        "404":
           description: "Product not found"
 definitions:
   Product:
     type: "object"
     required:
-    - "id"
-    - "title"
-    - "price"
+      - "count"
+      - "title"
+      - "price"
     properties:
       id:
         type: "string"
-        example: "1"
+        example: "a65e1ecc-7390-497b-98b6-1d24612c6a39"
       title:
         type: "string"
-        example: "Litter"
+        example: "Cat Chow Special Care 3in1"
       description:
-        type: 'string'
-        example: "Used by cats to fullfill their natural needs"
+        type: "string"
+        example: "Корм для котов с проблемами пищеварения"
       price:
-        type: 'string'
-        example: '10 UAH'
-      
-        
+        type: "number"
+        example: 10
+      count:
+        type: "number"
+        example: 1

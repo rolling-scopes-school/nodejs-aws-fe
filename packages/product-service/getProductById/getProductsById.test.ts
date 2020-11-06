@@ -1,12 +1,21 @@
+import { Client } from 'pg';
 import { cors } from '../cors';
 import { getProductById } from './getProductById';
 
-jest.mock('../products', () => ({ products: [{ id: '1' }] }));
+jest.mock('pg');
 
 describe('getProductsById', () => {
   const context = {} as any;
 
   it('should return 404 if product was not found', async () => {
+    ((Client as unknown) as jest.Mock).mockImplementation(function () {
+      return {
+        connect: jest.fn().mockResolvedValue(true),
+        query: jest.fn().mockResolvedValue({ rows: [] }),
+        end: jest.fn().mockResolvedValue(true),
+      };
+    });
+
     const event = {
       pathParameters: {
         id: '2',
@@ -21,6 +30,20 @@ describe('getProductsById', () => {
   });
 
   it('should return product found by id', async () => {
+    ((Client as unknown) as jest.Mock).mockImplementation(function () {
+      return {
+        connect: jest.fn().mockResolvedValue(true),
+        query: jest.fn().mockResolvedValue({
+          rows: [
+            {
+              id: '1',
+            },
+          ],
+        }),
+        end: jest.fn().mockResolvedValue(true),
+      };
+    });
+
     const event = {
       pathParameters: {
         id: '1',

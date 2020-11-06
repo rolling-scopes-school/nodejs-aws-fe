@@ -11,11 +11,16 @@ const serverlessConfiguration: Serverless = {
   custom: {
     webpack: {
       webpackConfig: './webpack.config.js',
-      includeModules: true
-    }
+      includeModules: true,
+    },
   },
   // Add the serverless-webpack plugin
-  plugins: ['serverless-webpack', 'serverless-plugin-monorepo'],
+  plugins: [
+    'serverless-webpack',
+    'serverless-plugin-monorepo',
+    'serverless-dotenv-plugin',
+    'serverless-event-body-option'
+  ],
   provider: {
     name: 'aws',
     region: 'eu-central-1',
@@ -36,9 +41,9 @@ const serverlessConfiguration: Serverless = {
             cors: true,
             method: 'get',
             path: '/products',
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     getProductById: {
       handler: 'handlers.getProductById',
@@ -51,15 +56,27 @@ const serverlessConfiguration: Serverless = {
             request: {
               parameters: {
                 paths: {
-                  id: true
-                }
-              }
-            }
-          }
-        }
-      ]
-    }
-  }
-}
+                  id: true,
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
+    addProduct: {
+      handler: 'handlers.addProduct',
+      events: [
+        {
+          http: {
+            cors: true,
+            method: 'post',
+            path: '/products',
+          },
+        },
+      ],
+    },
+  },
+};
 
 module.exports = serverlessConfiguration;

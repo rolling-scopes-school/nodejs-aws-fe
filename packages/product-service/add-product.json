@@ -1,0 +1,25 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "Product schema",
+  "required": ["title", "count", "price"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Product title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Product description"
+    },
+    "price": {
+      "type": "number",
+      "title": "Product price"
+    },
+    "count": {
+      "type": "number",
+      "title": "Amount of items at stocks"
+    }
+  }
+}
