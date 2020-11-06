@@ -1,0 +1,71 @@
+swagger: "2.0"
+info:
+  description: "This is a schema for ZooMarket api service"
+  version: "1.0.0"
+  title: "ZooMarket Swagger"
+  contact:
+    email: "dkovalishyn@gmail.com"
+host: "zoo-market.com"
+basePath: "/v1"
+tags:
+- name: "products"
+  description: "Everything for your Pets"
+schemes:
+- "https"
+paths:
+  /products:
+    get:
+      tags:
+      - "products"
+      summary: "Get list of all products"
+      description: ""
+      operationId: "getProductsList"
+      produces:
+      - "application/json"
+      responses: 
+       "200":
+          description: "Successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+  /products/{id}:
+    get:
+      tags:
+      - "products"
+      summary: "Get product by id"
+      parameters: 
+      - in: path
+        name: "id"
+        description: "Product id"
+        required: true
+        type: string
+      responses:
+        "200":
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Product"
+        "404": 
+          description: "Product not found"
+definitions:
+  Product:
+    type: "object"
+    required:
+    - "id"
+    - "title"
+    - "price"
+    properties:
+      id:
+        type: "string"
+        example: "1"
+      title:
+        type: "string"
+        example: "Litter"
+      description:
+        type: 'string'
+        example: "Used by cats to fullfill their natural needs"
+      price:
+        type: 'string'
+        example: '10 UAH'
+      
+        
