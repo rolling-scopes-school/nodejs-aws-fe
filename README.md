@@ -1,3 +1,7 @@
+## Task 3
+
+See https://github.com/generalov/nodejs-aws-be/pull/1
+
 ## Task 2
 
 Manually configured s3/cloudfront resources:
