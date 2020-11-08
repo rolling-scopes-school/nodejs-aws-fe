@@ -16,17 +16,18 @@ export default function ProductsTable() {
   const [products, setProducts] = useState<any>([]);
 
   useEffect(() => {
-    axios.get(`${API_PATHS.bff}/product`)
+    axios.get(API_PATHS.products)
       .then(res => setProducts(res.data));
   }, []);
 
   const onDelete = (id: string) => {
-    axios.delete(`${API_PATHS.bff}/product/${id}`)
-      .then(() => {
-        axios.get(`${API_PATHS.bff}/product`)
-          .then(res => setProducts(res.data));
-        }
-      );
+    alert('Will be implemented in the feature');
+    // axios.delete(`${API_PATHS.bff}/product/${id}`)
+    //   .then(() => {
+    //     axios.get(`${API_PATHS.bff}/product`)
+    //       .then(res => setProducts(res.data));
+    //     }
+    //   );
   };
 
 
