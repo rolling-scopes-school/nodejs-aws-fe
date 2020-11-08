@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import {Product, ProductSchema} from "models/Product";
-import {Formik, Field, FormikProps, FormikValues} from 'formik';
-import {TextField} from 'formik-material-ui';
-import axios from 'axios';
-import {useHistory, useParams} from 'react-router-dom';
-import PaperLayout from "components/PaperLayout/PaperLayout";
 import Typography from "@material-ui/core/Typography";
+import axios from 'axios';
+import PaperLayout from "components/PaperLayout/PaperLayout";
 import API_PATHS from "constants/apiPaths";
+import { Field, Formik, FormikProps, FormikValues } from 'formik';
+import { TextField } from 'formik-material-ui';
+import { Product, ProductSchema } from "models/Product";
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {
@@ -102,15 +102,21 @@ const emptyValues: any = ProductSchema.cast();
 
 export default function PageProductForm() {
   const history = useHistory();
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
-    const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
-      .then(() => history.push('/admin/products'));
+    const productToSave = id ? { ...ProductSchema.cast(formattedValues), id } : formattedValues;
+    if (id) {
+      axios.put(`${API_PATHS.bff}/products`, productToSave)
+        .then(() => history.push('/admin/products'));
+    } else {
+      axios.post(`${API_PATHS.bff}/products`, productToSave)
+        .then(() => history.push('/admin/products'))
+        .catch((e) => console.log(e))
+    }
   };
 
   useEffect(() => {

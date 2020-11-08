@@ -23,7 +23,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
-  provile: default
+  profile: default
   # you can overwrite defaults here
   #  stage: dev
   region: eu-west-1
