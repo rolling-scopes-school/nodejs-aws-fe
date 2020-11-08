@@ -5,7 +5,7 @@ import {Product, ProductSchema} from 'models/Product';
 import {Formik, Field, FormikProps, FormikValues} from 'formik';
 import {TextField} from 'formik-material-ui';
 import axios from 'axios';
-import {useHistory, useParams} from 'react-router-dom';
+import {Link, useHistory, useParams} from 'react-router-dom';
 import PaperLayout from 'components/PaperLayout/PaperLayout';
 import Typography from '@material-ui/core/Typography';
 import API_PATHS from 'constants/apiPaths';
@@ -80,7 +80,7 @@ const Form = (props: FormikProps<FormikValues>) => {
                     />
                 </Grid>
                 <Grid item container xs={12} justify="space-between">
-                    <Button color="primary">Cancel</Button>
+                    <Button component={Link} to='/admin/products' color="primary">Cancel</Button>
                     <Button
                         type="submit"
                         variant="contained"
