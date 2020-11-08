@@ -12,4 +12,6 @@ export const ProductSchema = Yup.object().shape({
   title: Yup.string().required(),
   description: Yup.string(),
   price: Yup.number().required(),
+  image: Yup.string().required(),
+  count: Yup.number().required(),
 });
