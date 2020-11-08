@@ -1,9 +1,3 @@
-### Manually configured S3/Cloudfront resources
-
-#### S3: [http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/](http://myawsrsbucket.s3-website-eu-west-1.amazonaws.com/)
-
-#### Cloudfront: [https://d32im54khuxqnq.cloudfront.net/](https://d32im54khuxqnq.cloudfront.net/)
-
 ### Automatically configured S3/Cloudfront resources
 
 #### S3: [http://myawsrsapp2.s3-website-eu-west-1.amazonaws.com/](http://myawsrsapp2.s3-website-eu-west-1.amazonaws.com/)
