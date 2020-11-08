@@ -38,9 +38,9 @@ export default function Products() {
   useEffect(() => {
     axios.get(`${API_PATHS.product}/products/`)
       .then(res => {
-        console.log(res)
-        setProducts(res.data.products.default);
-      });
+        setProducts(res.data.products);
+      })
+      .catch(console.error);
   }, [])
 
   return (
@@ -50,7 +50,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={product.imageUrl}
+              image={product.image_url}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
