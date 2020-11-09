@@ -54,8 +54,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Description"
             fullWidth
             autoComplete="off"
-            multiline
-            required
+            multiline     
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -65,7 +64,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Price ($)"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -75,7 +73,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Count"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item container xs={12} justify="space-between">
@@ -102,7 +99,7 @@ const emptyValues: any = ProductSchema.cast();
 
 export default function PageProductForm() {
   const history = useHistory();
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
