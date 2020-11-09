@@ -39,7 +39,7 @@ export default function Products() {
     axios
       .get(url)
       .then((res) => {
-        setProducts(res.data.products);
+        setProducts(res.data);
       })
       .catch(err => {
         console.log(err);
