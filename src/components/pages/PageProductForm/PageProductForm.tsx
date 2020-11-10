@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import {Link} from 'react-router-dom';
 import {Product, ProductSchema} from "models/Product";
 import {Formik, Field, FormikProps, FormikValues} from 'formik';
 import {TextField} from 'formik-material-ui';
@@ -81,6 +82,7 @@ const Form = (props: FormikProps<FormikValues>) => {
         <Grid item container xs={12} justify="space-between">
           <Button
             color="primary"
+            component={Link} to="/admin/products"
           >
             Cancel
           </Button>
@@ -109,7 +111,9 @@ export default function PageProductForm() {
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
+    (id
+      ? axios.put(`${API_PATHS.bff}/products/${id}`, productToSave)
+      : axios.post(`${API_PATHS.bff}/products`, productToSave))
       .then(() => history.push('/admin/products'));
   };
 
@@ -118,7 +122,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
