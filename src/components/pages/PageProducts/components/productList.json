@@ -1,58 +1,66 @@
 [
   {
     "count": 4,
-    "description": "Short Product Description1",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    "price": 2.4,
-    "title": "ProductOne"
+    "description": "Literary, Coming of Age, Women",
+    "id": "1a529519-fced-453b-9b04-0d81b9902843",
+    "price": 23.92,
+    "title": "Where the Crawdads Sing",
+    "cover": "/assets/pictures/9780735219090.jpg"
   },
   {
     "count": 6,
-    "description": "Short Product Description3",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
-    "price": 10,
-    "title": "ProductNew"
+    "description": "Thrillers - Crime, Mystery & Detective - Police Procedural",
+    "id": "9bc60485-3a8d-48c5-8613-a5e93af84d8c",
+    "price": 26.68,
+    "title": "Criss Cross",
+    "cover": "/assets/pictures/9780316526883.jpg"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "ProductTop"
+    "description": "Thrillers - Suspense, Thrillers - Supernatural",
+    "id": "2540f194-a392-475e-97ce-573795c759ef",
+    "price": 27.60,
+    "title": "The Institute",
+    "cover": "/assets/pictures/9781982110567.jpg"
   },
   {
     "count": 12,
-    "description": "Short Product Description7",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductTitle"
+    "description": "Thrillers - Suspense, Action & Adventure",
+    "id": "6d9abe86-d75f-4f0d-8a93-a39d57e0d7fb",
+    "price": 29.90,
+    "title": "A Minute to Midnight",
+    "cover": "/assets/pictures/9781538761601.jpg"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "Product"
+    "description": "Literary",
+    "id": "0cd8a10b-56e3-4555-8bce-d8c84a6164ca",
+    "price": 17.43,
+    "title": "The Overstory",
+    "cover": "/assets/pictures/9780393356687.jpg"
   },
   {
     "count": 8,
-    "description": "Short Product Description4",
-    "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    "price": 15,
-    "title": "ProductTest"
+    "description": "Historical - General, General",
+    "id": "ef480179-f778-4983-b679-a732499a41d6",
+    "price": 15.64,
+    "title": "Before We Were Yours",
+    "cover": "/assets/pictures/9780425284704.jpg"
   },
   {
     "count": 2,
-    "description": "Short Product Descriptio1",
-    "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    "price": 23,
-    "title": "Product2"
+    "description": "Literary, Asian American, Family Life - General",
+    "id": "188e3a5e-6bcd-42a5-9533-0f78d17dfbaf",
+    "price": 15.64,
+    "title": "Little Fires Everywhere",
+    "cover": "/assets/pictures/9780735224315.jpg"
   },
   {
     "count": 3,
-    "description": "Short Product Description7",
-    "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductName"
+    "description": "Historical - General, Literary, Political",
+    "id": "2e4393f2-27b8-474d-a1bd-e7dde4e74cca",
+    "price": 17.50,
+    "title": "A Gentleman in Moscow",
+    "cover": "/assets/pictures/9780143110439.jpg"
   }
 ]
