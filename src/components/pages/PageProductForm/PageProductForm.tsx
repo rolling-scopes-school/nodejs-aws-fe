@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { Product, ProductSchema } from 'models/Product';
-import { Formik, Field, FormikProps, FormikValues } from 'formik';
+import { Field, Formik, FormikProps, FormikValues } from 'formik';
 import { TextField } from 'formik-material-ui';
 import axios from 'axios';
 import { useHistory, useParams } from 'react-router-dom';
 import PaperLayout from 'components/PaperLayout/PaperLayout';
 import Typography from '@material-ui/core/Typography';
 import API_PATHS from 'constants/apiPaths';
-import { mapAPIProduct } from '../../../utils/product.mapper';
 
 const Form = (props: FormikProps<FormikValues>) => {
     const {
@@ -108,9 +107,10 @@ export default function PageProductForm() {
         const productToSave = id
             ? { ...ProductSchema.cast(formattedValues), id }
             : formattedValues;
-        axios
-            .put(`${API_PATHS.bff}/product`, productToSave)
-            .then(() => history.push('/admin/products'));
+        const method = id ? 'put' : 'post';
+        axios[method](`${API_PATHS.product}/products`, productToSave).then(() =>
+            history.push('/admin/products')
+        );
     };
 
     useEffect(() => {
@@ -119,7 +119,7 @@ export default function PageProductForm() {
             return;
         }
         axios.get(`${API_PATHS.product}/products/${id}`).then((res) => {
-            setProduct(mapAPIProduct(res.data));
+            setProduct(res.data);
             setIsLoading(false);
         });
     }, [id]);

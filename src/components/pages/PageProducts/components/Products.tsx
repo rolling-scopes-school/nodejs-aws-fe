@@ -11,8 +11,6 @@ import { formatAsPrice } from 'utils/utils';
 import AddProductToCart from 'components/AddProductToCart/AddProductToCart';
 import axios from 'axios';
 import API_PATHS from 'constants/apiPaths';
-import { mapAPIProduct } from '../../../../utils/product.mapper';
-import { APIProduct } from '../../../../models/APIProduct';
 // import productList from "./productList.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,13 +38,7 @@ export default function Products() {
     useEffect(() => {
         axios
             .get(`${API_PATHS.product}/products`)
-            .then((res) =>
-                setProducts(
-                    res.data.items.map((item: APIProduct) =>
-                        mapAPIProduct(item)
-                    )
-                )
-            );
+            .then((res) => setProducts(res.data.items));
         // setProducts(productList);
     }, []);
 
@@ -57,7 +49,12 @@ export default function Products() {
                     <Card className={classes.card}>
                         <CardMedia
                             className={classes.cardMedia}
-                            image={product.photo_url}
+                            // image={product.photo_url}
+                            image={
+                                index % 2 === 0
+                                    ? 'https://cdn.motor1.com/images/mgl/lAMWN/s1/2019-mercedes-amg-gt63s-4-door.jpg'
+                                    : 'https://img.drive.ru/i/0/5b71618cec05c4156c00001c.jpg'
+                            }
                             title={product.title}
                         />
                         <CardContent className={classes.cardContent}>

@@ -11,8 +11,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { formatAsPrice } from 'utils/utils';
-import { APIProduct } from '../../../../../models/APIProduct';
-import { mapAPIProduct } from '../../../../../utils/product.mapper';
 
 export default function ProductsTable() {
     const [products, setProducts] = useState<any>([]);
@@ -20,20 +18,14 @@ export default function ProductsTable() {
     useEffect(() => {
         axios
             .get(`${API_PATHS.product}/products`)
-            .then((res) =>
-                setProducts(
-                    res.data.items.map((item: APIProduct) =>
-                        mapAPIProduct(item)
-                    )
-                )
-            );
+            .then((res) => setProducts(res.data.items));
     }, []);
 
     const onDelete = (id: string) => {
         axios.delete(`${API_PATHS.product}/products/${id}`).then(() => {
             axios
                 .get(`${API_PATHS.product}/products`)
-                .then((res) => setProducts(res.data));
+                .then((res) => setProducts(res.data.items));
         });
     };
 
