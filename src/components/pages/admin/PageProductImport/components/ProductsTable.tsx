@@ -16,7 +16,8 @@ export default function ProductsTable() {
   const [products, setProducts] = useState<any>([]);
 
   useEffect(() => {
-    axios.get(`${API_PATHS.bff}/product`)
+    // maybe here should be something different
+    axios.get(`${API_PATHS.products}/product`)
       .then(res => setProducts(res.data));
   }, []);
 
