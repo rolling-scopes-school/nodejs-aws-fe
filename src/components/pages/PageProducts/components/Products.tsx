@@ -39,7 +39,7 @@ export default function Products() {
     axios
       .get(url)
       .then((res) => {
-        setProducts(res.data.productsList);
+        setProducts(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -53,7 +53,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={product.image}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
