@@ -51,11 +51,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-<<<<<<< HEAD
-              image={`https://source.unsplash.com/random?sig=${index}`}
-=======
               image={product.image}
->>>>>>> feat: task-3
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
