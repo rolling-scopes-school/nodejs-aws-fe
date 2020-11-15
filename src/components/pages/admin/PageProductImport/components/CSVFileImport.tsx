@@ -32,6 +32,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
 
   const uploadFile = async (e: any) => {
       // Get the presigned URL
+      try {
       const response = await axios({
         method: 'GET',
         url,
@@ -39,14 +40,21 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
           name: encodeURIComponent(file.name)
         }
       })
+
       console.log('File to upload: ', file.name)
-      console.log('Uploading to: ', response.data)
-      const result = await fetch(response.data, {
-        method: 'PUT',
-        body: file
-      })
+      console.log('Uploading to: ', response.data);
+      
+      const fileContentType = file.type === 'application/vnd.ms-excel' ? 'text/csv' : file.type;
+
+      const result = await axios.put(response.data, file, { headers: {
+          'Content-Type': fileContentType
+      }});
+
       console.log('Result: ', result)
       setFile('');
+      } catch (error) {
+        console.log("Error: ", error);
+      }
     }
   ;
 
