@@ -16,14 +16,14 @@ export default function ProductsTable() {
   const [products, setProducts] = useState<any>([]);
 
   useEffect(() => {
-    axios.get(`${API_PATHS.bff}/product`)
+    axios.get(`${API_PATHS.bff}/products`)
       .then(res => setProducts(res.data));
   }, []);
 
   const onDelete = (id: string) => {
     axios.delete(`${API_PATHS.bff}/product/${id}`)
       .then(() => {
-        axios.get(`${API_PATHS.bff}/product`)
+        axios.get(`${API_PATHS.bff}/products`)
           .then(res => setProducts(res.data));
         }
       );
@@ -38,6 +38,7 @@ export default function ProductsTable() {
             <TableCell>Title</TableCell>
             <TableCell align="right">Description</TableCell>
             <TableCell align="right">Price</TableCell>
+            <TableCell align="right">Image</TableCell>
             <TableCell align="right">Count</TableCell>
             <TableCell align="right">Action</TableCell>
           </TableRow>
@@ -50,6 +51,7 @@ export default function ProductsTable() {
               </TableCell>
               <TableCell align="right">{product.description}</TableCell>
               <TableCell align="right">{formatAsPrice(product.price)}</TableCell>
+              <TableCell align="right">{product.image.split('/').pop()}</TableCell>
               <TableCell align="right">{product.count}</TableCell>
               <TableCell align="right">
                 <Button size="small" color="primary" component={Link} to={`/admin/product-form/${product.id}`}>
