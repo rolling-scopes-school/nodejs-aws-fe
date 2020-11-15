@@ -54,8 +54,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Description"
             fullWidth
             autoComplete="off"
-            multiline
-            required
+            multiline     
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -65,7 +64,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Price ($)"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -75,7 +73,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Count"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item container xs={12} justify="space-between">
@@ -102,14 +99,15 @@ const emptyValues: any = ProductSchema.cast();
 
 export default function PageProductForm() {
   const history = useHistory();
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
+
+    axios.post(`${API_PATHS.bff}/products`, productToSave)
       .then(() => history.push('/admin/products'));
   };
 
@@ -118,7 +116,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
