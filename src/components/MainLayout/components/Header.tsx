@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -55,7 +56,9 @@ export default function Header() {
     <AppBar position="fixed" className={classes.menu}>
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">iBook &#128366; Store</Link>
+          <Link className={classes.homeLink} to="/">
+            iBook <MenuBookIcon /> Store
+          </Link>
         </Typography>
 
         {auth && (
