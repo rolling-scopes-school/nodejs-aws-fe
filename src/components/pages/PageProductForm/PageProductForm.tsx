@@ -118,7 +118,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
