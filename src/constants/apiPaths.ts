@@ -1,8 +1,8 @@
 
 const API_PATHS = {
-  product: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-  import: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+  product: 'https://8pzum0atwb.execute-api.eu-west-1.amazonaws.com/dev',
+  order: 'https://8pzum0atwb.execute-api.eu-west-1.amazonaws.com/dev',
+  import: 'https://8lhcg96s2d.execute-api.eu-west-1.amazonaws.com/dev',
   bff: 'https://8pzum0atwb.execute-api.eu-west-1.amazonaws.com/dev',
 };
 
