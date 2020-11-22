@@ -45,7 +45,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         method: 'PUT',
         body: file,
         headers: {
-          'Content-Type': 'text/csv'
+          'Content-Type': 'text/csv; charset=utf-8',
         },
       });
       console.log('Result: ', result);
