@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
+import { getAuthorizationToken } from "utils/utils";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,10 +32,15 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
+      const authorizationToken = getAuthorizationToken();
+      const headers = {
+        ...(authorizationToken && {Authorization: `Basic ${authorizationToken}`})
+      };
       // Get the presigned URL
       const response = await axios({
         method: 'GET',
         url,
+        headers,
         params: {
           name: encodeURIComponent(file.name)
         }
