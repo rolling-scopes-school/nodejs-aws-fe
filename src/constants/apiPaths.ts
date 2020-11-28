@@ -6,4 +6,5 @@ const API_PATHS = {
   bff: 'https://5qpce4wdik.execute-api.eu-west-1.amazonaws.com/dev'
 };
 
+
 export default API_PATHS;
