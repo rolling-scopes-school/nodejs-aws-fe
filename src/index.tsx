@@ -14,8 +14,21 @@ axios.interceptors.response.use(
   },
   function(error) {
     if (error.response.status === 400) {
-      alert(error.response.data?.data);
+      alert("status code 400, message: " + error.response.data?.data);
     }
+
+    if (error.response.status === 401) {
+      alert("status code 401, message: " + error.response.data?.message);
+    }
+
+    if (error.response.status === 403) {
+      alert("status code 403, message: " + error.response.data?.message);
+    }
+
+    if (error.response.status === 500) {
+      alert("status code 500, message: " + error.response.data?.message);
+    }
+
     return Promise.reject(error.response);
   }
 );
