@@ -3,6 +3,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
 
+localStorage.setItem('authorization_token', 'Basic tambovchanin:TEST_PASSWORD');
+
 const useStyles = makeStyles((theme) => ({
   content: {
     backgroundColor: theme.palette.background.paper,
@@ -31,24 +33,29 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
-      // Get the presigned URL
-      const response = await axios({
-        method: 'GET',
-        url,
-        params: {
-          name: encodeURIComponent(file.name)
-        }
-      })
-      console.log('File to upload: ', file.name)
-      console.log('Uploading to: ', response.data.signedUrl)
-      const result = await fetch(response.data.signedUrl, {
-        method: 'PUT',
-        body: file
-      })
-      console.log('Result: ', result)
-      setFile('');
-    }
-  ;
+    const token = localStorage.getItem('authorization_token') || '';
+    const encodedToken = btoa(token);
+
+    // Get the presigned URL
+    const response = await axios({
+      method: 'GET',
+      url,
+      params: {
+        name: encodeURIComponent(file.name)
+      },
+      headers: {
+        Authorization: encodedToken
+      }
+    })
+    console.log('File to upload: ', file.name)
+    console.log('Uploading to: ', response.data.signedUrl)
+    const result = await fetch(response.data.signedUrl, {
+      method: 'PUT',
+      body: file
+    })
+    console.log('Result: ', result)
+    setFile('');
+  };
 
   return (
     <div className={classes.content}>
