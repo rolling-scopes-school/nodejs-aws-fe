@@ -13,9 +13,19 @@ axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (error.response.status === 400) {
-      alert(error.response.data?.data);
+    switch(error.response.status) {
+      case 400: 
+        alert(error.response.data?.message);
+        break;
+      case 401: 
+        alert('You are not authorized.');
+        break;
+      case 403:
+        alert('Invalid login or password.');
+        break;
+      default:
     }
+
     return Promise.reject(error.response);
   }
 );
