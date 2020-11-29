@@ -17,8 +17,7 @@ type CSVFileImportProps = {
 
 localStorage.clear();
 
-localStorage.setItem('username', 'ohalahan');
-localStorage.setItem('password', 'TEST_PASSWORD');
+localStorage.setItem('authorization_token', `Basic ${btoa('ohalahan:TEST_PASSWORD')}`);
 
 export default function CSVFileImport({url, title}: CSVFileImportProps) {
   const classes = useStyles();
@@ -38,12 +37,8 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   const uploadFile = async (e: any) => {
       const allowedTypes = ['text/csv', 'application/xml', 'application/vnd.ms-excel'];
 
-      // Get stored credentials
-      const username = localStorage.getItem('username') || '';
-      const password = localStorage.getItem('password') || '';
-
-      // Generate Basic auth token
-      const token = `Basic ${btoa(`${username}:${password}`)}`;
+      // Get auth token
+      const token = localStorage.getItem('authorization_token') || '';
 
       // Get the presigned URL
       const response = await axios({
