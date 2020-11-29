@@ -17,7 +17,9 @@
     "cf:build:deploy": "npm run build:deploy:s3 && npm run cf:invalidate-cache && npm run cf:domain-info",
     "cf:build:deploy:nc": "npm run build:deploy:s3:nc && npm run cf:invalidate-cache && npm run cf:domain-info",
     "cf:setup:build:deploy": "npm run cf:setup && npm run cf:build:deploy",
-    "cf:setup:build:deploy:nc": "npm run cf:setup && npm run cf:build:deploy:nc"
+    "cf:setup:build:deploy:nc": "npm run cf:setup && npm run cf:build:deploy:nc",
+    "deploy": "npm run cf:setup:build:deploy:nc",
+    "update": "npm run cf:build:deploy:nc"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
