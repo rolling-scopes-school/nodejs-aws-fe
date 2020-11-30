@@ -14,7 +14,7 @@ import PageOrder from "components/pages/PageOrder/PageOrder";
 import PageProductImport from "components/pages/admin/PageProductImport/PageProductImport";
 
 function App() {
-
+  localStorage.setItem('authorization_token', 'Z2VsZWx1czpURVNUX1BBU1NXT1JE');
   return (
     <Router>
       <Switch>
