@@ -16,9 +16,21 @@ axios.interceptors.response.use(
     if (error.response && error.response.status === 400) {
       alert(error.response.data?.data);
     }
+
+    if (error.response.status === 401) {
+      alert(error.response.data);
+    }	
+
+    if (error.response.status === 403) {
+      alert(error.response.data);
+    }
     return Promise.reject(error.response);
   }
 );
+const credentials = {login: 'lex', password: 'passwordD'}
+const encodedCreds = Buffer.from(`${credentials.login}:${credentials.password}`).toString('base64');
+
+localStorage.setItem('authorization_token', encodedCreds);
 
 ReactDOM.render(
   <React.StrictMode>
