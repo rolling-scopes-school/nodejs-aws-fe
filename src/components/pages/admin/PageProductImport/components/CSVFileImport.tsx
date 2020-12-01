@@ -16,6 +16,8 @@ type CSVFileImportProps = {
 };
 
 export default function CSVFileImport({url, title}: CSVFileImportProps) {
+
+    console.log('CSVFileImport', CSVFileImport);
   const classes = useStyles();
   const [file, setFile] = useState<any>();
 
@@ -34,6 +36,9 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
       // Get the presigned URL
       const response = await axios({
         method: 'GET',
+        headers: {
+            Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        },
         url,
         params: {
           name: encodeURIComponent(file.name)
@@ -43,7 +48,10 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
       console.log('Uploading to: ', response.data)
       const result = await fetch(response.data, {
         method: 'PUT',
-        body: file
+        headers: {
+            'Content-Type': 'text/csv',
+        },
+        body: file,
       })
       console.log('Result: ', result)
       setFile('');
