@@ -13,9 +13,12 @@ axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (error.response.status === 400) {
+    if ([400, 401, 403].includes(+error?.response?.status)) {
       alert(error.response.data?.data);
+    } else {
+      alert(error);
     }
+
     return Promise.reject(error.response);
   }
 );
