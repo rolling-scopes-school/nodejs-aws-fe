@@ -13,8 +13,16 @@ axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (error.response.status === 400) {
-      alert(error.response.data?.data);
+    const { status, data } = error.response;
+    const errorData = data?.data;
+    if (status === 400) {
+      alert(`Bad request: ${errorData}`);
+    }
+    if (status === 403) {
+      alert(`Forbidden: ${errorData}`);
+    }
+    if (status === 401) {
+      alert(`Unauthorized: ${errorData}`);
     }
     return Promise.reject(error.response);
   }
