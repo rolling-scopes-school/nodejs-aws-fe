@@ -13,9 +13,20 @@ axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    if (error?.response?.status === 400) {
-      alert(error.response.data?.data);
+    const { status, data }= error.response;
+
+    if (status === 400) {
+      alert(`Bad request: ${data.message}`);
     }
+
+    if (status === 401) {
+      alert(data.message);
+    }	
+
+    if (status === 403) {
+      alert(data.message);
+    }
+
     return Promise.reject(error.response);
   }
 );
