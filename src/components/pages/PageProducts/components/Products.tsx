@@ -35,7 +35,7 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    axios.get('https://8w03oe20aa.execute-api.eu-west-1.amazonaws.com/dev/products')
+    axios.get('https://mj7myl2yr1.execute-api.eu-west-1.amazonaws.com/dev/products')
       .then(res => setProducts(res.data));
   }, [])
 

@@ -15,7 +15,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: nodejs-in-aws-2
+  profile: nodejs-in-aws-3
   region: eu-west-1
 
 plugins:
@@ -25,7 +25,7 @@ plugins:
 custom:
   # serverless-finch
   client:
-    bucketName: fe-static
+    bucketName: apeshko-fe-static
     distributionFolder: build
     indexDocument: index.html
     errorDocument: index.html

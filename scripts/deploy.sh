@@ -1,10 +1,10 @@
 # exit if non zero result
 set -e
 # create infrastructure (buckets, cloud front, etc.)
-sls deploy
+AWS_PROFILE=nodejs-in-aws-3 sls deploy
 # build project locally
 npm run build
 # deploy static to s3 bucket
-sls client deploy --no-config-change --no-policy-change --no-cors-change
+AWS_PROFILE=nodejs-in-aws-3 sls client deploy --no-config-change --no-policy-change --no-cors-change
 # invalidate cache
-sls invalidateCloudFrontCache
+AWS_PROFILE=nodejs-in-aws-3 sls invalidateCloudFrontCache
