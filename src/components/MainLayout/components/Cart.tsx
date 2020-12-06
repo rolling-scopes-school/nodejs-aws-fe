@@ -21,7 +21,7 @@ export default function Cart() {
     ).then(({ data: { data: { cart } } }) => {
       dispatch(updateFromApi(cart))
     });
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const cartItems = useSelector(selectCartItems);
   const badgeContent = cartItems.length || undefined;
 
