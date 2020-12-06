@@ -14,44 +14,44 @@ const initialState: CartState = {
 };
 
 export const cartSlice = createSlice({
-  name: 'cart',
-  initialState,
-  reducers: {
-    updateFromApi: (state, { payload: { items } }: PayloadAction<CartState>) => {
-      return {
-        items: [
-            ...items,
-        ],
-      }
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    addToCart: (state, action: PayloadAction<Product>) => {
-      const {items} = state;
-      const {payload: product} = action;
-      const existingItem = items.find(i => i.product.id === product.id);
-      if (existingItem) {
-        existingItem.count++;
-        return;
-      }
-      items.push({product, count: 1});
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    removeFromCart: (state, action: PayloadAction<Product>) => {
-      let {items} = state;
-      const {payload: product} = action;
-      const existingItem = items.find(i => i.product.id === product.id);
-      if (!existingItem) return;
-      if (existingItem.count > 1) {
-        existingItem.count--;
-        return;
-      }
-      state.items = items.filter(i => i.product.id !== product.id);
-    },
-    clearCart: (state) => {
-      state.items = [];
-    }
-  },
-});
+                                       name: 'cart',
+                                       initialState,
+                                       reducers: {
+                                         updateFromApi: (state, { payload: { items } }: PayloadAction<CartState>) => {
+                                           return {
+                                             items: [
+                                               ...items,
+                                             ],
+                                           }
+                                         },
+                                         // Use the PayloadAction type to declare the contents of `action.payload`
+                                         addToCart: (state, action: PayloadAction<Product>) => {
+                                           const {items} = state;
+                                           const {payload: product} = action;
+                                           const existingItem = items.find(i => i.product.id === product.id);
+                                           if (existingItem) {
+                                             existingItem.count++;
+                                             return;
+                                           }
+                                           items.push({product, count: 1});
+                                         },
+                                         // Use the PayloadAction type to declare the contents of `action.payload`
+                                         removeFromCart: (state, action: PayloadAction<Product>) => {
+                                           let {items} = state;
+                                           const {payload: product} = action;
+                                           const existingItem = items.find(i => i.product.id === product.id);
+                                           if (!existingItem) return;
+                                           if (existingItem.count > 1) {
+                                             existingItem.count--;
+                                             return;
+                                           }
+                                           state.items = items.filter(i => i.product.id !== product.id);
+                                         },
+                                         clearCart: (state) => {
+                                           state.items = [];
+                                         }
+                                       },
+                                     });
 
 export const addToCart = (product: Product) => async (dispatch: any, getState: any) => {
   dispatch(cartSlice.actions.addToCart(product));

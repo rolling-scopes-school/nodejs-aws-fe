@@ -26,15 +26,15 @@ export default function Cart() {
   const badgeContent = cartItems.length || undefined;
 
   return (
-    <IconButton
-      aria-label="show 4 new mails"
-      color="inherit"
-      component={Link}
-      to="/cart"
-    >
-      <Badge badgeContent={badgeContent} color="secondary">
-        <CartIcon/>
-      </Badge>
-    </IconButton>
+      <IconButton
+          aria-label="show 4 new mails"
+          color="inherit"
+          component={Link}
+          to="/cart"
+      >
+        <Badge badgeContent={badgeContent} color="secondary">
+          <CartIcon/>
+        </Badge>
+      </IconButton>
   );
 }
