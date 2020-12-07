@@ -119,7 +119,7 @@ export default function PageProductForm() {
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.post(`${API_PATHS.bff}`, productToSave)
+    axios.post(`${API_PATHS.products}`, productToSave)
       .then(() => history.push('/admin/products'));
   };
 
@@ -128,7 +128,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/${id}`)
+    axios.get(`${API_PATHS.products}/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
