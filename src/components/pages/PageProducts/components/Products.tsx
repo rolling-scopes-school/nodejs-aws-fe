@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
-import {Product} from "models/Product";
+import { Product } from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
@@ -36,7 +36,10 @@ export default function Products() {
 
   useEffect(() => {
     axios.get(`${API_PATHS.product}`)
-      .then(res => setProducts(res.data));
+      .then(res => {
+        const prodCollection = Product.convertToProducts(res.data);
+        setProducts(prodCollection);
+      });
   }, []);
 
   return (
