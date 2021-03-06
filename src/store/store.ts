@@ -1,12 +1,10 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from 'store/counterSlice';
-import cartReducer from 'store/cartSlice';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+import { cartReducer, GlobalStateWithCart } from 'store/cartSlice';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-    cart: cartReducer
-  },
+export const store = configureStore<GlobalStateWithCart>({
+    reducer: {
+        cart: cartReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

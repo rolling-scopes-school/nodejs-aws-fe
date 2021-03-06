@@ -6,7 +6,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -38,15 +39,30 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "@types/jest": "^24.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-typescript": "^9.0.0",
+    "eslint-import-resolver-typescript": "^2.2.1",
+    "eslint-plugin-cypress": "2.11.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-unicorn": "^18.0.1",
+    "husky": "^4.2.5"
   },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
+  },
+  "husky": {
+    "hooks": {
+        "pre-commit": "yarn lint"
+    }
   },
   "browserslist": {
     "production": [

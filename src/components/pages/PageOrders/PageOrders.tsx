@@ -1,24 +1,24 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Orders from "components/pages/PageOrders/components/Orders";
-import Typography from "@material-ui/core/Typography";
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Orders from 'components/pages/PageOrders/components/Orders';
 
 const useStyles = makeStyles((theme) => ({
-  content: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(3, 0, 3),
-  },
+    content: {
+        backgroundColor: theme.palette.background.paper,
+        padding: theme.spacing(3, 0, 3),
+    },
 }));
 
 export default function PageOrders() {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <div className={classes.content}>
-      <Typography variant="h6" gutterBottom>
-        Manage orders
-      </Typography>
-      <Orders/>
-    </div>
-  );
+    return (
+        <div className={ classes.content }>
+            <Typography variant="h6" gutterBottom={ true }>
+                Manage orders
+            </Typography>
+            <Orders />
+        </div>
+    );
 }
