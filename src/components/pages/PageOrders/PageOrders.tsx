@@ -14,7 +14,7 @@ export default function PageOrders() {
 
   return (
     <div className={classes.content}>
-      <Typography variant="h6" gutterBottom>
+      <Typography color="textPrimary" variant="h6" gutterBottom>
         Manage orders
       </Typography>
       <Orders/>

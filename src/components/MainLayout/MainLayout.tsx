@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles, MuiThemeProvider} from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import Header from "components/MainLayout/components/Header";
-import {createMuiTheme} from "@material-ui/core";
+import {colors, createMuiTheme} from "@material-ui/core";
+import {PaletteOptions} from "@material-ui/core/styles/createPalette";
+import {useSelector} from "react-redux";
+import {selectDarkMode} from "../../store/themeSlice";
 
 function Copyright() {
   return (
@@ -19,35 +22,26 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(({spacing, palette: {type, background}}) => ({
+  main: {
+    backgroundColor: type === 'dark' ? colors.grey[900] : colors.grey[200]
+  },
   container: {
-    paddingBottom: theme.spacing(8),
+    paddingBottom: spacing(8),
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-}));
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ff3d00',
-    },
-    secondary: {
-      main: '#00B383',
-      contrastText: '#fff'
-    }
+    backgroundColor: type === 'dark' ? colors.grey[800] : background.paper,
+    padding: spacing(6),
   }
-})
+}));
 
 const MainLayout: React.FC = ({children}) => {
   const classes = useStyles();
 
   return (
-    <MuiThemeProvider theme={theme}>
+    <>
       <Header/>
-      <main>
+      <main className={classes.main}>
         <Container className={classes.container} maxWidth="md">
           {children!}
         </Container>
@@ -58,7 +52,7 @@ const MainLayout: React.FC = ({children}) => {
         </Typography>
         <Copyright/>
       </footer>
-    </MuiThemeProvider>
+    </>
   );
 };
 

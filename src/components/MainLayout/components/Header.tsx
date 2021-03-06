@@ -9,6 +9,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Cart from "components/MainLayout/components/Cart";
 import {Link} from 'react-router-dom';
+import {Icon} from "@material-ui/core";
+import {Brightness1, Brightness4, Brightness5, Brightness6} from "@material-ui/icons";
+import {useDispatch, useSelector} from "react-redux";
+import {selectDarkMode, toggleDarkMode} from "../../../store/themeSlice";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Header() {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -42,12 +47,22 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+  const darkMode = useSelector(selectDarkMode)
+
+  const modeIcon = darkMode ? <Brightness5/> : <Brightness6/>
+
   return (
     <AppBar position="relative">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           <Link className={classes.homeLink} to="/">E-Games!</Link>
         </Typography>
+
+        <IconButton
+          aria-label="change theme"
+          onClick={() => dispatch(toggleDarkMode())}
+          color="inherit"
+        >{modeIcon}</IconButton>
 
         {auth && (
           <div>

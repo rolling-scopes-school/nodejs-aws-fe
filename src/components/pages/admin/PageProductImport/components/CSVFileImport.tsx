@@ -51,7 +51,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
 
   return (
     <div className={classes.content}>
-      <Typography variant="h6" gutterBottom>
+      <Typography color="textSecondary" variant="h6" gutterBottom>
         {title}
       </Typography>
       {!file ? (
