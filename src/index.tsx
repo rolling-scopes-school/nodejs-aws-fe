@@ -13,12 +13,12 @@ import 'index.css';
 axios.interceptors.response.use(
     (response) => response,
     (error) => {
-        if (error.response.status === 400) {
+        if (error?.response?.status === 400) {
             // eslint-disable-next-line no-alert
             alert(error.response.data?.data);
         }
 
-        return Promise.reject(error.response);
+        return Promise.reject(error?.response ?? error);
     },
 );
 
