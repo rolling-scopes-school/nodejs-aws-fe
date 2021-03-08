@@ -6,7 +6,7 @@ import {store} from 'store/store';
 import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import CssBaseline from "@material-ui/core/CssBaseline";
-import axios from 'axios';
+/* import axios from 'axios';
 
 axios.interceptors.response.use(
   response => {
@@ -19,7 +19,7 @@ axios.interceptors.response.use(
     return Promise.reject(error.response);
   }
 );
-
+*/
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
