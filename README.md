@@ -1,4 +1,10 @@
 S3 - http://react-rs.s3-website-eu-west-1.amazonaws.com/
+CloudFront - https://d1miazxehbfcyz.cloudfront.net/
+
+==== After spa-plugin
+
+S3 - http://react-rs-second.s3-website-us-east-1.amazonaws.com/
+CloudFront - d1v18tob47qjeq.cloudfront.net
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
