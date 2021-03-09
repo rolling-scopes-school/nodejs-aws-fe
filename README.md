@@ -6,6 +6,12 @@
   - cloudfront distribution: 
   https://d2ic4d2fpxatzc.cloudfront.net
 
+3. Serverless single page app
+  - Automatically created bucket:
+  http://books-store-second-bucket.s3-website-us-east-1.amazonaws.com/
+  - Automatically deployed CloudFround distribution: 
+  https://d2lf1cwen4fg8y.cloudfront.net
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
