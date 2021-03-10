@@ -3,64 +3,56 @@
     "count": 4,
     "description": "Short Product Description1",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    "price": 600,
-    "title": "Iphone XR",
-    "image": "https://ipeople.in.ua/files/products/ef6b0fa5318402909290f62ef4c8b297_1_1_1.500x500.jpg.pagespeed.ce.AEj3PnufGH.jpg"
+    "price": 2.4,
+    "title": "ProductOne"
   },
   {
     "count": 6,
     "description": "Short Product Description3",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
-    "price": 400,
-    "title": "Iphone 8 Plus",
-    "image": "https://ipeople.in.ua/files/products/2840.500x500.jpg.pagespeed.ce.U6AZqShveb.jpg"
+    "price": 10,
+    "title": "ProductNew"
   },
   {
     "count": 7,
     "description": "Short Product Description2",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 700,
-    "title": "Iphone XS Max",
-    "image": "https://ipeople.in.ua/files/products/01ff427ac937042aaf67a273569c46b4.500x500.jpg.pagespeed.ce.5WsqQwbxDQ.jpg"
+    "price": 23,
+    "title": "ProductTop"
   },
   {
     "count": 12,
     "description": "Short Product Description7",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
-    "price": 150,
-    "title": "Iphone 6s",
-    "image": "https://ipeople.in.ua/files/products/6cf304fa7047c9903959c25d9688d9f9.500x500.jpg.pagespeed.ce.rKXOf-duFD.jpg"
+    "price": 15,
+    "title": "ProductTitle"
   },
   {
     "count": 7,
     "description": "Short Product Description2",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 180,
-    "title": "Iphone 7",
-    "image": "https://ipeople.in.ua/files/products/2828.500x500.jpg.pagespeed.ce.15axGm8KNc.jpg"
+    "price": 23,
+    "title": "Product"
   },
   {
     "count": 8,
     "description": "Short Product Description4",
     "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    "price": 450,
-    "title": "Iphone X",
-    "image": "https://ipeople.in.ua/files/products/xs1.500x500.jpeg.pagespeed.ce.dv-qw0lweE.jpg"
+    "price": 15,
+    "title": "ProductTest"
   },
   {
     "count": 2,
     "description": "Short Product Descriptio1",
     "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    "price": 550,
-    "title": "Iphone XS",
-    "image": "https://ipeople.in.ua/files/products/e2992807f3d1b72ec0690d739f880e5d.500x500.jpg.pagespeed.ce.vkeaBlk43h.jpg"
+    "price": 23,
+    "title": "Product2"
   },
   {
     "count": 3,
     "description": "Short Product Description7",
     "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    "price": 1000,
-    "title": "Iphone 11",
-    "image": "https://ipeople.in.ua/files/products/apple-iphone-11-64-gb-black-21.1000x.500x500.jpg.pagespeed.ce.6dJ3mdD2FJ.jpg"
+    "price": 15,
+    "title": "ProductName"
   }
 ]
