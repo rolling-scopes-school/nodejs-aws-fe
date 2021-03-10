@@ -41,6 +41,8 @@ export default function Products() {
     setProducts(productList);
   }, [])
 
+  console.log('products: ', products)
+
   return (
     <Grid container spacing={4}>
       {products.map((product: Product, index: number) => (
@@ -48,7 +50,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={product.image}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
