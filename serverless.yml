@@ -23,7 +23,19 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
+  profile: default
   lambdaHashingVersion: 20201221
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: artdeco-shop-app
+    region: eu-west-1
+    distributionFolder: build
+    indexDocument: index.html
+    errorDocument: index.html
 
 # you can overwrite defaults here
 #  stage: dev
