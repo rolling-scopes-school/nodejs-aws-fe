@@ -1,3 +1,13 @@
+## Tasks
+
+### Task 2
+
+S3 Bucket: http://nodejs-aws-fe-serverless-3.s3-website-eu-west-1.amazonaws.com/
+
+Cloudfront Distribution:: https://d1dolxhjx73de6.cloudfront.net/
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
