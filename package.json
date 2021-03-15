@@ -14,8 +14,8 @@
     "cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
     "cloudfront:build:deploy": "npm run client:build:deploy && npm run cloudfront:invalidateCache",
     "cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
-    "cloudfront:update:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
-    "cloudfront:update:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc",
+    "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
+    "cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
