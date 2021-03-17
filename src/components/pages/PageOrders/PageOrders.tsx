@@ -18,6 +18,7 @@ export default function PageOrders() {
       <Typography variant="h6" gutterBottom>
         Manage orders
       </Typography>
+
       <Orders/>
     </div>
   );
