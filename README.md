@@ -1,3 +1,7 @@
+### Task 2 (Serve SPA in AWS)
+ - [CloudFront URL](https://d38mkylof58shi.cloudfront.net/)
+ - [S3-website (Forbidden)](http://artdeco-shop-app.s3-website-eu-west-1.amazonaws.com)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
