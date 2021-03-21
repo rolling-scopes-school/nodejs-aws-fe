@@ -8,9 +8,9 @@ import Header from "components/MainLayout/components/Header";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Copyright © NodeJS in AWS mentoring program 2021Q1 '}
       <Link color="inherit" href="https://material-ui.com/">
-        My Store
+        Warhammer 40000 miniatures shop
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
