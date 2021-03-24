@@ -5,6 +5,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy:s3": "serverless client deploy --no-config-change --no-policy-change --no-cors-change",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
