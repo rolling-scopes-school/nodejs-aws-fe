@@ -9,7 +9,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      {'Automated Via Plugin v1'}
+      {'Automated Via Plugin v2'}
       <Link color="inherit" href="https://material-ui.com/">
         My Store
       </Link>{' '}
