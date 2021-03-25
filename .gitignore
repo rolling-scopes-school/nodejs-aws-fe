@@ -9,7 +9,7 @@ node_modules
 /coverage
 
 # production
-build
+/build
 .serverless
 
 # misc
@@ -25,3 +25,5 @@ yarn-error.log*
 
 /.idea
 .vscode
+
+jspm_packages
