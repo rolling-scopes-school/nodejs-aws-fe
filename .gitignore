@@ -27,3 +27,7 @@ yarn-error.log*
 .vscode
 
 jspm_packages
+
+# serverless
+/serverless.yml
+/handler.js
