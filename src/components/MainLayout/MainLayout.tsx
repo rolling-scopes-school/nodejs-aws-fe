@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Bells'n'Whistles Music Shop. Deployed with serverless for the sake of CloudFront invalidation
+        Bells'n'Whistles Music Shop. Deployed with serverless for the sake of CloudFront invalidation: 3/26/2021, 1:38
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
