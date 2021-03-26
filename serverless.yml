@@ -24,7 +24,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   lambdaHashingVersion: 20201221
-  # region: eu-west-1
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -63,15 +63,15 @@ resources:
               Effect: Allow
               Action: s3:GetObject
               Resource: !Join
-              - ''
-              - - 'arn:aws:s3:::'
-                - !Ref WebAppS3Bucket
-                - /*
+                - ''
+                - - 'arn:aws:s3:::'
+                  - !Ref WebAppS3Bucket
+                  - /*
               Principal:
                 AWS: !Join
-                    - ' '
-                    - - 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity'
-                      - !Ref OriginAccessIdentity
+                  - ' '
+                  - - 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity'
+                    - !Ref OriginAccessIdentity
 
     OriginAccessIdentity:
       Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
