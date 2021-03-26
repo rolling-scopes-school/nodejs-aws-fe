@@ -45,8 +45,8 @@ class ServerlessPlugin {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
     const result = spawnSync(command, args);
-    const stdout = result.stdout.toString();
-    const sterr = result.stderr.toString();
+    const stdout = result.stdout?.toString();
+    const sterr = result.stderr?.toString();
     if (stdout) {
       this.serverless.cli.log(stdout);
     }
@@ -59,7 +59,7 @@ class ServerlessPlugin {
 
   // syncs the `app` directory to the provided bucket
   syncDirectory() {
-    const s3Bucket = this.serverless.variables.service.custom.s3Bucket;
+    const s3Bucket = this.serverless.variables.service.custom.s3BucketName;
     const args = [
       's3',
       'sync',
