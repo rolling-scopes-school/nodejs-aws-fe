@@ -1,4 +1,4 @@
-service: store
+service: bnw-spa
 
 frameworkVersion: '2'
 
@@ -12,7 +12,7 @@ custom:
     distributionFolder: build
     indexDocument: index.html
     errorDocument: index.html
-  s3BucketName: bells-n-whistles-sls-spa-static
+  s3BucketName: bnw-static
 
 provider:
   name: aws

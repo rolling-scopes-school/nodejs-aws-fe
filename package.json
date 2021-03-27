@@ -9,8 +9,8 @@
     "eject": "react-scripts eject",
     "client:deploy": "sls client deploy --no-policy-change --no-config-change --no-cors-change --no-confirm",
     "client:build:deploy": "npm run build && npm run client:deploy",
-    "cloudFront:build:deploy": "npm run client:build:deploy && sls invalidateCloudFrontCache",
-    "cloudFront:update:build:deploy": "sls deploy && npm run cloudFront:build:deploy"
+    "cloudfront:build:deploy": "npm run client:build:deploy && sls invalidateCloudFrontCache",
+    "cloudfront:update:build:deploy": "sls deploy && npm run cloudfront:build:deploy"
   },
   "dependencies": {
     "axios": "^0.19.2",
