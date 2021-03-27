@@ -1,3 +1,6 @@
+S3 url: http://my-first-bucket-test-blohamen.s3-website-us-east-1.amazonaws.com/
+CloudFront: https://d2lgbz9sdvuxcu.cloudfront.net/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
