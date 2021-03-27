@@ -1,0 +1,17 @@
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+service: my-aws-fe
+frameworkVersion: '2'
+
+plugins:
+  - serverless-finch
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+custom:
+  client:
+    bucketName: my-aws-fe
+    distributionFolder: build
