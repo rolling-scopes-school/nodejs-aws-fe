@@ -1,5 +1,6 @@
 ## Task2
-S3: http://my-aws-fe.s3-website-eu-west-1.amazonaws.com/
+S3: http://my-aws-fe.s3-website-eu-west-1.amazonaws.com/ (403 because cloud front setup)
+CloudFront: https://d2w9edn3gn1fhw.cloudfront.net/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
