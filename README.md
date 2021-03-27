@@ -1,4 +1,5 @@
-##Task2
+## Task2
+S3: http://my-aws-fe.s3-website-eu-west-1.amazonaws.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
