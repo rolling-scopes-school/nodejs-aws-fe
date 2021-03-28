@@ -46,7 +46,7 @@ export default function Header() {
     <AppBar position="relative">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">My Store!</Link>
+          <Link className={classes.homeLink} to="/">My Best Computer Shop</Link>
         </Typography>
 
         {auth && (
@@ -75,8 +75,8 @@ export default function Header() {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Manage orders</MenuItem>
-              <MenuItem component={Link} to="/admin/products" onClick={handleClose}>Manage products</MenuItem>
+              <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Orders</MenuItem>
+              <MenuItem component={Link} to="/admin/products" onClick={handleClose}>Computers</MenuItem>
             </Menu>
           </div>
         )}

@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Links to the created backet and CloudFront URL
+
+Link to [CloudFront](https://d3gevpztm5vybb.cloudfront.net/)<br />
+Link to [S3](http://my-best-computer-shop.s3-website-eu-west-1.amazonaws.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:  

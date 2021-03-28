@@ -1,58 +1,58 @@
 [
   {
     "count": 4,
-    "description": "Short Product Description1",
+    "description": "Short HP Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    "price": 2.4,
-    "title": "ProductOne"
+    "price": 2001.4,
+    "title": "HP"
   },
   {
     "count": 6,
-    "description": "Short Product Description3",
+    "description": "Short MacBook Pro 13 Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
-    "price": 10,
-    "title": "ProductNew"
+    "price": 1560,
+    "title": "MacBook Pro 13"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
+    "description": "Short MacBook Pro 16 Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "ProductTop"
+    "price": 2300,
+    "title": "MacBook Pro 16"
   },
   {
     "count": 12,
-    "description": "Short Product Description7",
+    "description": "Short Asus Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductTitle"
+    "price": 1500,
+    "title": "Asus"
   },
   {
     "count": 7,
-    "description": "Short Product Description2",
+    "description": "Short Mac mini Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
-    "price": 23,
-    "title": "Product"
+    "price": 1300,
+    "title": "Mac mini"
   },
   {
     "count": 8,
-    "description": "Short Product Description4",
+    "description": "Short DELL Description",
     "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    "price": 15,
-    "title": "ProductTest"
+    "price": 1500,
+    "title": "DELL"
   },
   {
     "count": 2,
-    "description": "Short Product Descriptio1",
+    "description": "Short Lenovo Descriptio",
     "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    "price": 23,
-    "title": "Product2"
+    "price": 1300,
+    "title": "Lenovo"
   },
   {
     "count": 3,
-    "description": "Short Product Description7",
+    "description": "Short Samsung Description",
     "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductName"
+    "price": 1500,
+    "title": "Samsung"
   }
 ]
