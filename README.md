@@ -1,4 +1,4 @@
 Task 2
 
-Cloud front https://d3dtkqxkenedmp.cloudfront.net/
+Cloud front https://d3dtkqxkenedmp.cloudfront.net/ <br>
 S3 http://my-first-app-igor.s3-website-us-east-1.amazonaws.com/
