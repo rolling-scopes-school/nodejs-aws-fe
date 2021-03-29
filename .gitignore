@@ -10,7 +10,6 @@ node_modules
 
 # production
 build
-.serverless
 
 # misc
 .DS_Store
@@ -25,3 +24,4 @@ yarn-error.log*
 
 /.idea
 .vscode
+.serverless
