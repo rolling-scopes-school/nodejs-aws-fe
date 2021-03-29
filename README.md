@@ -46,9 +46,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Deployment and hosting
 
-Manual deployment S3 - http://nodejs-in-aws-2021q1-t2-maanual.s3-website-eu-west-1.amazonaws.com/
-Manual deployment CloudFront (no restricted policy) - 	https://d6dq0spj1i06u.cloudfront.net/
+Manual deployment S3: http://nodejs-in-aws-2021q1-t2-manual.s3-website-eu-west-1.amazonaws.com/
+Manual deployment CloudFront (no restricted policy): https://d6dq0spj1i06u.cloudfront.net/
 
+Serverless
+
+Automatically created S3 bucket: http://nodejs-in-aws-2021q1-cloudfront.s3-website-us-east-1.amazonaws.com/
 CloudFront serverless-single-page-app-plugin: https://d2tj4rdkx3709x.cloudfront.net/
 
 
