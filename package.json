@@ -6,7 +6,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client:deploy": "sls client deploy --region eu-west-1 --no-config-change --no-policy-change --no-cors-change",
+    "client:deploy:nc": "npm run client:deploy -- --no-confirm",
+    "client:build:deploy": "npm run build && npm run client:deploy",
+    "client:build:deploy:nc": "npm run build && npm run client:deploy:nc",
+    "cloudfront:setup": "sls deploy",
+    "cloudfront:domainInfo": "sls domainInfo",
+    "cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
+    "cloudfront:build:deploy": "npm run client:build:deploy && npm run cloudfront:invalidateCache",
+    "cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
+    "cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
+    "cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -38,7 +49,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "eslintConfig": {
     "extends": "react-app"
