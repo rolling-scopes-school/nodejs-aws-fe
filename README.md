@@ -44,6 +44,17 @@ In order to create infrastructure on S3 side we need to run the following comman
 
 #### `npm run cloudfront:update:build:deploy`  
 
+### CloudFront
+
+During the automatic deployment process the CloudFront entity will be created.
+
+`https://d34jhktej75pue.cloudfront.net` ([open this link](d34jhktej75pue.cloudfront.net))
+
+### AWS S3 Bucket
+
+`http://epam2-sergey-donchenko-bucket.s3-website-us-east-1.amazonaws.com/` ([open this link](http://epam2-sergey-donchenko-bucket.s3-website-us-east-1.amazonaws.com/))
+ 
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
