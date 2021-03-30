@@ -11,20 +11,21 @@
 #
 # Happy Coding!
 
-service: aliaksandr-varachai-s2-2
+service: aliaksandr-varachai-s3-6
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: nodejs12.x
-  ## this is my personal AWS account. This must be skipped in you serverless.yml
   profile: epam_user
+#  stage: dev
+  region: eu-west-1
+#  deploymentBucket:
+#    skipPolicySetup: true
 
 plugins:
   - serverless-finch
@@ -33,10 +34,10 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: aliaksandr-varachai-s3-2
+    bucketName: aliaksandr-varachai-s3-6
     distributionFolder: build
     indexDocument: index.html
-    manageResources: false
+    # manageResources: false
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
@@ -117,7 +118,6 @@ custom:
 #    environment:
 #      variable2: value2
 
-# you can add CloudFormation resource templates here
 resources:
   Resources:
     ## Specifying the S3 Bucket
