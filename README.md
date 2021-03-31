@@ -1,3 +1,30 @@
+# Implementing tasks
+
+## Task 1
+
+Download and run a front-end part of the application
+
+
+## Task 2
+
+Create AWS S3 bucket and CloudFront distribution
+
+### Task 2.1: Manual creating
+
+Direct access to S3 bucket **forbidden**: http://aliaksandr-varachai-s3-2.s3-website-eu-west-1.amazonaws.com/
+
+Access via CloudFront distribution **permitted**: https://d3dmv48s48erqa.cloudfront.net/
+
+### Task 2.2: Auto creating with serverless plugin
+
+Direct access to S3 bucket **forbidden**: http://aliaksandr-varachai-s3-3.s3-website-eu-west-1.amazonaws.com/
+
+Access via CloudFront distribution **permitted**: https://d2kw2sfz6vfbs0.cloudfront.net/
+
+
+
+# General information
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

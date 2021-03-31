@@ -44,7 +44,7 @@ class ServerlessPlugin {
     if (this.serverless.variables.service.provider.profile) {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
-    const result = spawnSync(command, args);
+    const result = spawnSync(command, args, { shell: true });
     const stdout = result.stdout.toString();
     const sterr = result.stderr.toString();
     if (stdout) {
@@ -79,7 +79,6 @@ class ServerlessPlugin {
   async domainInfo() {
     const provider = this.serverless.getProvider('aws');
     const stackName = provider.naming.getStackName(this.options.stage);
-    console.log('***************************** stackName=', stackName, this.options.stage, this.options.region)
     const result = await provider.request(
       'CloudFormation',
       'describeStacks',
@@ -87,14 +86,11 @@ class ServerlessPlugin {
       this.options.stage,
       this.options.region,
     );
-    console.log('***************************** result=', result)
 
     const outputs = result.Stacks[0].Outputs;
     const output = outputs.find(
       entry => entry.OutputKey === 'WebAppCloudFrontDistributionOutput',
     );
-    console.log('***************************** outputs=', outputs)
-    console.log('***************************** output=', output)
 
     if (output && output.OutputValue) {
       this.serverless.cli.log(`Web App Domain: ${output.OutputValue}`);

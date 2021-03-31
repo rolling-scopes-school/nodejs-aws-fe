@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: aliaksandr-varachai-s3-6
+service: aliaksandr-varachai-s3-3
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -22,10 +22,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   profile: epam_user
-#  stage: dev
   region: eu-west-1
-#  deploymentBucket:
-#    skipPolicySetup: true
 
 plugins:
   - serverless-finch
@@ -34,7 +31,7 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: aliaksandr-varachai-s3-6
+    bucketName: aliaksandr-varachai-s3-3
     distributionFolder: build
     indexDocument: index.html
     # manageResources: false
