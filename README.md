@@ -20,9 +20,9 @@ npm run cloudfront:update:build:deploy:nc
 ```
 
 ## Links
-Please find the app deployed manually with S-3 [here](http://cat-store-bucket-manual.s3-website-eu-west-1.amazonaws.com/)
+Please find the app deployed manually with S-3 [here](http://metal-tickets-store-fe-bucket.s3-website-eu-west-1.amazonaws.com/)
 
-Please find the app deployed by serverless framework [here](https://d3up1e2abpatrg.cloudfront.net/)
+Please find the app deployed by serverless framework [here](https://d12t0bvcb8pyyn.cloudfront.net)
 
 ## Changelog
 ### task2-serve-spa-aws
