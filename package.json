@@ -6,7 +6,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "client:deploy": "sls client deploy --no-policy-change --no-config-change --no-cors-change --no-confirm",
+    "client:build:deploy": "npm run build && npm run client:deploy",
+    "cloudfront:build:deploy": "npm run client:build:deploy && sls invalidateCloudFrontCache",
+    "cloudfront:update:build:deploy": "sls deploy && npm run cloudfront:build:deploy"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -38,7 +42,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0"
+    "@types/jest": "^24.0.0",
+    "serverless": "2.31.0",
+    "serverless-finch": "2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "eslintConfig": {
     "extends": "react-app"
