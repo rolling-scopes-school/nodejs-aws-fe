@@ -1,5 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Links
+1) manual deployment
+    - Bucket website url http://my-first-node-app.s3-website-eu-west-1.amazonaws.com
+    - CloudFront url https://d1lhwudmkce8ux.cloudfront.net/
+    
+2) automated deployment
+    - Bucket website url http://my-second-node-aws-app.s3-website-eu-west-1.amazonaws.com/
+    - CloudFront url https://d2lwbgyxktc6ta.cloudfront.net/
+    
 ## Available Scripts
 
 In the project directory, you can run:  
