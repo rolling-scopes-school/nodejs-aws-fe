@@ -11,7 +11,7 @@ import API_PATHS from "../../../constants/apiPaths";
 export default function Cart() {
   const dispatch = useDispatch();
   useEffect(() => {
-    axios.get(
+/*    axios.get(
         `${API_PATHS.cart}/profile/cart`,
         {
           headers: {
@@ -20,7 +20,7 @@ export default function Cart() {
         }
     ).then(({ data: { data: { cart } } }) => {
       dispatch(updateFromApi(cart))
-    });
+    });*/
   }, [dispatch]);
   const cartItems = useSelector(selectCartItems);
   const badgeContent = cartItems.length || undefined;
