@@ -45,7 +45,7 @@ export default function Header() {
 
   return (
     <AppBar position="static">
-      <Toolbar style={{ background: 'lightgreen' }}>
+      <Toolbar style={{ background: '#73C6B6' }}>
         <Typography variant="h6" className={classes.title}>
           <Link className={classes.homeLink} to="/">
             My Store!
