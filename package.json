@@ -1,6 +1,7 @@
 {
   "name": "metal-tickets-store-fe",
   "version": "0.1.0",
+  "description": "metal tickets store frontend",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
