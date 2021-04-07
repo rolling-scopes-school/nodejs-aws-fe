@@ -28,7 +28,6 @@ export default function Orders() {
       );
   };
 
-
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">

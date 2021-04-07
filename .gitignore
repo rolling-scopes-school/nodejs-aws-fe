@@ -10,7 +10,6 @@ node_modules
 
 # production
 build
-.serverless
 
 # misc
 .DS_Store
@@ -25,3 +24,9 @@ yarn-error.log*
 
 /.idea
 .vscode
+
+# package directories
+jspm_packages
+
+# Serverless directories
+.serverless

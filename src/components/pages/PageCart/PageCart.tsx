@@ -135,6 +135,7 @@ export default function PageCart() {
       <Typography component="h1" variant="h4" align="center">
         Checkout
       </Typography>
+
       <Stepper activeStep={activeStep} className={classes.stepper}>
         {steps.map((label) => (
           <Step key={label}>
@@ -142,6 +143,7 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
+
       <React.Fragment>
         <Formik
           enableReinitialize={false}
@@ -172,6 +174,7 @@ export default function PageCart() {
               Back
             </Button>
           )}
+
           {!isCartEmpty && (
             <Button
               variant="contained"
