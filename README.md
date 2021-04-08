@@ -1,9 +1,14 @@
+## Application links
+- [S3 link](http://starship-market.s3-website.eu-central-1.amazonaws.com/)
+- [CloudFront link](https://d1xynyogmvxxkk.cloudfront.net/)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:  
-You can use NPM instead of YARN (Up to you)  
+In the project directory, you can run:
+You can use NPM instead of YARN (Up to you)
 
 ### `yarn start` OR `npm run start`
 

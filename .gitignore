@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+jspm_packages
 /.pnp
 .pnp.js
 
@@ -25,3 +26,6 @@ yarn-error.log*
 
 /.idea
 .vscode
+
+# Serverless directories
+.serverless
