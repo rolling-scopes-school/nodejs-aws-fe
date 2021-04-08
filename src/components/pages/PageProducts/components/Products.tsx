@@ -5,15 +5,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import {Product} from "models/Product";
-import {formatAsPrice} from "utils/utils";
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import { Product } from "models/Product";
+import { formatAsPrice } from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
 import API_PATHS from "constants/apiPaths";
-// import productList from "./productList.json";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   card: {
     height: '100%',
     display: 'flex',
@@ -36,9 +35,6 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    // setProducts(productList);
     axios.get(`${API_PATHS.product}/products`)
       .then(res => {
         console.log('products::', res.data)
@@ -53,7 +49,6 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              // image={`https://source.unsplash.com/random?sig=${index}`}
               image={product.image}
               title="Image title"
             />
