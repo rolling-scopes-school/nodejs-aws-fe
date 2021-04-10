@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -6,46 +6,79 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
 
+import Fade from '@material-ui/core/Fade';
 import AddProductToCart from 'components/AddProductToCart/AddProductToCart';
 
-import {Product} from 'models/Product';
+import { Product } from 'models/Product';
 
-import {formatAsPrice} from 'utils/utils';
-import productList from './productList.json';
-
-import {useStyles} from './styles';
+import { formatAsPrice } from 'utils/utils';
 import axios from 'axios';
 import API_PATHS from 'constants/apiPaths';
+import productList from './productList.json';
+
+import { useStyles } from './styles';
 
 export default function Products() {
   const classes = useStyles();
 
   const [products, setProducts] = useState<Product[]>([]);
 
-  console.log('prod', products);
+  const [open, setOpen] = React.useState(false);
+
+  const [openedProductInfo, setOpenedProductInfo] = React.useState({ title: '', description: '' });
 
   useEffect(() => {
-    axios
-      .get(`${API_PATHS.product}/products`, {
-        // headers: {
-          // 'Access-Control-Allow-Origin': '*',
-          // 'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-          // 'Access-Control-Allow-Origin': '*',
-        // 'Access-Control-Allow-Credentials': true,
-        // 'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
-        // 'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-      // },
-      })
-      .then(res => setProducts(res.data.data))
-      .catch(error => console.log('!!error', error));
+    axios.get(`${API_PATHS.products}`).then(res => setProducts(res.data.data));
   }, []);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setOpenedProductInfo({ title: '', description: '' });
+  };
+
+  const getProductInfo = useCallback(
+    (productId: string) => () => {
+      axios.get(`${API_PATHS.products}/${productId}`).then(res => {
+        handleOpen();
+        setOpenedProductInfo({ title: res.data.data.title, description: res.data.data.description });
+      });
+    },
+    [],
+  );
 
   return (
     <Grid container spacing={4}>
+      <>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title">{openedProductInfo?.title}</h2>
+              <p id="transition-modal-description">{openedProductInfo?.description}</p>
+            </div>
+          </Fade>
+        </Modal>
+      </>
+
       {products.map((product: Product, index: number) => (
-        <Grid item key={product.id} xs={12} sm={6} md={4}>
+        <Grid item key={product.id} xs={12} sm={6} md={4} onClick={getProductInfo(product.id)}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
