@@ -75,7 +75,7 @@ export default function Header() {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Manage orders</MenuItem>
+              <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Manage orders (Admin only) </MenuItem>
               <MenuItem component={Link} to="/admin/products" onClick={handleClose}>Manage products</MenuItem>
             </Menu>
           </div>
