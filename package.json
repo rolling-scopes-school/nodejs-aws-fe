@@ -55,6 +55,13 @@
     "serverless-finch": "^2.6.0",
     "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
+  "keywords": [
+    "music",
+    "metal",
+    "tickets"
+  ],
+  "author": "dmitry.esin@gmail.com",
+  "license": "MIT",
   "eslintConfig": {
     "extends": "react-app"
   },
