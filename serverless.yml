@@ -42,7 +42,7 @@ custom:
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
-  remover
+  remover:
     prompt: false
     buckets:
       - ${self:custom.s3BucketName}
