@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
+import Axios from "axios"
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,6 +13,7 @@ import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 // import axios from 'axios';
 // import API_PATHS from "constants/apiPaths";
 import productList from "./productList.json";
+import API_PATHS from 'constants/apiPaths';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -31,20 +33,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Products() {
+export default function Products ({ getOneProduct }:any) {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
 
+  const getProduct = useCallback(
+   async () => {
+     const response = await Axios.get(`${API_PATHS.product}`);
+      const { data } = response.data
+      setProducts(data)
+    },
+    [setProducts],
+  )
+
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
-  }, [])
+    getProduct()
+  }, [getProduct])
 
   return (
     <Grid container spacing={4}>
       {products.map((product: Product, index: number) => (
-        <Grid item key={product.id} xs={12} sm={6} md={4}>
+        <Grid item key={product.id} xs={12} sm={6} md={4} onClick={getOneProduct(product)}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
