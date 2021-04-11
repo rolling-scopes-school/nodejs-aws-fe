@@ -36,8 +36,6 @@ export default function Products() {
       return setProducts(res.data.data);
     });
   }, []);
-  const [open, setOpen] = React.useState(false);
-  const [openedProductInfo, setOpenedProductInfo] = React.useState({ title: '', description: '' });
 
   const handleOpen = () => {
     setOpen(true);
