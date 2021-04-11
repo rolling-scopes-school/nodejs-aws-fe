@@ -11,6 +11,7 @@ import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
 import API_PATHS from 'constants/apiPaths';
+import Axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,17 +42,7 @@ export default function Products ({ getOneProduct }: any) {
       const { data } = response.data
       setProducts(data)
     },
-    [setProducts],
-  )
-
-  const getProduct = useCallback(
-   async () => {
-     const response = await Axios.get(`${API_PATHS.product}`);
-      const { data } = response.data
-      setProducts(data)
-    },
-    [setProducts],
-  )
+    [setProducts])
 
   useEffect(() => {
     getProduct()
