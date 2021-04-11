@@ -17,7 +17,8 @@ import { Product } from 'models/Product';
 import { formatAsPrice } from 'utils/utils';
 import axios from 'axios';
 import API_PATHS from 'constants/apiPaths';
-import productList from './productList.json';
+
+// import productList from './productList.json';
 
 import { useStyles } from './styles';
 
@@ -31,8 +32,12 @@ export default function Products() {
   const [openedProductInfo, setOpenedProductInfo] = React.useState({ title: '', description: '' });
 
   useEffect(() => {
-    axios.get(`${API_PATHS.products}`).then(res => setProducts(res.data.data));
+    axios.get(`${API_PATHS.products}`).then(res => {
+      return setProducts(res.data.data);
+    });
   }, []);
+  const [open, setOpen] = React.useState(false);
+  const [openedProductInfo, setOpenedProductInfo] = React.useState({ title: '', description: '' });
 
   const handleOpen = () => {
     setOpen(true);
@@ -78,7 +83,7 @@ export default function Products() {
       </>
 
       {products.map((product: Product, index: number) => (
-        <Grid item key={product.id} xs={12} sm={6} md={4}>
+        <Grid item key={product.id} xs={12} sm={6} md={4} onClick={getProductInfo(product.id)}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
