@@ -44,6 +44,15 @@ export default function Products ({ getOneProduct }: any) {
     [setProducts],
   )
 
+  const getProduct = useCallback(
+   async () => {
+     const response = await Axios.get(`${API_PATHS.product}`);
+      const { data } = response.data
+      setProducts(data)
+    },
+    [setProducts],
+  )
+
   useEffect(() => {
     getProduct()
   }, [getProduct])

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import 'components/App/App.css';
 import PageProducts from "components/pages/PageProducts/PageProducts";
 import MainLayout from "components/MainLayout/MainLayout";
@@ -12,6 +12,8 @@ import PageCart from "components/pages/PageCart/PageCart";
 import PageOrders from "components/pages/PageOrders/PageOrders";
 import PageOrder from "components/pages/PageOrder/PageOrder";
 import PageProductImport from "components/pages/admin/PageProductImport/PageProductImport";
+import Axios from 'axios';
+import API_PATHS from 'constants/apiPaths';
 
 function App() {
 
