@@ -14,6 +14,7 @@ export default function PageProducts() {
 
   return (
     <div className={classes.content}>
+      <h1>DEPLOYED VIA SERVERLESS-FINCH</h1>
       <Products/>
     </div>
   );
