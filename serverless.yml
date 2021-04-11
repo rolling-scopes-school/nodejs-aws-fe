@@ -1,27 +1,111 @@
-service: my-first-shop-app
+# For full config options, check the docs:
+#    docs.serverless.com
 
-frameworkVersion: '2'
+service: kim-blinov-aws-app
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+frameworkVersion: "2"
 
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: dev
   region: eu-west-1
+  # profile: admin
 
 plugins:
   - serverless-finch
   - serverless-single-page-app-plugin
 
 custom:
+  ## Serverless-finch configuration
   client:
-    bucketName: my-first-shop-app
+    bucketName: kim-blinov-aws-app
     distributionFolder: build
-  #Serverless-single-page-app-plugin
+    indexDocument: index.html
+    manageResources: false
+  ## Serverless-spa-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+# functions:
+#   hello:
+#     handler: handler.hello
+#    The following are a few example events you can configure
+#    NOTE: Please make sure to change your handler code to work with those events
+#    Check the event documentation for details
+#    events:
+#      - httpApi:
+#          path: /users/create
+#          method: get
+#      - websocket: $connect
+#      - s3: ${env:BUCKET}
+#      - schedule: rate(10 minutes)
+#      - sns: greeter-topic
+#      - stream: arn:aws:dynamodb:region:XXXXXX:table/foo/stream/1970-01-01T00:00:00.000
+#      - alexaSkill: amzn1.ask.skill.xx-xx-xx-xx
+#      - alexaSmartHome: amzn1.ask.skill.xx-xx-xx-xx
+#      - iot:
+#          sql: "SELECT * FROM 'some_topic'"
+#      - cloudwatchEvent:
+#          event:
+#            source:
+#              - "aws.ec2"
+#            detail-type:
+#              - "EC2 Instance State-change Notification"
+#            detail:
+#              state:
+#                - pending
+#      - cloudwatchLog: '/aws/lambda/hello'
+#      - cognitoUserPool:
+#          pool: MyUserPool
+#          trigger: PreSignUp
+#      - alb:
+#          listenerArn: arn:aws:elasticloadbalancing:us-east-1:XXXXXX:listener/app/my-load-balancer/50dc6c495c0c9188/
+#          priority: 1
+#          conditions:
+#            host: example.com
+#            path: /hello
+
+#    Define function environment variables here
+#    environment:
+#      variable2: value2
 
 # you can add CloudFormation resource templates here
 resources:
   Resources:
+    ## Specifying the S3 Bucket
     WebAppS3Bucket:
       Type: AWS::S3::Bucket
       Properties:
@@ -30,6 +114,8 @@ resources:
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
+          # VersioningConfiguration:
+          #   Status: Enabled
 
     ## Specifying the policies to make sure all files inside the Bucket are avaialble to CloudFront
     WebAppS3BucketPolicy:
