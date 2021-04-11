@@ -48,17 +48,18 @@ export default function Products ({ getOneProduct }: any) {
     getProduct()
   }, [getProduct])
 
+
   return (
     <Grid container spacing={4}>
       {products.map((product: Product, index: number) => (
-        <Grid item key={product.id} xs={12} sm={6} md={4}>
+        <Grid item key={product.id} xs={12} sm={6} md={4} onClick={getOneProduct(product)}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
               image={`https://source.unsplash.com/random?sig=${index}`}
               title="Image title"
             />
-            <CardContent className={classes.cardContent}>
+            <CardContent className={classes.cardContent} >
               <Typography gutterBottom variant="h5" component="h2">
                 {product.title}
               </Typography>
