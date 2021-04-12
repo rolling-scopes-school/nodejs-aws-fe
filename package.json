@@ -1,6 +1,7 @@
 {
   "name": "metal-tickets-store-fe",
   "version": "0.1.0",
+  "description": "metal tickets store frontend",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
@@ -52,8 +53,16 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/yup": "^0.29.3",
     "serverless-finch": "^2.6.0",
+    "serverless-s3-remover": "^0.6.0",
     "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
+  "keywords": [
+    "music",
+    "metal",
+    "tickets"
+  ],
+  "author": "dmitry.esin@gmail.com",
+  "license": "MIT",
   "eslintConfig": {
     "extends": "react-app"
   },
