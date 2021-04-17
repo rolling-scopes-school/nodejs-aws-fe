@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:  
@@ -37,22 +35,9 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
- 
-## Learn More
+ ## Deployment and hosting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-## Deployment and hosting
-
-Manual deployment S3: http://nodejs-in-aws-2021q1-t2-manual.s3-website-eu-west-1.amazonaws.com/
-Manual deployment CloudFront (no restricted policy): https://d6dq0spj1i06u.cloudfront.net/
-
-Serverless
-
-Automatically created S3 bucket: http://nodejs-in-aws-2021q1-cloudfront.s3-website-us-east-1.amazonaws.com/
-CloudFront serverless-single-page-app-plugin: https://d2tj4rdkx3709x.cloudfront.net/
-
+Link to WEB: d29k4x1w3kxrqs.cloudfront.net
+Postman link to test the service: https://www.getpostman.com/collections/7e2acc51e34bb4f7ef84
 
 

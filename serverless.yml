@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: nodejs-in-aws-2021q1-cloudfront
+service: nodejs-in-aws-2021q1
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -22,7 +22,8 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
+  region: eu-west-1
   ## this is my personal AWS account. This must be skipped in you serverless.yml
 
 
@@ -43,7 +44,7 @@ custom:
 
 # you can overwrite defaults here
 #  stage: dev
-  region: eu-west-1
+#  region: eu-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
