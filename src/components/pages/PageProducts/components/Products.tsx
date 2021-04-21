@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,15 +12,15 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import AddProductToCart from 'components/AddProductToCart/AddProductToCart';
 
-import { Product } from 'models/Product';
+import {Product} from 'models/Product';
 
-import { formatAsPrice } from 'utils/utils';
+import {formatAsPrice} from 'utils/utils';
 import axios from 'axios';
 import API_PATHS from 'constants/apiPaths';
 
 // import productList from './productList.json';
 
-import { useStyles } from './styles';
+import {useStyles} from './styles';
 
 export default function Products() {
   const classes = useStyles();
@@ -29,12 +29,10 @@ export default function Products() {
 
   const [open, setOpen] = React.useState(false);
 
-  const [openedProductInfo, setOpenedProductInfo] = React.useState({ title: '', description: '' });
+  const [openedProductInfo, setOpenedProductInfo] = React.useState({title: '', description: ''});
 
   useEffect(() => {
-    axios.get(`${API_PATHS.products}`).then(res => {
-      return setProducts(res.data.data);
-    });
+    axios.get(`${API_PATHS.products}`).then(res => setProducts(res.data.products));
   }, []);
 
   const handleOpen = () => {
@@ -43,14 +41,14 @@ export default function Products() {
 
   const handleClose = () => {
     setOpen(false);
-    setOpenedProductInfo({ title: '', description: '' });
+    setOpenedProductInfo({title: '', description: ''});
   };
 
   const getProductInfo = useCallback(
     (productId: string) => () => {
       axios.get(`${API_PATHS.products}/${productId}`).then(res => {
         handleOpen();
-        setOpenedProductInfo({ title: res.data.data.title, description: res.data.data.description });
+        setOpenedProductInfo({title: res.data.data.title, description: res.data.data.description});
       });
     },
     [],
