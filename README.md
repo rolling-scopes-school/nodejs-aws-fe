@@ -2,11 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## S3
 
-http://my-aws-front.s3-website-eu-west-1.amazonaws.com/
+http://my-aws-cloudfront.s3-website-us-east-1.amazonaws.com/
 
 ## CloudFront
 
-https://d24a143fladyf2.cloudfront.net/
+https://d3dxl7gzbpgz4y.cloudfront.net/
 
 ## Available Scripts
 
