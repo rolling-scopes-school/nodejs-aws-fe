@@ -37,7 +37,6 @@ export default function PageProducts () {
           <div className="name">{showOrder?.title} title</div>
           <div className="name">{showOrder?.id} id</div>
           <div className="name">{showOrder?.price} price</div>
-          <div className="name">{showOrder?.amount} amount</div>
           <div className="name">{
             showOrder?.bitcoin &&
             <>
