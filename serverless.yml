@@ -1,4 +1,4 @@
-service: bnw-spa
+service: bnw-website4
 
 frameworkVersion: '2'
 
@@ -12,7 +12,7 @@ custom:
     distributionFolder: build
     indexDocument: index.html
     errorDocument: index.html
-  s3BucketName: bnw-static
+  s3BucketName: bnw-website4-static
 
 provider:
   name: aws
