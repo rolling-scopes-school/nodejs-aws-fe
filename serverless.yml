@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: my-rs-react-app
+service: my-rs-react-app1
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -56,7 +56,7 @@ plugins:
 
 custom:
   client:
-    bucketName: rs-react-app3
+    bucketName: rs-react-app1
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
