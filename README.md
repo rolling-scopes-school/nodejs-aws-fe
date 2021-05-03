@@ -32,4 +32,7 @@ Please find the app deployed by serverless framework [here](https://d12t0bvcb8py
 
 ### task3-product-api
 - Product service is done, FE is working and integrated with product services, some additional tasks is done
-- Implemented additional taskss
+- Implemented additional tasks
+
+ ### task5-import-to-s3
+- Integrated with the import-service
