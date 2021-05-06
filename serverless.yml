@@ -22,7 +22,7 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   lambdaHashingVersion: 20201221
 
 plugins:
@@ -31,7 +31,7 @@ plugins:
 
 custom:
   client:
-    bucketName: my-second-app-igor
+    bucketName: game-store-front
     distributionFolder: build
 
   ## Serverless-single-page-app-plugin configuration:
