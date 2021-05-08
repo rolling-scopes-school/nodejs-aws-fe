@@ -45,7 +45,6 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
       body: file,
       headers: {
         "Content-Type": "text/csv",
-        "x-amz-acl": "public-read",
       },
     });
     console.log("Result: ", result);
