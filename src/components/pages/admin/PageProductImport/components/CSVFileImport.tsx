@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
@@ -17,36 +17,43 @@ type CSVFileImportProps = {
 
 export default function CSVFileImport({url, title}: CSVFileImportProps) {
   const classes = useStyles();
-  const [file, setFile] = useState<any>();
+  const [file, setFile] = useState<File | null>();
 
-  const onFileChange = (e: any) => {
+  const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e);
-    let files = e.target.files || e.dataTransfer.files
-    if (!files.length) return
+    let files = e.target.files
+    if (!files?.length) return
     setFile(files.item(0));
   };
 
   const removeFile = () => {
-    setFile('');
+    setFile(null);
   };
 
-  const uploadFile = async (e: any) => {
+  const uploadFile = async (_: any) => {
+      if(!file) {
+        return;
+      }
       // Get the presigned URL
+
       const response = await axios({
         method: 'GET',
         url,
         params: {
-          name: encodeURIComponent(file.name)
-        }
+          name: encodeURIComponent(file.name),
+        },
       })
-      console.log('File to upload: ', file.name)
-      console.log('Uploading to: ', response.data)
-      const result = await fetch(response.data, {
+      console.log('File to upload: ', file.name);
+      console.log('Uploading to: ', response.data.data);
+      const result = await fetch(response.data.data, {
         method: 'PUT',
-        body: file
+        body: file,
+        headers: {
+          'Content-Type': 'text/csv',
+        },
       })
-      console.log('Result: ', result)
-      setFile('');
+      console.log('Result: ', result);
+      setFile(null);
     }
   ;
 
