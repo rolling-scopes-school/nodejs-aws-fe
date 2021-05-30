@@ -17,6 +17,14 @@ axios.interceptors.response.use(
       alert(error.response.data?.data);
     }
 
+    if (error?.response?.status === 401) {
+      alert('Authorization required');
+    }
+
+    if (error?.response?.status === 403) {
+      alert('Access denied');
+    }
+
     return Promise.reject(error?.response ?? error);
   }
 );
