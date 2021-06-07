@@ -24,20 +24,20 @@ export default function AddProductToCart({product}: AddProductToCartProps) {
         (
           <>
             <IconButton onClick={() => dispatch(removeFromCart(product))}>
-              <Remove color={"secondary"}/>
+              <Remove color={"primary"}/>
             </IconButton>
             <Typography align="center">
               {cartItem.count}
             </Typography>
             <IconButton onClick={() => dispatch(addToCart(product))}>
-              <Add color={"secondary"}/>
+              <Add color={"primary"}/>
             </IconButton>
             </>
         )
         :
         (
           <IconButton onClick={() => dispatch(addToCart(product))}>
-            <CartIcon color={"secondary"}/>
+            <CartIcon color={"primary"}/>
           </IconButton>
         )
     }
