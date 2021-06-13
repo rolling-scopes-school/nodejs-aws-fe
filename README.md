@@ -1,3 +1,1 @@
-https://d3m9i5v5mlwa5p.cloudfront.net/
-
-http://store-second-spa-app.s3-website-us-east-1.amazonaws.com/
+path for getting products from API was updated to https://33j0f1vd50.execute-api.eu-west-1.amazonaws.com/dev/products/
