@@ -23,16 +23,3 @@ npm run cloudfront:update:build:deploy:nc
 Please find the app deployed manually with S-3 [here](http://metal-tickets-store-fe-bucket.s3-website-eu-west-1.amazonaws.com/)
 
 Please find the app deployed by serverless framework [here](https://d12t0bvcb8pyyn.cloudfront.net)
-
-## Changelog
-### task2-serve-spa-aws
-- S3 bucket has been created and configured properly. The app has been uploaded to the bucket and is available though the Internet.
-- In addition to the previous work a CloudFront distribution is created and configured properly and the site is served now with CloudFront and is available through the Internet over CloudFront URL, not S3-website link (due to changes in bucket’s policy).
-- Serverless-finch and serverless-single-page-app plugins are added and configured. The app can be built and deployed by running npm script command.
-
-### task3-product-api
-- Product service is done, FE is working and integrated with product services, some additional tasks is done
-- Implemented additional tasks
-
- ### task5-import-to-s3
-- Integrated with the import-service
