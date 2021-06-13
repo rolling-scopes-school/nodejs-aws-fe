@@ -3,7 +3,7 @@
 const spawnSync = require('child_process').spawnSync;
 
 class ServerlessPlugin {
-  constructor(serverless, options) {
+  constructor (serverless, options) {
     this.serverless = serverless;
     this.options = options;
     this.commands = {
@@ -36,7 +36,7 @@ class ServerlessPlugin {
     };
   }
 
-  runAwsCommand(args) {
+  runAwsCommand (args) {
     let command = 'aws';
     if (this.serverless.variables.service.provider.region) {
       command = `${command} --region ${this.serverless.variables.service.provider.region}`;
@@ -45,8 +45,8 @@ class ServerlessPlugin {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
     const result = spawnSync(command, args);
-    const stdout = result.stdout?.toString();
-    const sterr = result.stderr?.toString();
+    const stdout = result.stdout && result.stdout.toString();
+    const sterr = result.stderr && result.stderr.toString();
     if (stdout) {
       this.serverless.cli.log(stdout);
     }
@@ -58,7 +58,7 @@ class ServerlessPlugin {
   }
 
   // syncs the `app` directory to the provided bucket
-  syncDirectory() {
+  syncDirectory () {
     const s3Bucket = this.serverless.variables.service.custom.s3BucketName;
     const args = [
       's3',
@@ -76,7 +76,7 @@ class ServerlessPlugin {
   }
 
   // fetches the domain name from the CloudFront outputs and prints it out
-  async domainInfo() {
+  async domainInfo () {
     const provider = this.serverless.getProvider('aws');
     const stackName = provider.naming.getStackName(this.options.stage);
     const result = await provider.request(
@@ -102,7 +102,7 @@ class ServerlessPlugin {
     throw error;
   }
 
-  async invalidateCache() {
+  async invalidateCache () {
     const provider = this.serverless.getProvider('aws');
 
     const domain = await this.domainInfo();
