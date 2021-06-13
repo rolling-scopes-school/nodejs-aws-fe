@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import { Product } from "models/Product";
-import { formatAsPrice } from "utils/utils";
+import { formatAsPrice, getIDToken } from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import API_PATHS from "constants/apiPaths";
 
@@ -36,7 +36,11 @@ export default function Products() {
 
   useEffect(() => {
     axios
-      .get(`${API_PATHS.product}/products`)
+      .get(`${API_PATHS.product}/products`, {
+        headers: {
+          Authorization: getIDToken(),
+        },
+      })
       .then((res) => setProducts(res.data.data))
       .catch((error) => console.log("!!error", error));
   }, []);
