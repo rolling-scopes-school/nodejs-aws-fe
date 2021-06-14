@@ -12,6 +12,8 @@ provider:
   lambdaHashingVersion: 20201221
   region: eu-west-1
   profile: private
+  environment:
+    AliakseiBychyk: ${ssm:/auth-password~true}
 
 plugins:
   - serverless-finch

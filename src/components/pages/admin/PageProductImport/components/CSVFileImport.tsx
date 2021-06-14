@@ -30,9 +30,14 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   };
 
   const uploadFile = async (e: any) => {
+    const password = process.env['AliakseiBychyk'];
+    const token = btoa(`{"AliakseiBychyk":"${password}"}`);
     // Get the presigned URL
     const response = await axios({
       method: 'GET',
+      headers: {
+        Authorization: `Basic ${token}`
+      },
       url,
       params: {
         name: encodeURIComponent(file.name)
