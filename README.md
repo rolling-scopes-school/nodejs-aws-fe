@@ -1,4 +1,8 @@
+CloudFront URL: [https://d2hbwm7vnujc6f.cloudfront.net/](https://d2hbwm7vnujc6f.cloudfront.net/)
+S3-website: http://e-market-odesa.s3-website.us-east-1.amazonaws.com/ - public access denied
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
