@@ -5,15 +5,16 @@ app: aleks-rs-app-app
 org: aleksbyczyk
 
 frameworkVersion: '2'
+variablesResolutionMode: 20210326
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   lambdaHashingVersion: 20201221
   region: eu-west-1
   profile: private
   environment:
-    AliakseiBychyk: ${ssm:/auth-password~true}
+    AliakseiBychyk: ${ssm:/auth-password}
 
 plugins:
   - serverless-finch
@@ -131,8 +132,6 @@ resources:
   ## In order to print out the hosted domain via `serverless info` we need to define the DomainName output for CloudFormation
   Outputs:
     WebAppS3BucketOutput:
-      Value:
-        'Ref': WebAppS3Bucket
+      Value: !Ref WebAppS3Bucket
     WebAppCloudFrontDistributionOutput:
-      Value:
-        'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+      Value: !GetAtt WebAppCloudFrontDistribution.DomainName
