@@ -21,7 +21,7 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
-  ## Serverless-finch condiguration
+  ## Serverless-finch configuration
   client:
     bucketName: my-next-irish-aws-s3-bucket
     distributionFolder: build
