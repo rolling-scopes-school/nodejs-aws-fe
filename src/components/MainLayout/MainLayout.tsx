@@ -8,9 +8,9 @@ import Header from "components/MainLayout/components/Header";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Copyright ©'}
       <Link color="inherit" href="https://material-ui.com/">
-        My Store
+        U Mihaila
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -35,7 +35,7 @@ const MainLayout: React.FC = ({children}) => {
     <>
       <Header/>
       <main>
-        <Container className={classes.container} maxWidth="md">
+        <Container className={classes.container} maxWidth="xl">
           {children!}
         </Container>
       </main>
