@@ -2,9 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployment info
 
-[S3-website](http://shop-app-dev.s3-website-us-east-1.amazonaws.com/)
-
-[CloudFront URL]:(https://d109lgrwmvd06l.cloudfront.net)
+[S3-website](http://shop-app-dev.s3-website-us-east-1.amazonaws.com/)<br />
+[CloudFront URL](https://d109lgrwmvd06l.cloudfront.net)
 
 ## Available Scripts
 
