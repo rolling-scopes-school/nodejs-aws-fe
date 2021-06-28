@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Links
+CloudFront URL - d3ngntzhdyuaz9.cloudfront.net  
+S3-website - http://rs-school-app-akrukovych.s3-website-us-east-1.amazonaws.com
+
+In the project directory, you can run:  
+You can use NPM instead of YARN (Up to you)
+
 ## Available Scripts
 
 In the project directory, you can run:  
