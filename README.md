@@ -23,7 +23,11 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### `yarn deploy` OR `npm run deploy`
+### `yarn cloudfront:build:deploy` OR `npm run cloudfront:build:deploy`
 Deploy app to S3 AWS cloud
 
-`CloudFront`:
+`CloudFront`: https://dnwpx96utvdlz.cloudfront.net
+
+`s3`: http://nodejs-aws-via-cloudfront.s3-website-eu-west-1.amazonaws.com
+
+

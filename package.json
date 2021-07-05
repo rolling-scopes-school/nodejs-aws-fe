@@ -7,7 +7,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "serverless client deploy"
+    "deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change --no-confirm",
+    "build:deploy": "yarn build && yarn deploy",
+    "cloudfront:setup": "sls deploy",
+    "cloudfront:domainInfo": "sls domainInfo",
+    "cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
+    "cloudfront:build:deploy": "yarn cloudfront:setup && yarn build:deploy && yarn cloudfront:invalidateCache"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -33,6 +38,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "typescript": "~3.7.2",
     "yup": "^0.29.1"
   },
