@@ -4,7 +4,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import PaperLayout from "components/PaperLayout/PaperLayout";
 import Typography from "@material-ui/core/Typography";
-import API_PATHS from "constants/apiPaths";
+import { API_PATHS } from "constants/apiPaths";
 import {CartItem} from "models/CartItem";
 import {Product} from "models/Product";
 import ReviewOrder from "components/pages/PageCart/components/ReviewOrder";

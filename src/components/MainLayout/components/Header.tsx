@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme: Theme) =>
     homeLink: {
       color: 'white',
       textDecoration: 'none'
+    },
+    appBar: {
+      position: 'sticky',
+      top: 0
     }
   }),
 );
@@ -43,10 +47,10 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="relative">
+    <AppBar className={classes.appBar}>
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          <Link className={classes.homeLink} to="/">Best game store in the BELARUS</Link>
+          <Link className={classes.homeLink} to="/">BEST Film store in BELARUS</Link>
         </Typography>
 
         {auth && (

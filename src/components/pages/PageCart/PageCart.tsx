@@ -14,7 +14,7 @@ import {Formik, Form, FormikProps, FormikValues, FastField} from "formik";
 import Grid from "@material-ui/core/Grid";
 import {TextField} from 'formik-material-ui';
 import axios from "axios";
-import API_PATHS from "constants/apiPaths";
+import { API_PATHS } from "constants/apiPaths";
 import {AddressSchema, OrderSchema} from "models/Order";
 
 const useStyles = makeStyles((theme) => ({
