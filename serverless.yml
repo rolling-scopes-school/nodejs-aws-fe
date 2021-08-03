@@ -25,6 +25,7 @@ provider:
   runtime: nodejs12.x
   ## this is my personal AWS account. This must be skipped in you serverless.yml
   profile: iadmin
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -43,7 +44,6 @@ custom:
 
 # you can overwrite defaults here
 #  stage: dev
-#  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
