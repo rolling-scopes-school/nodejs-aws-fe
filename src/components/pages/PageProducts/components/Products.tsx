@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const imageIds = []
+
 export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
@@ -48,7 +50,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://source.unsplash.com/random?sig=${index}`}
+              image={`https://www.ogorod.ru/images/cache/640x343/crop/images%7Ccms-image-${product.imageId}.jpg`}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
