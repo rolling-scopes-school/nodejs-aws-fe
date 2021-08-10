@@ -1,4 +1,4 @@
-service: pranksome-potato
+service: pranksome-potato-v2
 frameworkVersion: '2'
 
 provider:
@@ -6,6 +6,7 @@ provider:
   runtime: nodejs12.x
   ## this is my personal AWS account. This must be skipped in you serverless.yml
   profile: admin
+  region: eu-west-1
 
 plugins:
   - serverless-finch
@@ -21,8 +22,6 @@ custom:
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
   s3BucketName: ${self:custom.client.bucketName}
-
-  region: eu-west-1
 
 # CloudFormation resource templates
 resources:
