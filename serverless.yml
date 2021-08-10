@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: dw-nodejs-aws-fe
+service: dwa-nodejs-aws-fe
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -32,7 +32,7 @@ plugins:
 
 custom:
   client:
-    bucketName: dw-rs-aws-app
+    bucketName: dwa-rs-aws-app
     distributionFolder: build
   ## serverless-single-page-app-plugin configuration
   s3LocalPath: ${self:custom.client.distributionFolder}/
