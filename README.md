@@ -49,5 +49,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 | Part of task | LINK |
 | ------ | ------ |
-| Manual deploy to S3 | [http://my-first-aws-react-app.s3-website-eu-west-1.amazonaws.com](http://my-first-aws-react-app.s3-website-eu-west-1.amazonaws.com) |
+| Manual deploy to S3 | [http://my-manual-created-bucket.s3-website-eu-west-1.amazonaws.com](http://my-manual-created-bucket.s3-website-eu-west-1.amazonaws.com) |
+| Manual deploy to CloudFront | [https://d2rd9opmteyr6q.cloudfront.net/](https://d2rd9opmteyr6q.cloudfront.net/) |
 | Automatic deploy to CloudFront | [https://d2gn0i41hpflkf.cloudfront.net/](https://d2gn0i41hpflkf.cloudfront.net/) |
