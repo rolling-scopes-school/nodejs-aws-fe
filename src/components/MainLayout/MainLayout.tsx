@@ -46,7 +46,7 @@ const MainLayout: React.FC = ({ children }) => {
           color="textSecondary"
           component="p"
         >
-          Thank you for your purchase my dear customer!
+          Thank you for your purchase!!!
         </Typography>
         <Copyright />
       </footer>
