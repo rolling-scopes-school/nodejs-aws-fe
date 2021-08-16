@@ -1,5 +1,3 @@
-'use strict';
-
 const spawnSync = require('child_process').spawnSync;
 
 class ServerlessPlugin {
@@ -24,9 +22,8 @@ class ServerlessPlugin {
     this.hooks = {
       'syncToS3:sync': this.syncDirectory.bind(this),
       'domainInfo:domainInfo': this.domainInfo.bind(this),
-      'invalidateCloudFrontCache:invalidateCache': this.invalidateCache.bind(
-        this
-      ),
+      'invalidateCloudFrontCache:invalidateCache':
+        this.invalidateCache.bind(this),
     };
   }
 
