@@ -2,8 +2,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:  
-You can use NPM instead of YARN (Up to you)  
+In the project directory, you can run:
+You can use NPM instead of YARN (Up to you)
+
+### `cloudfront:update:build:deploy`
+
+Will build and deploy your project(infrastructure will be create automatically) into AWS
+Links from last build:
+- [CloudFront](https://d2c1egpq30yteh.cloudfront.net/)
+- [S3-website, will not work because of working CloudFront](http://thrvrce-nodejs-aws-task2.s3-website-eu-west-1.amazonaws.com/)
+- [automatically created deploy](https://d3whr1pp1tgsl.cloudfront.net/)
 
 ### `yarn start` OR `npm run start`
 
@@ -43,3 +51,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
