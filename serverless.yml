@@ -23,7 +23,7 @@ frameworkVersion: "2"
 provider:
   name: aws
   runtime: nodejs12.x
-  profile: default
+  profile: rs
   region: eu-west-1
 
 plugins:
