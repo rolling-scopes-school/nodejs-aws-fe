@@ -1,3 +1,10 @@
+## s3 website url
+Open [http://my-grey-bucket.s3-website-eu-west-1.amazonaws.com/](http://my-grey-bucket.s3-website-eu-west-1.amazonaws.com/) to view 
+
+## CloudFront URL
+Open [https://d1qkkzld5gnk3y.cloudfront.net/] (https://d1qkkzld5gnk3y.cloudfront.net/) to view page in cloudFront
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
