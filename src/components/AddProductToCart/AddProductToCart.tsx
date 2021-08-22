@@ -27,7 +27,7 @@ export default function AddProductToCart({product}: AddProductToCartProps) {
               <Remove color={"secondary"}/>
             </IconButton>
             <Typography align="center">
-              {cartItem.count}
+              {cartItem.count} кг
             </Typography>
             <IconButton onClick={() => dispatch(addToCart(product))}>
               <Add color={"secondary"}/>
