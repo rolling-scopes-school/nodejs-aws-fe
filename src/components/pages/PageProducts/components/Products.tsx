@@ -13,6 +13,16 @@ import axios from "axios";
 import API_PATHS from "constants/apiPaths";
 // import productList from "./productList.json";
 
+const knownSorts = [
+  "avalansh",
+  "dzhumiliya",
+  "fiesta",
+  "kenya",
+  "missPiggi",
+  "redNaomi",
+  "vau",
+];
+
 const useStyles = makeStyles((theme) => ({
   card: {
     height: "100%",
@@ -40,6 +50,15 @@ export default function Products() {
     axios.get(`${API_PATHS.bff}/products`).then((res) => setProducts(res.data));
     // setProducts(productList);
   }, []);
+
+  products.map((product) => {
+    if (knownSorts.includes(product.sort)) {
+      return product.sort;
+    } else {
+      product.sort = "unknown";
+      return product.sort;
+    }
+  });
 
   return (
     <Grid container spacing={4}>
