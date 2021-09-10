@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
       const {items} = state;
       const {payload: product} = action;
       const existingItem = items.find(i => i.product.id === product.id);
-      if (existingItem) {
+      if (existingItem && existingItem.count < product.count) {
         existingItem.count++;
         return;
       }

@@ -78,6 +78,16 @@ const Form = (props: FormikProps<FormikValues>) => {
             required
           />
         </Grid>
+        <Grid item xs={12} sm={4}>
+          <Field
+            component={TextField}
+            name="image_url"
+            label="Image ID (1-20)"
+            fullWidth
+            autoComplete="off"
+            required
+          />
+        </Grid>
         <Grid item container xs={12} justify="space-between">
           <Button color="primary">Cancel</Button>
           <Button
@@ -107,9 +117,16 @@ export default function PageProductForm() {
     const productToSave = id
       ? { ...ProductSchema.cast(formattedValues), id }
       : formattedValues;
-    axios
-      .put(`${API_PATHS.bff}/products`, productToSave)
-      .then(() => history.push('/admin/products'));
+
+    if (id) {
+      axios
+        .put(`${API_PATHS.bff}/products`, productToSave)
+        .then(() => history.push('/admin/products'));
+    } else {
+      axios
+        .post(`${API_PATHS.bff}/products`, productToSave)
+        .then(() => history.push('/admin/products'));
+    }
   };
 
   useEffect(() => {
