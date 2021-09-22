@@ -45,7 +45,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-## My links for task_2
+## My links for task_2 
 
 | Part of task | LINK |
 | ------ | ------ |
