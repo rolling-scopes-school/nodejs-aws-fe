@@ -13,3 +13,7 @@ export const ProductSchema = Yup.object().shape({
   description: Yup.string(),
   price: Yup.number().required(),
 });
+
+export type Error= {
+  message: string | null,
+};
