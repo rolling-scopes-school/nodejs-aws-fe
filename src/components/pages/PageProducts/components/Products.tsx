@@ -49,7 +49,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://www.ogorod.ru/images/cache/640x343/crop/images%7Ccms-image-${product.imageId}.jpg`}
+              image={`https://www.ogorod.ru/images/cache/640x343/crop/images%7Ccms-image-${product.image_id}.jpg`}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
