@@ -8,15 +8,7 @@ Deploy the app:
     `yarn run cloudfront:update:build:deploy`
     
 CloudFront link:
-    https://d3e0uejfmuto73.cloudfront.net
+    https://https://d368c1k3e6n0dp.cloudfront.net/
     
-S3Bucket link:
-    http://pranksome-potato-v2.s3-website-eu-west-1.amazonaws.com
 
 
-Manually deployed (first part of the task)
-CloudFront link:
-    https://d2r0qpse31div3.cloudfront.net
-
-S3Bucket link:
-    http://pranksome-potato.s3-website-eu-west-1.amazonaws.com

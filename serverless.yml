@@ -1,11 +1,11 @@
-service: pranksome-potato-v2
+service: pranksome-potato-shop
 frameworkVersion: '2'
 
 provider:
   name: aws
   runtime: nodejs12.x
   ## this is my personal AWS account. This must be skipped in you serverless.yml
-  profile: admin
+  profile: pranksome-potato-admin
   region: eu-west-1
 
 plugins:
@@ -15,7 +15,7 @@ plugins:
 custom:
   ## Serverless-finch configuration
   client:
-    bucketName: pranksome-potato-v2
+    bucketName: pranksome-potato-shop
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
@@ -69,7 +69,7 @@ resources:
       Properties:
         DistributionConfig:
           Origins:
-            - DomainName: ${self:custom.s3BucketName}.s3.amazonaws.com
+            - DomainName: !GetAtt WebAppS3Bucket.RegionalDomainName
               ## An identifier for the origin which must be unique within the distribution
               Id: myS3Origin
               ## In case you don't want to restrict the bucket access use CustomOriginConfig and remove S3OriginConfig
@@ -128,3 +128,4 @@ resources:
     WebAppCloudFrontDistributionOutput:
       Value:
         'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+
