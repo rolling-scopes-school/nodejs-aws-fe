@@ -10,7 +10,7 @@ import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
-import API_PATHS, { IMAGES_PATH } from "constants/apiPaths";
+import API_PATHS from "constants/apiPaths";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -46,7 +46,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`${IMAGES_PATH}/${product.title.split(/\s|'/).join('-').toLowerCase()}-${product.id}.jpeg`}
+              image={`https://source.unsplash.com/featured?yacht&sig=${index}`}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
