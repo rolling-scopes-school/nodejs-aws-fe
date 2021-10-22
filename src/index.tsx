@@ -9,15 +9,16 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import axios from 'axios';
 
 axios.interceptors.response.use(
-  response => {
-    return response;
-  },
-  function(error) {
-    if (error?.response?.status === 400) {
-      alert(error.response.data?.data);
+  response => response,
+  error => {
+    const { data, status } = error?.response;
+    const message = data?.message || data;
+
+    if ([400, 401, 403].includes(status)) {
+      alert(message);
     }
 
-    return Promise.reject(error?.response ?? error);
+		return Promise.reject(error);
   }
 );
 
