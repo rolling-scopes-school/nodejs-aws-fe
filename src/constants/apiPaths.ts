@@ -6,7 +6,7 @@ const API_PATHS = {
   products: `${api}/products`,
   product: `${api}/product/{id}`,
   import: `${importApi}/import`,
-  cart: `${cartApi}`,
+  cart: `${cartApi}/api`,
   order: "https://.execute-api.eu-west-1.amazonaws.com/dev",
   bff: "https://.execute-api.eu-west-1.amazonaws.com/dev",
 };
