@@ -31,7 +31,7 @@ plugins:
 
 custom:
   client:
-    bucketName: my-second-test-application
+    bucketName: shop-storefront
     distributionFolder: build
     indexDocument: index.html
     manageResources: false
