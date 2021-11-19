@@ -9,7 +9,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-// import productList from "./productList.json";
 import axios from "axios";
 import API_PATHS from "../../../../constants/apiPaths";
 
@@ -37,7 +36,6 @@ export default function Products() {
   useEffect(() => {
     axios.get(`${API_PATHS.bff}/products`)
       .then(res => setProducts(res.data));
-    // setProducts(productList);
   }, [])
 
   return (
@@ -54,8 +52,11 @@ export default function Products() {
               <Typography gutterBottom variant="h5" component="h2">
                 {product.title}
               </Typography>
-              <Typography>
+              <Typography gutterBottom>
                 {formatAsPrice(product.price)}
+              </Typography>
+              <Typography gutterBottom variant="subtitle1">
+                {product.description}
               </Typography>
             </CardContent>
             <CardActions>
