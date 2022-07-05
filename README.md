@@ -2,7 +2,8 @@
 
 ## After S3 Hosting Staticwebsite is enabled
 
-http://shopproductawsnodetrain.s3-website.ap-south-1.amazonaws.com/
+http://shopproductawsnodetrain.s3-website.ap-south-1.amazonaws.com
+NOTE: Public access is blocked , shows HTTP403
 
 ## After Cloudfront Enabled, Invalidate Cache Enabled
 
