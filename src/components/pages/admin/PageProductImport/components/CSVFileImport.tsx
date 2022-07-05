@@ -13,7 +13,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
 
   const onFileChange = (e: any) => {
     console.log(e);
-    let files = e.target.files || e.dataTransfer.files;
+    const files = e.target.files || e.dataTransfer.files;
     if (!files.length) return;
     setFile(files.item(0));
   };

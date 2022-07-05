@@ -38,7 +38,7 @@ export const cartSlice = createSlice({
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     removeFromCart: (state, action: PayloadAction<Product>) => {
-      let { items } = state;
+      const { items } = state;
       const { payload: product } = action;
       const existingItem = items.find((i) => i.product.id === product.id);
       if (!existingItem) return;

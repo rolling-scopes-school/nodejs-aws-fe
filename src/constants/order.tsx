@@ -1,10 +1,10 @@
 export const ORDER_STATUS = {
-  open: 'open',
-  approved: 'approved',
-  confirmed: 'confirmed',
-  sent: 'sent',
-  completed: 'completed',
-  cancelled: 'cancelled',
+  open: "open",
+  approved: "approved",
+  confirmed: "confirmed",
+  sent: "sent",
+  completed: "completed",
+  cancelled: "cancelled",
 };
 
 export const ORDER_STATUS_FLOW = [
