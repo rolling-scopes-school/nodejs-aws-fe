@@ -1,6 +1,6 @@
-import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import Orders from "components/pages/PageOrders/components/Orders";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Orders from "~/components/pages/PageOrders/components/Orders";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +17,7 @@ export default function PageOrders() {
       <Typography variant="h6" gutterBottom>
         Manage orders
       </Typography>
-      <Orders/>
+      <Orders />
     </div>
   );
 }

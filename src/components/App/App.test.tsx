@@ -1,8 +1,8 @@
-import React from 'react';
-import { createShallow } from '@material-ui/core/test-utils';
-import App from 'components/App/App';
+import { render } from "@testing-library/react";
+import { test, expect } from "vitest";
+import App from "~/components/App/App";
 
-test('renders correctly', () => {
-  const wrapper = createShallow()(<App />);
-  expect(wrapper).toMatchSnapshot();
+test("renders correctly", () => {
+  const container = render(<App />);
+  expect(container).toMatchSnapshot();
 });
