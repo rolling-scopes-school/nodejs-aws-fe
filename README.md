@@ -1,9 +1,20 @@
+## AWS S3 CLOUDFRONT TASK2
+
+## After S3 Hosting Staticwebsite is enabled
+
+http://shopproductawsnodetrain.s3-website.ap-south-1.amazonaws.com/
+
+## After Cloudfront Enabled, Invalidate Cache Enabled
+
+https://d1jvb0gfamgo15.cloudfront.net/
+NOTE: Added two products ""AJTWO" and "AjOne"
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:  
-You can use NPM instead of YARN (Up to you)  
+You can use NPM instead of YARN (Up to you)
 
 ### `yarn start` OR `npm run start`
 
