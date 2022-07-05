@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
 import { Product, ProductSchema } from "~/models/Product";
 import { Formik, Field, FormikProps, FormikValues } from "formik";
-import { TextField } from "formik-material-ui";
+import TextField from "~/components/Form/TextField";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import PaperLayout from "~/components/PaperLayout/PaperLayout";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import API_PATHS from "~/constants/apiPaths";
 
 const Form = (props: FormikProps<FormikValues>) => {
@@ -78,7 +78,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             required
           />
         </Grid>
-        <Grid item container xs={12} justify="space-between">
+        <Grid item container xs={12} justifyContent="space-between">
           <Button color="primary">Cancel</Button>
           <Button
             type="submit"
@@ -94,7 +94,7 @@ const Form = (props: FormikProps<FormikValues>) => {
   );
 };
 
-const emptyValues: any = ProductSchema.cast();
+const emptyValues: any = ProductSchema.cast({});
 
 export default function PageProductForm() {
   const history = useHistory();

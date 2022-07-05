@@ -3,23 +3,23 @@ import { OrderItem } from "~/models/Order";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import PaperLayout from "~/components/PaperLayout/PaperLayout";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import API_PATHS from "~/constants/apiPaths";
 import { CartItem } from "~/models/CartItem";
 import { Product } from "~/models/Product";
 import ReviewOrder from "~/components/pages/PageCart/components/ReviewOrder";
 import { ORDER_STATUS, ORDER_STATUS_FLOW } from "~/constants/order";
-import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
 import { Field, Formik, FormikProps, FormikValues } from "formik";
-import Grid from "@material-ui/core/Grid";
-import { TextField } from "formik-material-ui";
-import Table from "@material-ui/core/Table";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import TableBody from "@material-ui/core/TableBody";
-import TableContainer from "@material-ui/core/TableContainer";
+import Grid from "@mui/material/Grid";
+import TextField from "~/components/Form/TextField";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import TableBody from "@mui/material/TableBody";
+import TableContainer from "@mui/material/TableContainer";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const {
@@ -84,7 +84,7 @@ const Form = (props: FormikProps<FormikValues>) => {
             multiline
           />
         </Grid>
-        <Grid item container xs={12} justify="space-between">
+        <Grid item container xs={12} justifyContent="space-between">
           <Button
             type="submit"
             variant="contained"

@@ -1,6 +1,6 @@
-import Badge from "@material-ui/core/Badge";
-import CartIcon from "@material-ui/icons/ShoppingCart";
-import IconButton from "@material-ui/core/IconButton";
+import Badge from "@mui/material/Badge";
+import CartIcon from "@mui/icons-material/ShoppingCart";
+import IconButton from "@mui/material/IconButton";
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +36,7 @@ export default function Cart() {
       color="inherit"
       component={Link}
       to="/cart"
-    >
+      size="large">
       <Badge badgeContent={badgeContent} color="secondary">
         <CartIcon />
       </Badge>

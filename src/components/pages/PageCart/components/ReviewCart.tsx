@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import CartItems from "~/components/CartItems/CartItems";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "~/store/cartSlice";
