@@ -22,7 +22,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     setFile("");
   };
 
-  const uploadFile = async (e: any) => {
+  const uploadFile = async () => {
     // Get the presigned URL
     const response = await axios({
       method: "GET",

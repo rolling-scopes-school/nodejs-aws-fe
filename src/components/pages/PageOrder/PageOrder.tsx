@@ -22,28 +22,7 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 
 const Form = (props: FormikProps<FormikValues>) => {
-  const {
-    values,
-    // touched,
-    // errors,
-    dirty,
-    isSubmitting,
-    isValid,
-    // handleChange,
-    // handleBlur,
-    handleSubmit,
-    // handleReset,
-    // setFieldValue,
-    // isEditMode,
-    // onCancel,
-    // isButtonContact,
-    // setTouched,
-    // isButtonAddAndRedirect,
-    // setShouldRedirect,
-    // submitForm,
-    // onGetCitizen,
-    // shouldConfirmLeave,
-  } = props;
+  const { values, dirty, isSubmitting, isValid, handleSubmit } = props;
   let helperText = "";
   if (values.status === ORDER_STATUS.approved) {
     helperText =

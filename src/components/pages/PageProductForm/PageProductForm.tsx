@@ -11,28 +11,7 @@ import Typography from "@mui/material/Typography";
 import API_PATHS from "~/constants/apiPaths";
 
 const Form = (props: FormikProps<FormikValues>) => {
-  const {
-    // values,
-    // touched,
-    // errors,
-    dirty,
-    isSubmitting,
-    isValid,
-    // handleChange,
-    // handleBlur,
-    handleSubmit,
-    // handleReset,
-    // setFieldValue,
-    // isEditMode,
-    // onCancel,
-    // isButtonContact,
-    // setTouched,
-    // isButtonAddAndRedirect,
-    // setShouldRedirect,
-    // submitForm,
-    // onGetCitizen,
-    // shouldConfirmLeave,
-  } = props;
+  const { dirty, isSubmitting, isValid, handleSubmit } = props;
   const navigate = useNavigate();
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
