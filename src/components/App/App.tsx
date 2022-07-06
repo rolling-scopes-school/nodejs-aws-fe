@@ -15,7 +15,7 @@ function App() {
         <Route path="cart" element={<PageCart />} />
         <Route path="admin">
           <Route path="orders" element={<PageOrders />} />
-          <Route path="order/:id" element={<PageOrder />} />
+          <Route path="orders/:id" element={<PageOrder />} />
           <Route path="products" element={<PageProductImport />} />
           <Route path="product-form" element={<PageProductForm />}>
             <Route path=":id" element={<PageProductForm />} />

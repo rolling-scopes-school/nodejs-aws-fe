@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { OrderStatus } from "~/constants/order";
 
 export const AddressSchema = Yup.object({
   firstName: Yup.string().required(),
@@ -16,11 +17,19 @@ export const OrderItemSchema = Yup.object({
 
 export type OrderItem = Yup.InferType<typeof OrderItemSchema>;
 
+export const statusHistorySchema = Yup.object({
+  status: Yup.mixed<OrderStatus>().oneOf(Object.values(OrderStatus)).required(),
+  timestamp: Yup.number().required(),
+  comment: Yup.string().required(),
+});
+
+export type statusHistory = Yup.InferType<typeof statusHistorySchema>;
+
 export const OrderSchema = Yup.object({
   id: Yup.string().required(),
-  items: Yup.array().of(OrderItemSchema),
+  items: Yup.array().of(OrderItemSchema).defined(),
   address: AddressSchema,
-  status: Yup.string().required(),
+  statusHistory: Yup.array().of(statusHistorySchema).defined(),
 }).defined();
 
 export type Order = Yup.InferType<typeof OrderSchema>;

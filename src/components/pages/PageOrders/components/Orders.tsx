@@ -1,5 +1,4 @@
-import React from "react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { Link } from "react-router-dom";
 import API_PATHS from "~/constants/apiPaths";
 import Table from "@mui/material/Table";
@@ -10,19 +9,24 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
+import { Order } from "~/models/Order";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 
 export default function Orders() {
-  const [orders, setOrders] = React.useState<any>([]);
+  const queryClient = useQueryClient();
+  const { data } = useQuery<Order[], AxiosError>("orders", async () => {
+    const res = await axios.get<Order[]>(`${API_PATHS.order}/order`);
+    return res.data;
+  });
 
-  React.useEffect(() => {
-    axios.get(`${API_PATHS.order}/order`).then((res) => setOrders(res.data));
-  }, []);
-
-  const onDelete = (id: string) => {
-    axios.delete(`${API_PATHS.order}/order/${id}`).then(() => {
-      axios.get(`${API_PATHS.order}/order`).then((res) => setOrders(res.data));
-    });
-  };
+  const { mutate } = useMutation(
+    (id: string) => axios.delete(`${API_PATHS.order}/order/${id}`),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries("orders", { exact: true });
+      },
+    }
+  );
 
   return (
     <TableContainer component={Paper}>
@@ -37,7 +41,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {orders.map((order: any) => (
+          {data?.map((order) => (
             <TableRow key={order.id}>
               <TableCell component="th" scope="row">
                 {order.address?.firstName} {order.address?.lastName}
@@ -45,23 +49,21 @@ export default function Orders() {
               <TableCell align="right">{order.items.length}</TableCell>
               <TableCell align="right">{order.address?.address}</TableCell>
               <TableCell align="right">
-                {order.statusHistory[
-                  order.statusHistory.length - 1
-                ].status.toUpperCase()}
+                {order.statusHistory[order.statusHistory.length - 1].status}
               </TableCell>
               <TableCell align="right">
                 <Button
                   size="small"
                   color="primary"
                   component={Link}
-                  to={`/admin/order/${order.id}`}
+                  to={order.id}
                 >
                   Manage
                 </Button>
                 <Button
                   size="small"
                   color="secondary"
-                  onClick={() => onDelete(order.id)}
+                  onClick={() => mutate(order.id)}
                 >
                   Delete
                 </Button>

@@ -4,24 +4,17 @@ import App from "~/components/App/App";
 import { store } from "~/store/store";
 import { Provider } from "react-redux";
 import CssBaseline from "@mui/material/CssBaseline";
-import axios from "axios";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const theme = createTheme();
-
-axios.interceptors.response.use(
-  (response) => {
-    return response;
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: { refetchOnWindowFocus: false, retry: false, staleTime: Infinity },
   },
-  function (error) {
-    if (error?.response?.status === 400) {
-      alert(error.response.data?.data);
-    }
-
-    return Promise.reject(error?.response ?? error);
-  }
-);
+});
 
 if (import.meta.env.DEV) {
   const { worker } = await import("./mocks/browser");
@@ -32,10 +25,13 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <App />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <App />
+          </ThemeProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

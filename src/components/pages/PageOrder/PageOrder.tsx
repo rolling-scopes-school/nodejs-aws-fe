@@ -1,5 +1,5 @@
 import React from "react";
-import { OrderItem } from "~/models/Order";
+import { Order, OrderItem } from "~/models/Order";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import PaperLayout from "~/components/PaperLayout/PaperLayout";
@@ -8,7 +8,7 @@ import API_PATHS from "~/constants/apiPaths";
 import { CartItem } from "~/models/CartItem";
 import { Product } from "~/models/Product";
 import ReviewOrder from "~/components/pages/PageCart/components/ReviewOrder";
-import { ORDER_STATUS, ORDER_STATUS_FLOW } from "~/constants/order";
+import { OrderStatus, ORDER_STATUS_FLOW } from "~/constants/order";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { Field, Formik, FormikProps, FormikValues } from "formik";
@@ -20,11 +20,13 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
+import Box from "@mui/material/Box";
+import { useMutation, useQueryClient, useQueries } from "react-query";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const { values, dirty, isSubmitting, isValid, handleSubmit } = props;
   let helperText = "";
-  if (values.status === ORDER_STATUS.approved) {
+  if (values.status === OrderStatus.Approved) {
     helperText =
       "Setting status to APPROVED will decrease products count from stock!!!";
   }
@@ -46,8 +48,8 @@ const Form = (props: FormikProps<FormikValues>) => {
             fullWidth
             helperText={helperText}
           >
-            {ORDER_STATUS_FLOW.map((status, index) => (
-              <MenuItem key={index} value={status}>
+            {ORDER_STATUS_FLOW.map((status) => (
+              <MenuItem key={status} value={status}>
                 {status}
               </MenuItem>
             ))}
@@ -80,43 +82,60 @@ const Form = (props: FormikProps<FormikValues>) => {
 
 export default function PageOrder() {
   const { id } = useParams<{ id: string }>();
-  const [order, setOrder] = React.useState<any>({});
-  const [cartItems, setCartItems] = React.useState<CartItem[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const queryClient = useQueryClient();
+  const results = useQueries([
+    {
+      queryKey: ["order", { id }],
+      queryFn: async () => {
+        const res = await axios.get<Order>(`${API_PATHS.order}/order/${id}`);
+        return res.data;
+      },
+    },
+    {
+      queryKey: "products",
+      queryFn: async () => {
+        const res = await axios.get<Product[]>(
+          `${API_PATHS.bff}/product/available`
+        );
+        return res.data;
+      },
+    },
+  ]);
+  const [
+    { data: order, isFetching: isOrderFetching },
+    { data: products, isFetching: isProductsFetching },
+  ] = results;
 
-  const onChangeStatus = (values: FormikValues) => {
-    return axios
-      .put(`${API_PATHS.order}/order/${order.id}/status`, values)
-      .then(({ data }) => setOrder(data));
-  };
-
-  React.useEffect(() => {
-    if (!id) {
-      setIsLoading(false);
-      return;
+  const cartItems: CartItem[] = React.useMemo(() => {
+    if (order && products) {
+      return order.items.map((item: OrderItem) => {
+        const product = products.find((p) => p.id === item.productId);
+        if (!product) {
+          throw new Error("Product not found");
+        }
+        return { product, count: item.count };
+      });
     }
-    const promises: any[] = [
-      axios.get(`${API_PATHS.product}/product`),
-      axios.get(`${API_PATHS.order}/order/${id}`),
-    ];
-    Promise.all(promises).then(([{ data: products }, { data: order }]) => {
-      const cartItems: CartItem[] = order.items.map((i: OrderItem) => ({
-        product: products.find((p: Product) => p.id === i.productId),
-        count: i.count,
-      }));
-      setOrder(order);
-      setCartItems(cartItems);
-      setIsLoading(false);
-    });
-  }, [id]);
+    return [];
+  }, [order, products]);
 
-  if (isLoading) return <p>loading...</p>;
+  const { mutate } = useMutation(
+    (values: { status: OrderStatus; comment: string }) =>
+      axios.put(`${API_PATHS.order}/order/${id}/status`, values),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["order", { id }], { exact: true });
+      },
+    }
+  );
 
-  const statusHistory = order.statusHistory || [];
+  if (isOrderFetching || isProductsFetching) return <p>loading...</p>;
+
+  const statusHistory = order?.statusHistory || [];
 
   const lastStatusItem = statusHistory[statusHistory.length - 1];
 
-  return (
+  return order ? (
     <PaperLayout>
       <Typography component="h1" variant="h4" align="center">
         Manage order
@@ -127,13 +146,15 @@ export default function PageOrder() {
         {lastStatusItem?.status.toUpperCase()}
       </Typography>
       <Typography variant="h6">Change status:</Typography>
-      <Formik
-        initialValues={{ status: lastStatusItem.status, comment: "" }}
-        enableReinitialize
-        onSubmit={onChangeStatus}
-      >
-        {(props: FormikProps<FormikValues>) => <Form {...props} />}
-      </Formik>
+      <Box py={2}>
+        <Formik
+          initialValues={{ status: lastStatusItem.status, comment: "" }}
+          enableReinitialize
+          onSubmit={(values) => mutate(values)}
+        >
+          {(props: FormikProps<FormikValues>) => <Form {...props} />}
+        </Formik>
+      </Box>
       <Typography variant="h6">Status history:</Typography>
       <TableContainer>
         <Table aria-label="simple table">
@@ -145,7 +166,7 @@ export default function PageOrder() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {statusHistory.map((statusHistoryItem: any) => (
+            {statusHistory.map((statusHistoryItem) => (
               <TableRow key={order.id}>
                 <TableCell component="th" scope="row">
                   {statusHistoryItem.status.toUpperCase()}
@@ -160,5 +181,5 @@ export default function PageOrder() {
         </Table>
       </TableContainer>
     </PaperLayout>
-  );
+  ) : null;
 }
