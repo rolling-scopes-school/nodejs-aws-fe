@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import API_PATHS from "~/constants/apiPaths";
@@ -13,9 +13,9 @@ import Button from "@mui/material/Button";
 import { formatAsPrice } from "~/utils/utils";
 
 export default function ProductsTable() {
-  const [products, setProducts] = useState<any>([]);
+  const [products, setProducts] = React.useState<any>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     axios.get(`${API_PATHS.bff}/product`).then((res) => setProducts(res.data));
   }, []);
 

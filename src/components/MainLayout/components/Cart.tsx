@@ -1,7 +1,7 @@
 import Badge from "@mui/material/Badge";
 import CartIcon from "@mui/icons-material/ShoppingCart";
 import IconButton from "@mui/material/IconButton";
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCartItems, updateFromApi } from "~/store/cartSlice";
@@ -10,7 +10,7 @@ import API_PATHS from "~/constants/apiPaths";
 
 export default function Cart() {
   const dispatch = useDispatch();
-  useEffect(() => {
+  React.useEffect(() => {
     axios
       .get(`${API_PATHS.cart}/profile/cart`, {
         headers: {

@@ -1,4 +1,3 @@
-import React from "react";
 import API_PATHS from "~/constants/apiPaths";
 import ProductsTable from "~/components/pages/admin/PageProductImport/components/ProductsTable";
 import CSVFileImport from "~/components/pages/admin/PageProductImport/components/CSVFileImport";

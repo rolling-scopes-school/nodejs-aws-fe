@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import API_PATHS from "~/constants/apiPaths";
@@ -12,9 +12,9 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 
 export default function Orders() {
-  const [orders, setOrders] = useState<any>([]);
+  const [orders, setOrders] = React.useState<any>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     axios.get(`${API_PATHS.order}/order`).then((res) => setOrders(res.data));
   }, []);
 

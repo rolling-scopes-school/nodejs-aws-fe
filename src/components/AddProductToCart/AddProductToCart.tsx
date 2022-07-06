@@ -1,4 +1,3 @@
-import React from "react";
 import Typography from "@mui/material/Typography";
 import { Product } from "~/models/Product";
 import CartIcon from "@mui/icons-material/ShoppingCart";

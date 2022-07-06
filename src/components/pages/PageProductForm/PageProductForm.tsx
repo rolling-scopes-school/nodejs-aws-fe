@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import { Product, ProductSchema } from "~/models/Product";
 import { Formik, Field, FormikProps, FormikValues } from "formik";
 import TextField from "~/components/Form/TextField";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import PaperLayout from "~/components/PaperLayout/PaperLayout";
 import Typography from "@mui/material/Typography";
 import API_PATHS from "~/constants/apiPaths";
@@ -33,7 +33,7 @@ const Form = (props: FormikProps<FormikValues>) => {
     // onGetCitizen,
     // shouldConfirmLeave,
   } = props;
-
+  const navigate = useNavigate();
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <Grid container spacing={2}>
@@ -79,7 +79,9 @@ const Form = (props: FormikProps<FormikValues>) => {
           />
         </Grid>
         <Grid item container xs={12} justifyContent="space-between">
-          <Button color="primary">Cancel</Button>
+          <Button color="primary" onClick={() => navigate("/admin/products")}>
+            Cancel
+          </Button>
           <Button
             type="submit"
             variant="contained"
@@ -97,10 +99,10 @@ const Form = (props: FormikProps<FormikValues>) => {
 const emptyValues: any = ProductSchema.cast({});
 
 export default function PageProductForm() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [product, setProduct] = useState<Product | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [product, setProduct] = React.useState<Product | null>(null);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
@@ -109,10 +111,10 @@ export default function PageProductForm() {
       : formattedValues;
     axios
       .put(`${API_PATHS.bff}/product`, productToSave)
-      .then(() => history.push("/admin/products"));
+      .then(() => navigate("/admin/products"));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!id) {
       setIsLoading(false);
       return;

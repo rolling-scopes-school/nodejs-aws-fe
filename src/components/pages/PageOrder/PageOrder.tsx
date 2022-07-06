@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { OrderItem } from "~/models/Order";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -101,9 +101,9 @@ const Form = (props: FormikProps<FormikValues>) => {
 
 export default function PageOrder() {
   const { id } = useParams<{ id: string }>();
-  const [order, setOrder] = useState<any>({});
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [order, setOrder] = React.useState<any>({});
+  const [cartItems, setCartItems] = React.useState<CartItem[]>([]);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   const onChangeStatus = (values: FormikValues) => {
     return axios
@@ -111,7 +111,7 @@ export default function PageOrder() {
       .then(({ data }) => setOrder(data));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!id) {
       setIsLoading(false);
       return;

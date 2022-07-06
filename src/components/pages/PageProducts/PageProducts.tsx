@@ -1,4 +1,3 @@
-import React from "react";
 import Products from "~/components/pages/PageProducts/components/Products";
 import Box from "@mui/material/Box";
 

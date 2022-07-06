@@ -1,4 +1,3 @@
-import React from "react";
 import Orders from "~/components/pages/PageOrders/components/Orders";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,9 +13,9 @@ import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
 import productList from "./productList.json";
 
 export default function Products() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = React.useState<Product[]>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // axios.get(`${API_PATHS.bff}/product/available/`)
     //   .then(res => setProducts(res.data));
     setProducts(productList);
