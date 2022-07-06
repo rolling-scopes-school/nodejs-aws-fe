@@ -17,13 +17,8 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    updateFromApi: (
-      state,
-      { payload: { items } }: PayloadAction<CartState>
-    ) => {
-      return {
-        items: [...items],
-      };
+    updateFromApi: (state, { payload }: PayloadAction<CartState>) => {
+      state.items = payload.items;
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     addToCart: (state, action: PayloadAction<Product>) => {

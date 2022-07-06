@@ -23,6 +23,11 @@ axios.interceptors.response.use(
   }
 );
 
+if (import.meta.env.DEV) {
+  const { worker } = await import("./mocks/browser");
+  worker.start();
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -8,17 +8,16 @@ import Typography from "@mui/material/Typography";
 import { Product } from "~/models/Product";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
-// import axios from 'axios';
-// import API_PATHS from "~/constants/apiPaths";
-import productList from "./productList.json";
+import axios from "axios";
+import API_PATHS from "~/constants/apiPaths";
 
 export default function Products() {
   const [products, setProducts] = React.useState<Product[]>([]);
 
   React.useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
+    axios
+      .get(`${API_PATHS.bff}/product/available/`)
+      .then((res) => setProducts(res.data));
   }, []);
 
   return (

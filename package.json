@@ -6,7 +6,7 @@
     "preinstall": "npx npm-force-resolutions",
     "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
+    "preview": "npm run build && vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
@@ -57,10 +57,14 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "jsdom": "^20.0.0",
+    "msw": "^0.43.0",
     "prettier": "2.7.1",
     "typescript": "^4.6.3",
     "vite": "^2.9.9",
     "vitest": "^0.17.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   },
   "resolutions": {
     "@types/react": "17.0.38"

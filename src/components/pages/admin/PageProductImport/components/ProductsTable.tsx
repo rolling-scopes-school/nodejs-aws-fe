@@ -55,7 +55,7 @@ export default function ProductsTable() {
                   size="small"
                   color="primary"
                   component={Link}
-                  to={`/admin/product-form/${product.id}`}
+                  to={`../product-form/${product.id}`}
                 >
                   Manage
                 </Button>

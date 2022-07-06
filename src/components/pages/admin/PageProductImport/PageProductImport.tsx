@@ -18,7 +18,7 @@ export default function PageProductImport() {
           color="primary"
           variant="contained"
           component={Link}
-          to={"/admin/product-form/"}
+          to={"../product-form/"}
         >
           create product
         </Button>
