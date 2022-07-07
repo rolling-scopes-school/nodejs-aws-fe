@@ -18,7 +18,7 @@ function Copyright() {
   );
 }
 
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <>
       <Header />

@@ -3,7 +3,7 @@ import Paper from "@mui/material/Paper";
 import { useTheme } from "@mui/material";
 import Box from "@mui/system/Box";
 
-const PaperLayout: React.FC = ({ children }) => {
+const PaperLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const theme = useTheme();
   return (
     <Box

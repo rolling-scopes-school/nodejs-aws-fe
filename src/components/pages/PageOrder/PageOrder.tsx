@@ -11,7 +11,7 @@ import ReviewOrder from "~/components/pages/PageCart/components/ReviewOrder";
 import { OrderStatus, ORDER_STATUS_FLOW } from "~/constants/order";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import { Field, Formik, FormikProps, FormikValues } from "formik";
+import { Field, Form, Formik, FormikProps } from "formik";
 import Grid from "@mui/material/Grid";
 import TextField from "~/components/Form/TextField";
 import Table from "@mui/material/Table";
@@ -24,61 +24,9 @@ import Box from "@mui/material/Box";
 import { useQueries } from "react-query";
 import { useInvalidateOrder, useUpdateOrderStatus } from "~/queries/orders";
 
-const Form = (props: FormikProps<FormikValues>) => {
-  const { values, dirty, isSubmitting, isValid, handleSubmit } = props;
-  let helperText = "";
-  if (values.status === OrderStatus.Approved) {
-    helperText =
-      "Setting status to APPROVED will decrease products count from stock!!!";
-  }
-  // TODO add check if status was changed from approved to cancelled
-  //  to increase product count back again
-  // if ((values.status) === ORDER_STATUS.cancelled) {
-  //   helperText = 'Setting status to CANCELLED will increase products count in stock!!!';
-  // }
-
-  return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Field
-            component={TextField}
-            name="status"
-            label="Status"
-            select
-            fullWidth
-            helperText={helperText}
-          >
-            {ORDER_STATUS_FLOW.map((status) => (
-              <MenuItem key={status} value={status}>
-                {status}
-              </MenuItem>
-            ))}
-          </Field>
-        </Grid>
-        <Grid item xs={12}>
-          <Field
-            component={TextField}
-            name="comment"
-            label="Comment"
-            fullWidth
-            autoComplete="off"
-            multiline
-          />
-        </Grid>
-        <Grid item container xs={12} justifyContent="space-between">
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            disabled={!dirty || isSubmitting || !isValid}
-          >
-            Change status
-          </Button>
-        </Grid>
-      </Grid>
-    </form>
-  );
+type FormValues = {
+  status: OrderStatus;
+  comment: string;
 };
 
 export default function PageOrder() {
@@ -148,7 +96,52 @@ export default function PageOrder() {
             )
           }
         >
-          {(props: FormikProps<FormikValues>) => <Form {...props} />}
+          {({ values, dirty, isSubmitting }: FormikProps<FormValues>) => (
+            <Form autoComplete="off">
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Field
+                    component={TextField}
+                    name="status"
+                    label="Status"
+                    select
+                    fullWidth
+                    helperText={
+                      values.status === OrderStatus.Approved
+                        ? "Setting status to APPROVED will decrease products count from stock"
+                        : undefined
+                    }
+                  >
+                    {ORDER_STATUS_FLOW.map((status) => (
+                      <MenuItem key={status} value={status}>
+                        {status}
+                      </MenuItem>
+                    ))}
+                  </Field>
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    component={TextField}
+                    name="comment"
+                    label="Comment"
+                    fullWidth
+                    autoComplete="off"
+                    multiline
+                  />
+                </Grid>
+                <Grid item container xs={12} justifyContent="space-between">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    disabled={!dirty || isSubmitting}
+                  >
+                    Change status
+                  </Button>
+                </Grid>
+              </Grid>
+            </Form>
+          )}
         </Formik>
       </Box>
       <Typography variant="h6">Status history:</Typography>

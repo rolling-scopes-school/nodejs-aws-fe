@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function PageProductImport() {
   return (
     <Box py={3}>
-      <Box display="flex" alignItems="center">
+      <Box mb={2} display="flex" justifyContent="space-between">
         <CSVFileImport
           url={`${API_PATHS.import}/import`}
           title="Import Products CSV"
@@ -17,10 +17,11 @@ export default function PageProductImport() {
           size="small"
           color="primary"
           variant="contained"
+          sx={{ alignSelf: "end" }}
           component={Link}
           to={"../product-form/"}
         >
-          create product
+          Create product
         </Button>
       </Box>
       <ProductsTable />
