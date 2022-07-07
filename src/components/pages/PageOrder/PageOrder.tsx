@@ -6,7 +6,7 @@ import PaperLayout from "~/components/PaperLayout/PaperLayout";
 import Typography from "@mui/material/Typography";
 import API_PATHS from "~/constants/apiPaths";
 import { CartItem } from "~/models/CartItem";
-import { Product } from "~/models/Product";
+import { AvailableProduct } from "~/models/Product";
 import ReviewOrder from "~/components/pages/PageCart/components/ReviewOrder";
 import { OrderStatus, ORDER_STATUS_FLOW } from "~/constants/order";
 import Button from "@mui/material/Button";
@@ -21,7 +21,8 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import Box from "@mui/material/Box";
-import { useMutation, useQueryClient, useQueries } from "react-query";
+import { useQueries } from "react-query";
+import { useInvalidateOrder, useUpdateOrderStatus } from "~/queries/orders";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const { values, dirty, isSubmitting, isValid, handleSubmit } = props;
@@ -82,7 +83,6 @@ const Form = (props: FormikProps<FormikValues>) => {
 
 export default function PageOrder() {
   const { id } = useParams<{ id: string }>();
-  const queryClient = useQueryClient();
   const results = useQueries([
     {
       queryKey: ["order", { id }],
@@ -94,7 +94,7 @@ export default function PageOrder() {
     {
       queryKey: "products",
       queryFn: async () => {
-        const res = await axios.get<Product[]>(
+        const res = await axios.get<AvailableProduct[]>(
           `${API_PATHS.bff}/product/available`
         );
         return res.data;
@@ -102,10 +102,11 @@ export default function PageOrder() {
     },
   ]);
   const [
-    { data: order, isFetching: isOrderFetching },
-    { data: products, isFetching: isProductsFetching },
+    { data: order, isLoading: isOrderLoading },
+    { data: products, isLoading: isProductsLoading },
   ] = results;
-
+  const { mutateAsync: updateOrderStatus } = useUpdateOrderStatus();
+  const invalidateOrder = useInvalidateOrder();
   const cartItems: CartItem[] = React.useMemo(() => {
     if (order && products) {
       return order.items.map((item: OrderItem) => {
@@ -119,17 +120,7 @@ export default function PageOrder() {
     return [];
   }, [order, products]);
 
-  const { mutate } = useMutation(
-    (values: { status: OrderStatus; comment: string }) =>
-      axios.put(`${API_PATHS.order}/order/${id}/status`, values),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["order", { id }], { exact: true });
-      },
-    }
-  );
-
-  if (isOrderFetching || isProductsFetching) return <p>loading...</p>;
+  if (isOrderLoading || isProductsLoading) return <p>loading...</p>;
 
   const statusHistory = order?.statusHistory || [];
 
@@ -150,7 +141,12 @@ export default function PageOrder() {
         <Formik
           initialValues={{ status: lastStatusItem.status, comment: "" }}
           enableReinitialize
-          onSubmit={(values) => mutate(values)}
+          onSubmit={(values) =>
+            updateOrderStatus(
+              { id: order.id, ...values },
+              { onSuccess: () => invalidateOrder(order.id) }
+            )
+          }
         >
           {(props: FormikProps<FormikValues>) => <Form {...props} />}
         </Formik>

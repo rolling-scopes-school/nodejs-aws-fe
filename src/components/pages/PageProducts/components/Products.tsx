@@ -4,24 +4,17 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { Product } from "~/models/Product";
 import { formatAsPrice } from "~/utils/utils";
 import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
-import axios, { AxiosError } from "axios";
-import API_PATHS from "~/constants/apiPaths";
-import { useQuery } from "react-query";
+import { useAvailableProducts } from "~/queries/products";
 
 export default function Products() {
-  const { data } = useQuery<Product[], AxiosError>("products", async () => {
-    const res = await axios.get<Product[]>(
-      `${API_PATHS.bff}/product/available`
-    );
-    return res.data;
-  });
+  const { data = [] } = useAvailableProducts();
 
   return (
     <Grid container spacing={4}>
-      {data?.map((product, index) => (
+      {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+      {data.map(({ count, ...product }, index) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card
             sx={{ height: "100%", display: "flex", flexDirection: "column" }}

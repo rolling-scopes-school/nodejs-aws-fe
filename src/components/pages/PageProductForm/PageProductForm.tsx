@@ -1,18 +1,17 @@
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import {
-  AvailableProduct,
-  AvailableProductSchema,
-  Product,
-} from "~/models/Product";
+import { AvailableProduct, AvailableProductSchema } from "~/models/Product";
 import { Formik, Field, FormikProps, FormikValues } from "formik";
 import TextField from "~/components/Form/TextField";
-import axios, { AxiosError } from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import PaperLayout from "~/components/PaperLayout/PaperLayout";
 import Typography from "@mui/material/Typography";
-import API_PATHS from "~/constants/apiPaths";
-import { useQuery, useMutation, useQueryClient } from "react-query";
+import {
+  useAvailableProduct,
+  useInvalidateAvailableProducts,
+  useRemoveProductCache,
+  useUpsertAvailableProduct,
+} from "~/queries/products";
 
 const Form = (props: FormikProps<FormikValues>) => {
   const { dirty, isSubmitting, isValid, handleSubmit } = props;
@@ -79,60 +78,48 @@ const Form = (props: FormikProps<FormikValues>) => {
   );
 };
 
-const emptyValues = AvailableProductSchema.cast({});
+const initialValues: AvailableProduct = AvailableProductSchema.cast({});
 
 export default function PageProductForm() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const queryClient = useQueryClient();
-  const { data, isFetching } = useQuery<Product, AxiosError>(
-    ["product", { id }],
-    async () => {
-      const res = await axios.get<Product>(`${API_PATHS.bff}/product/${id}`);
-      return res.data;
-    },
-    { enabled: !!id }
-  );
-  const { mutate } = useMutation(
-    (productToSave: AvailableProduct) =>
-      axios.put(`${API_PATHS.bff}/product`, productToSave),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries("available-products", { exact: true });
-      },
-    }
-  );
-  const onSubmit = (values: FormikValues) => {
+  const invalidateAvailableProducts = useInvalidateAvailableProducts();
+  const removeProductCache = useRemoveProductCache();
+  const { data, isLoading } = useAvailableProduct(id);
+  const { mutate: upsertAvailableProduct } = useUpsertAvailableProduct();
+  const onSubmit = (values: AvailableProduct) => {
     const formattedValues = AvailableProductSchema.cast(values);
     const productToSave = id
-      ? ({
-          ...AvailableProductSchema.cast(formattedValues),
+      ? {
+          ...formattedValues,
           id,
-        } as AvailableProduct)
-      : (formattedValues as AvailableProduct);
-    mutate(productToSave, {
+        }
+      : formattedValues;
+    upsertAvailableProduct(productToSave, {
       onSuccess: () => {
-        queryClient.invalidateQueries("available-products", { exact: true });
-        queryClient.removeQueries(["product", { id }], { exact: true });
+        invalidateAvailableProducts();
+        removeProductCache(id);
         navigate("/admin/products");
       },
     });
   };
 
-  if (isFetching) return <p>loading...</p>;
-
   return (
     <PaperLayout>
-      <Typography component="h1" variant="h4" align="center">
+      <Typography component="h1" variant="h4" align="center" mb={2}>
         {id ? "Edit product" : "Create new product"}
       </Typography>
-      <Formik
-        initialValues={data || emptyValues}
-        validationSchema={AvailableProductSchema}
-        onSubmit={onSubmit}
-      >
-        {(props: FormikProps<FormikValues>) => <Form {...props} />}
-      </Formik>
+      {isLoading ? (
+        <>Loading...</>
+      ) : (
+        <Formik
+          initialValues={data ?? initialValues}
+          validationSchema={AvailableProductSchema}
+          onSubmit={onSubmit}
+        >
+          {(props: FormikProps<FormikValues>) => <Form {...props} />}
+        </Formik>
+      )}
     </PaperLayout>
   );
 }

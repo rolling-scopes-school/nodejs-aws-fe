@@ -2,9 +2,9 @@ import * as Yup from "yup";
 import { OrderStatus } from "~/constants/order";
 
 export const AddressSchema = Yup.object({
-  firstName: Yup.string().required(),
-  lastName: Yup.string().required(),
-  address: Yup.string().required(),
+  firstName: Yup.string().required().default(""),
+  lastName: Yup.string().required().default(""),
+  address: Yup.string().required().default(""),
   comment: Yup.string().default(""),
 }).defined();
 
@@ -28,7 +28,7 @@ export type statusHistory = Yup.InferType<typeof statusHistorySchema>;
 export const OrderSchema = Yup.object({
   id: Yup.string().required(),
   items: Yup.array().of(OrderItemSchema).defined(),
-  address: AddressSchema,
+  address: AddressSchema.required(),
   statusHistory: Yup.array().of(statusHistorySchema).defined(),
 }).defined();
 

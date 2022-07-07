@@ -1,6 +1,4 @@
-import axios, { AxiosError } from "axios";
 import { Link } from "react-router-dom";
-import API_PATHS from "~/constants/apiPaths";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,24 +7,16 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import { Order } from "~/models/Order";
-import { useQuery, useMutation, useQueryClient } from "react-query";
+import {
+  useDeleteOrder,
+  useInvalidateOrders,
+  useOrders,
+} from "~/queries/orders";
 
 export default function Orders() {
-  const queryClient = useQueryClient();
-  const { data } = useQuery<Order[], AxiosError>("orders", async () => {
-    const res = await axios.get<Order[]>(`${API_PATHS.order}/order`);
-    return res.data;
-  });
-
-  const { mutate } = useMutation(
-    (id: string) => axios.delete(`${API_PATHS.order}/order/${id}`),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries("orders", { exact: true });
-      },
-    }
-  );
+  const { data } = useOrders();
+  const invalidateOrders = useInvalidateOrders();
+  const { mutate: deleteOrder } = useDeleteOrder();
 
   return (
     <TableContainer component={Paper}>
@@ -63,7 +53,9 @@ export default function Orders() {
                 <Button
                   size="small"
                   color="secondary"
-                  onClick={() => mutate(order.id)}
+                  onClick={() =>
+                    deleteOrder(order.id, { onSuccess: invalidateOrders })
+                  }
                 >
                   Delete
                 </Button>

@@ -1,13 +1,13 @@
 import { rest } from "msw";
 import API_PATHS from "~/constants/apiPaths";
-import { availableProducts, orders, products } from "~/mocks/data";
+import { availableProducts, orders, products, cart } from "~/mocks/data";
 import { CartItem } from "~/models/CartItem";
 import { Order } from "~/models/Order";
 import { AvailableProduct, Product } from "~/models/Product";
 
 export const handlers = [
   rest.get(`${API_PATHS.bff}/product`, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json<Product[]>(products));
+    return res(ctx.status(200), ctx.delay(), ctx.json<Product[]>(products));
   }),
   rest.put(`${API_PATHS.bff}/product`, (req, res, ctx) => {
     return res(ctx.status(200));
@@ -18,6 +18,7 @@ export const handlers = [
   rest.get(`${API_PATHS.bff}/product/available`, (req, res, ctx) => {
     return res(
       ctx.status(200),
+      ctx.delay(),
       ctx.json<AvailableProduct[]>(availableProducts)
     );
   }),
@@ -26,29 +27,20 @@ export const handlers = [
     if (!product) {
       return res(ctx.status(404));
     }
-    return res(ctx.status(200), ctx.json(product));
-  }),
-  rest.get(`${API_PATHS.cart}/profile/cart`, (req, res, ctx) => {
     return res(
       ctx.status(200),
-      ctx.json<CartItem[]>([
-        {
-          product: {
-            description: "Short Product Description1",
-            id: "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-            price: 2.4,
-            title: "ProductOne",
-          },
-          count: 2,
-        },
-      ])
+      ctx.delay(),
+      ctx.json<AvailableProduct>(product)
     );
+  }),
+  rest.get(`${API_PATHS.cart}/profile/cart`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.delay(), ctx.json<CartItem[]>(cart));
   }),
   rest.put(`${API_PATHS.cart}/profile/cart`, (req, res, ctx) => {
     return res(ctx.status(200));
   }),
   rest.get(`${API_PATHS.order}/order`, (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json<Order[]>(orders));
+    return res(ctx.status(200), ctx.delay(), ctx.json<Order[]>(orders));
   }),
   rest.put(`${API_PATHS.order}/order`, (req, res, ctx) => {
     return res(ctx.status(200));
@@ -58,7 +50,7 @@ export const handlers = [
     if (!order) {
       return res(ctx.status(404));
     }
-    return res(ctx.status(200), ctx.json(order));
+    return res(ctx.status(200), ctx.delay(), ctx.json(order));
   }),
   rest.delete(`${API_PATHS.order}/order/:id`, (req, res, ctx) => {
     return res(ctx.status(200));

@@ -28,6 +28,7 @@ export function fieldToTextField({
         fieldOnBlur(e ?? field.name);
       },
     ...field,
+    value: field.value ?? "",
     ...props,
   };
 }
