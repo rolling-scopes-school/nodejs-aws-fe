@@ -1,7 +1,7 @@
 ## URLs
 
 S3-website: http://shop-mlr-app.s3-website-us-east-1.amazonaws.com
-CloudFront URL: d3h4jyt2urafba.cloudfront.net
+CloudFront URL: [d3h4jyt2urafba.cloudfront.net](d3h4jyt2urafba.cloudfront.net)
 
 ## Available Scripts
 
