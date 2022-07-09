@@ -19,7 +19,7 @@ export default function PageProductImport() {
           variant="contained"
           sx={{ alignSelf: "end" }}
           component={Link}
-          to={"../product-form/"}
+          to={"../product-form"}
         >
           Create product
         </Button>

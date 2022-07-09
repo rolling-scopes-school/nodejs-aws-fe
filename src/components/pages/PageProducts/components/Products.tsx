@@ -9,7 +9,11 @@ import AddProductToCart from "~/components/AddProductToCart/AddProductToCart";
 import { useAvailableProducts } from "~/queries/products";
 
 export default function Products() {
-  const { data = [] } = useAvailableProducts();
+  const { data = [], isLoading } = useAvailableProducts();
+
+  if (isLoading) {
+    return <Typography>Loading...</Typography>;
+  }
 
   return (
     <Grid container spacing={4}>

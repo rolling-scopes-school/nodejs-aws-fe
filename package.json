@@ -1,6 +1,6 @@
 {
-  "name": "store",
-  "version": "0.1.0",
+  "name": "my-store-app",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "vite",
@@ -48,6 +48,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-react": "^1.3.2",
+    "@vitest/ui": "^0.18.0",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

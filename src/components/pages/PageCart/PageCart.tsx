@@ -53,10 +53,6 @@ export default function PageCart() {
 
   const isCartEmpty = data.length === 0;
 
-  if (isCartEmpty) {
-    return <CartIsEmpty />;
-  }
-
   const handleNext = () => {
     if (activeStep !== CartStep.ReviewOrder) {
       setActiveStep((step) => step + 1);
@@ -102,7 +98,10 @@ export default function PageCart() {
           </Step>
         ))}
       </Stepper>
-      {activeStep === CartStep.ReviewCart && <ReviewCart items={data} />}
+      {isCartEmpty && <CartIsEmpty />}
+      {!isCartEmpty && activeStep === CartStep.ReviewCart && (
+        <ReviewCart items={data} />
+      )}
       {activeStep === CartStep.Address && (
         <AddressForm
           initialValues={address}
@@ -114,23 +113,25 @@ export default function PageCart() {
         <ReviewOrder address={address} items={data} />
       )}
       {activeStep === CartStep.Success && <Success />}
-      {activeStep !== CartStep.Address && activeStep !== CartStep.Success && (
-        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-          {activeStep !== CartStep.ReviewCart && (
-            <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-              Back
+      {!isCartEmpty &&
+        activeStep !== CartStep.Address &&
+        activeStep !== CartStep.Success && (
+          <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            {activeStep !== CartStep.ReviewCart && (
+              <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                Back
+              </Button>
+            )}
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ mt: 3, ml: 1 }}
+              onClick={handleNext}
+            >
+              {activeStep === steps.length - 1 ? "Place order" : "Next"}
             </Button>
-          )}
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{ mt: 3, ml: 1 }}
-            onClick={handleNext}
-          >
-            {activeStep === steps.length - 1 ? "Place order" : "Next"}
-          </Button>
-        </Box>
-      )}
+          </Box>
+        )}
     </PaperLayout>
   );
 }
