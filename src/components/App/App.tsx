@@ -19,7 +19,7 @@ function App() {
           <Route path=":id" element={<PageOrder />} />
         </Route>
         <Route path="admin/products" element={<PageProductImport />} />
-        <Route path="product-form">
+        <Route path="admin/product-form">
           <Route index element={<PageProductForm />} />
           <Route path=":id" element={<PageProductForm />} />
         </Route>
