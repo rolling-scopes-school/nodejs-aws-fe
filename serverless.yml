@@ -1,12 +1,12 @@
-service: node-in-aws-web
+service: aws-nodejs-automated
 
 frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   # setup profile for AWS CLI.
-  # profile: node-aws
+  profile: Harret
 
 plugins:
   - serverless-finch
@@ -17,10 +17,10 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: harret-games--bucket
     distributionFolder: build
+    indexDocument: index.html
   s3BucketName: ${self:custom.client.bucketName}
-
   ## Serverless-single-page-app-plugin configuration:
   s3LocalPath: ${self:custom.client.distributionFolder}/
 
