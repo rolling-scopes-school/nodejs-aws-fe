@@ -43,3 +43,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+**For Rolling Scopes Application**
+1. CloudFront URL: dfc89oitjko8f.cloudfront.net   
+2. S3-website URL: http://my-second-application-task2.s3-website-us-east-1.amazonaws.com/
