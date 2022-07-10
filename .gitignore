@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 .serverless
+coverage
 dist
 dist-ssr
 *.local
