@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## CloudFront Distribution URL
+[https://d36404q77mbim6.cloudfront.net](https://d36404q77mbim6.cloudfront.net)
+
+## S3 Bucket Website
+[https://shop-react-redux-cloudfront-mvedataydin.s3.eu-central-1.amazonaws.com/](https://shop-react-redux-cloudfront-mvedataydin.s3.eu-central-1.amazonaws.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:  
