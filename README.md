@@ -7,7 +7,7 @@ NOTE: Public access is blocked , shows HTTP403
 
 ## After Cloudfront Enabled, Invalidate Cache Enabled
 
-[Click CloudFront Deployment](https://d22izvif14nqas.cloudfront.net) <br/>
+[Click CloudFront Deployment](https://d22izvif14nqas.cloudfront.net/index.html) <br/>
 NOTE: Added two products ""AJTWO" and "AjOne"
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
