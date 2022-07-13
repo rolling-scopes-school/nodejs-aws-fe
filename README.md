@@ -7,8 +7,15 @@ NOTE: Public access is blocked , shows HTTP403
 
 ## After Cloudfront Enabled, Invalidate Cache Enabled
 
-[Click CloudFront Deployment](https://d22izvif14nqas.cloudfront.net/index.html) <br/>
+[Click CloudFront Deployment](https://d22izvif14nqas.cloudfront.net) <br/>
 NOTE: Added two products ""AJTWO" and "AjOne"
+
+## Task2.2 : Serverless
+
+[Click here for Serverless deployment](https://d1zw82pbwmw3ax.cloudfront.net)
+Accomplished creation of S3 Bucket
+Accomplished creation of CloudFront without Invalidation.
+Accomplished creation of CloudFront with Invalidation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
