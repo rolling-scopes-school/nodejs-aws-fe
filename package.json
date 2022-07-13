@@ -2,6 +2,7 @@
   "name": "store",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
@@ -44,6 +45,7 @@
     "react-scripts": "3.4.1",
     "serverless": "^2.29.0",
     "serverless-finch": "^2.6.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin",
     "typescript": "^3.4.1",
     "yup": "^0.29.1"
   },
