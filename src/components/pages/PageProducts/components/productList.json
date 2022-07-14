@@ -1,5 +1,12 @@
 [
   {
+    "count": 16,
+    "description": "added a second new Product",
+    "id": "eb390d6b-6b98-41cd-bb8b-7d5ff5f6a77e",
+    "price": 0.99,
+    "title": "AJTWO"
+  },
+  {
     "count": 4,
     "description": "Short Product Description1",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
@@ -54,5 +61,12 @@
     "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
     "price": 15,
     "title": "ProductName"
+  },
+  {
+    "count": 15,
+    "description": "added a new Product",
+    "id": "79d595ea-6916-46f6-9989-42fc02d06706",
+    "price": 9.4,
+    "title": "AjOne"
   }
 ]
