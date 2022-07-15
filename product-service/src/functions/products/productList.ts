@@ -1,4 +1,4 @@
-const getProducts = () => [
+const getProducts = async () => [
   {
     "count": 18,
     "description": "AjTwo Added another Product ",

@@ -6,14 +6,15 @@ import schema from "./schema";
 import getProductById from "./getProductById";
 import { PATHS, HTTPMETHODS } from "./productConstants";
 
-const buildProductResponse = (event) => {
+const buildProductResponse = async (event) => {
   const { httpMethod, path, pathParameters } = event;
 
   const isGet = httpMethod === HTTPMETHODS.GET;
 
   switch (true) {
     case isGet && path === PATHS.PRODUCTS: {
-      return formatJSONResponse({ products: getProducts() });
+      const products = await getProducts();
+      return formatJSONResponse({ products });
     }
 
     case isGet && path === `${PATHS.PRODUCTBYID}${pathParameters?.productId}`: {
@@ -21,9 +22,9 @@ const buildProductResponse = (event) => {
       if (!productId) {
         return formatJSONResponse({ message: "Product doesn't exist." });
       }
-      return formatJSONResponse(getProductById(productId));
+      const product = await getProductById(productId);
+      return formatJSONResponse(product);
     }
-    
     default:
       return formatJSONResponse({ message: "This is not valid Operation" });
   }
@@ -32,7 +33,7 @@ const buildProductResponse = (event) => {
 const productHandler: ValidatedEventAPIGatewayProxyEvent<
   typeof schema
 > = async (event) => {
-  return buildProductResponse(event);
+  return await buildProductResponse(event);
 };
 
 export const main = middyfy(productHandler);

@@ -1,11 +1,11 @@
 import getProducts from "./productList";
 
-const getProductById = (productId: string) => {
+const getProductById = async (productId: string) => {
   if (!productId) {
     throw new Error("Provide proper Id");
   }
 
-  const products = getProducts();
+  const products = await getProducts();
   const product = products.find(({ id }) => id === productId);
   if (!product) {
     return { message: "Product not found" };

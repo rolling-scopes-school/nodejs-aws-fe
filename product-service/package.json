@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "service:deploy":"serverless deploy",
-    "invoke:local":"serverless invoke --function products"
+    "invoke:products":"serverless invoke local --function products --path mocks/products.json",
+    "invoke:product":"serverless invoke local --function products --path mocks/productById.json"
   },
   "engines": {
     "node": ">=14.15.0"
