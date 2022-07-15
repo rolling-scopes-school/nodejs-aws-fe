@@ -5,9 +5,9 @@
   "main": "serverless.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "service:deploy":"serverless deploy",
-    "invoke:products":"serverless invoke local --function products --path mocks/products.json",
-    "invoke:product":"serverless invoke local --function products --path mocks/productById.json"
+    "service:deploy": "serverless deploy",
+    "invoke:products": "serverless invoke local --function products --path mocks/products.json",
+    "invoke:product": "serverless invoke local --function products --path mocks/productById.json"
   },
   "engines": {
     "node": ">=14.15.0"
@@ -23,6 +23,7 @@
     "esbuild": "^0.14.11",
     "json-schema-to-ts": "^1.5.0",
     "serverless": "^2.23.0",
+    "serverless-auto-swagger": "^2.8.2",
     "serverless-esbuild": "^1.23.3",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.9.0",

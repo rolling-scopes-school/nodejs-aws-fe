@@ -4,7 +4,7 @@ import { middyfy } from "@libs/lambda";
 import getProducts from "./productList";
 import schema from "./schema";
 import getProductById from "./getProductById";
-import { PATHS, HTTPMETHODS } from "./productConstants";
+import { PATHS, HTTPMETHODS, HTTPSTATUSCODES } from "./productConstants";
 
 const buildProductResponse = async (event) => {
   const { httpMethod, path, pathParameters } = event;
@@ -14,19 +14,25 @@ const buildProductResponse = async (event) => {
   switch (true) {
     case isGet && path === PATHS.PRODUCTS: {
       const products = await getProducts();
-      return formatJSONResponse({ products });
+      return await formatJSONResponse({ products });
     }
 
     case isGet && path === `${PATHS.PRODUCTBYID}${pathParameters?.productId}`: {
       const { productId } = pathParameters;
       if (!productId) {
-        return formatJSONResponse({ message: "Product doesn't exist." });
+        return await formatJSONResponse(
+          { message: "Product doesn't exist." },
+          HTTPSTATUSCODES.NOTFOUND
+        );
       }
       const product = await getProductById(productId);
-      return formatJSONResponse(product);
+      return await formatJSONResponse(product);
     }
     default:
-      return formatJSONResponse({ message: "This is not valid Operation" });
+      return formatJSONResponse(
+        { message: "This is not valid Operation" },
+        HTTPSTATUSCODES.NOTFOUND
+      );
   }
 };
 
