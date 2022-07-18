@@ -1,7 +1,6 @@
 # Serverless - AWS Node.js Typescript
 
-[GetProducts](https://dujfmahbc1.execute-api.ap-south-1.amazonaws.com/dev/products/82ca93e2-03f7-4152-bc11-0e74c464a60d
-https://dujfmahbc1.execute-api.ap-south-1.amazonaws.com/dev/products)
+[GetProducts](https://dujfmahbc1.execute-api.ap-south-1.amazonaws.com/dev/products)
 
 [GetProductById](https://dujfmahbc1.execute-api.ap-south-1.amazonaws.com/dev/products/82ca93e2-03f7-4152-bc11-0e74c464a60d)
 

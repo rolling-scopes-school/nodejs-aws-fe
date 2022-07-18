@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@middy/core": "^2.5.3",
-    "@middy/http-json-body-parser": "^2.5.3"
+    "@middy/http-json-body-parser": "^2.5.3",
+    "serverless-offline": "^8.8.0"
   },
   "devDependencies": {
     "@serverless/typescript": "^2.23.0",

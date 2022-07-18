@@ -5,7 +5,11 @@ import products from "@functions/products";
 const serverlessConfiguration: AWS = {
   service: "product-service",
   frameworkVersion: "2",
-  plugins: ["serverless-esbuild"],
+  plugins: [
+    "serverless-auto-swagger",
+    "serverless-offline",
+    "serverless-esbuild",
+  ],
 
   provider: {
     name: "aws",
@@ -34,6 +38,10 @@ const serverlessConfiguration: AWS = {
       define: { "require.resolve": undefined },
       platform: "node",
       concurrency: 10,
+    },
+    autoswagger: {
+      generateSwaggerOnDeploy: true,
+      typefiles: ["./src/types/product.d.ts"],
     },
   },
 };
