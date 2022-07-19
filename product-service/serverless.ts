@@ -40,8 +40,9 @@ const serverlessConfiguration: AWS = {
       concurrency: 10,
     },
     autoswagger: {
-      generateSwaggerOnDeploy: true,
       typefiles: ["./src/types/product.d.ts"],
+      apiType: "http",
+      basePath: "/dev",
     },
   },
 };
