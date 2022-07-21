@@ -1,0 +1,9 @@
+{
+  "httpMethod": "POST",
+  "path": "/products",
+  "body": {
+    "title": "Product_By_POST",
+    "description": "Product is created as part of post request, this is to invoke function locally",
+    "price": 100
+  }
+}

@@ -49,5 +49,49 @@ export default {
         },
       },
     },
+    {
+      http: {
+        method: "post",
+        path: "products",
+        cors: true,
+        summary: "Add a new product",
+        description: "Test the product addition to application",
+        // request: {
+        //   parameters: null,
+        // },
+        requestBody: {
+          required: true,
+          content: "application/json",
+          description:
+            "Product details in JSON, should include, title,price,description",
+          schemas: {
+            type: "object",
+            properties: {
+              title: { type: "string" },
+              description: { type: "string" },
+              price: { type: "integer" },
+            },
+          },
+          example: {
+            title: "PRODUCT_NAME",
+            description: "short description about product",
+            price: 99,
+          },
+        },
+        responses: {
+          201: {
+            description: "Product Created Successfully",
+            bodyType: "Product",
+          },
+          404: {
+            description: "SEARCHING IN MARS SERVERS, NOT FOUND ON EARTH!!!",
+          },
+          500: {
+            description:
+              "CONFLICTS ON EARTH, RESULTED IN INTERNAL SERVER ERROR",
+          },
+        },
+      },
+    },
   ],
 };
