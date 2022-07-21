@@ -1,5 +1,4 @@
 import type { AWS } from "@serverless/typescript";
-
 import products from "@functions/products";
 
 const serverlessConfiguration: AWS = {
@@ -22,6 +21,11 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
+      host: "elonmuskspacestation.hostedon.mars-east-3.rds.amazonaws.com",
+      port: "5432",
+      database: "marssurvivalkitessentialsdb",
+      user: "elonmuskspaceshipinprogress",
+      password: "twitterdealdidnotgowell",
     },
     lambdaHashingVersion: "20201221",
   },
@@ -33,7 +37,7 @@ const serverlessConfiguration: AWS = {
       bundle: true,
       minify: false,
       sourcemap: true,
-      exclude: ["aws-sdk"],
+      exclude: ["aws-sdk", "pg-native"],
       target: "node14",
       define: { "require.resolve": undefined },
       platform: "node",
