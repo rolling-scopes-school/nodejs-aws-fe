@@ -93,8 +93,8 @@ const createProduct = async (newProduct) => {
 
   if (!newProduct) {
     return await formatJSONResponse(
-      { message: "Product Details not present!!" },
-      HTTPSTATUSCODES.INTERNALERROR
+      { message: "Product Details not present or not correct!!" },
+      HTTPSTATUSCODES.INVALIDDATA
     );
   }
 
@@ -123,7 +123,7 @@ const createProduct = async (newProduct) => {
 
 export const buildProductResponse = async (event) => {
   const { httpMethod, path, pathParameters } = event;
-
+  console.log({ httpMethod }, { path }, { pathParameters });
   const isGet = httpMethod === HTTPMETHODS.GET;
   const isPost = httpMethod === HTTPMETHODS.POST;
 
@@ -131,11 +131,16 @@ export const buildProductResponse = async (event) => {
     case isGet && path === PATHS.PRODUCTS:
       return await getProducts();
 
-    case isGet && path === `${PATHS.PRODUCTBYID}${pathParameters?.productId}`:
+    case isGet && path === `${PATHS.PRODUCTBYID}${pathParameters?.productId}`: {
+      console.log({ productId: pathParameters?.productId });
       return await getProductById(pathParameters?.productId);
+    }
 
-    case isPost:
+    case isPost: {
+      console.log({ body: event.body });
       return await createProduct(event.body);
+    }
+
     default:
       return formatJSONResponse(
         { message: "This is not valid Operation" },

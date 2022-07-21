@@ -56,28 +56,32 @@ export default {
         cors: true,
         summary: "Add a new product",
         description: "Test the product addition to application",
-        // request: {
-        //   parameters: null,
-        // },
-        requestBody: {
-          required: true,
-          content: "application/json",
-          description:
-            "Product details in JSON, should include, title,price,description",
-          schemas: {
-            type: "object",
-            properties: {
-              title: { type: "string" },
-              description: { type: "string" },
-              price: { type: "integer" },
+        consumes: "application/json",
+        parameters: [
+          {
+            //paths: { products: true },
+            in: "body",
+            name: "product",
+            description:
+              "Product details in JSON, should include, title,price,description",
+            schema: {
+              type: "object",
+              properties: {
+                title: { type: "string" },
+                description: { type: "string" },
+                price: { type: "integer" },
+              },
             },
           },
-          example: {
-            title: "PRODUCT_NAME",
-            description: "short description about product",
-            price: 99,
-          },
-        },
+        ],
+        // requestBody: {
+        //   required: true,
+        //   content: {
+        //     "application/json": {
+        //       schema: {},
+        //     },
+        //   },
+        // },
         responses: {
           201: {
             description: "Product Created Successfully",

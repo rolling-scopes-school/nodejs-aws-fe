@@ -12,6 +12,7 @@ export const HTTPSTATUSCODES = {
   OK: 200,
   NOTFOUND: 404,
   INTERNALERROR: 500,
+  INVALIDDATA: 400,
 };
 
 export const QUERIES = {
