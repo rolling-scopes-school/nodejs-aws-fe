@@ -67,6 +67,7 @@ export default {
             schema: {
               type: "object",
               properties: {
+                count: { type: "integer" },
                 title: { type: "string" },
                 description: { type: "string" },
                 price: { type: "integer" },

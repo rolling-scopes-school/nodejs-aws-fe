@@ -3,20 +3,31 @@ import {
   PATHS,
   HTTPSTATUSCODES,
   QUERIES,
+  TRANSACTIONCONSTANTS,
 } from "../productConstants";
 import { formatJSONResponse } from "@libs/apiGateway";
 const { Client } = require("pg");
 
 const genericCatchTrap = async (error) => {
-  console.error(error.stack);
+  console.error("genericCatchTrap", error.stack);
   return await formatJSONResponse(
     { message: error.stack },
     HTTPSTATUSCODES.INTERNALERROR
   );
 };
 
+const disconnectDb = (client) => {
+  if (client) {
+    return client.end().then(() => {
+      console.log("Db disconnected successfully!!");
+    });
+  }
+  //client.release();
+};
+
 const connectDb = async () => {
   let isDbConnected = false;
+  let client = null;
   try {
     const { host, port, user, password, database } = process.env;
     const dbConfig = {
@@ -26,7 +37,7 @@ const connectDb = async () => {
       password,
       database,
     };
-    const client = new Client(dbConfig);
+    client = new Client(dbConfig);
     await client.connect();
     return { client, isDbConnected: !isDbConnected };
   } catch (error) {
@@ -84,6 +95,14 @@ const getProductById = async (productId) => {
   }
 };
 
+const productInternalServerError = async (client) => {
+  await client.query(TRANSACTIONCONSTANTS.ROLLBACK);
+  return await formatJSONResponse(
+    { message: "Product Details not present or not correct!!" },
+    HTTPSTATUSCODES.INVALIDDATA
+  );
+};
+
 const createProduct = async (newProduct) => {
   const postgressClient = await connectDb();
 
@@ -98,26 +117,42 @@ const createProduct = async (newProduct) => {
     );
   }
 
+  const { client } = postgressClient;
   try {
-    const { client } = postgressClient;
-    const { rowCount, rows } = await client.query(
-      QUERIES.createProduct,
-      Object.values(newProduct)
-    );
+    await client.query(TRANSACTIONCONSTANTS.BEGIN);
+    const { count, title, description, price } = newProduct;
+
+    const { rowCount, rows } = await client.query(QUERIES.createProduct, [
+      title,
+      description,
+      price,
+    ]);
 
     if (!rowCount) {
-      return await formatJSONResponse(
-        { message: "OOPS!! , Product cannot be created at this time" },
-        HTTPSTATUSCODES.INTERNALERROR
-      );
+      return await productInternalServerError(client);
     }
 
+    const newProductId = rows?.[0]?.id;
+
+    const stockResp = await client.query(QUERIES.createStock, [
+      newProductId,
+      count,
+    ]);
+
+    if (!stockResp.rowCount) {
+      return await productInternalServerError(client);
+    }
+
+    await client.query(TRANSACTIONCONSTANTS.COMMIT);
     return await formatJSONResponse(
-      { message: `${rowCount} Products Created with Id:${rows[0].id}` },
+      { message: `${rowCount} Products Created with Id:${newProductId}` },
       HTTPSTATUSCODES.OK
     );
   } catch (error) {
+    await client.query(TRANSACTIONCONSTANTS.ROLLBACK);
     return await genericCatchTrap(error);
+  } finally {
+    disconnectDb(client);
   }
 };
 
