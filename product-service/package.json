@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "service:deploy": "serverless deploy",
     "invoke:products": "serverless invoke local --function products --path mocks/products.json",
-    "invoke:product": "serverless invoke local --function products --path mocks/productById.json"
+    "invoke:product": "serverless invoke local --function products --path mocks/productById.json",
+    "invoke:newproducts": "serverless invoke local --function products --path mocks/createProducts.json",
+    "offline:start": "serverless offline start"
   },
   "engines": {
     "node": ">=14.15.0"
