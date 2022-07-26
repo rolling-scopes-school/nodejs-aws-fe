@@ -9,3 +9,10 @@ export interface Product {
 export interface Products {
   products: Product[];
 }
+
+export interface NewProduct {
+  count: number;
+  description: string;
+  price: number;
+  title: string;
+}
