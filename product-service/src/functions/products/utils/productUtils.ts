@@ -103,6 +103,37 @@ const productInternalServerError = async (client) => {
   );
 };
 
+const isEmptyUndefined = (value) => {
+  if (!value) {
+    return true;
+  }
+  return false;
+};
+
+const validateNewProduct = (newProduct) => {
+  let isValid = true;
+  if (!newProduct) {
+    return false;
+  }
+
+  if (
+    isEmptyUndefined(newProduct.count) ||
+    isEmptyUndefined(newProduct.price) ||
+    isEmptyUndefined(newProduct.title) ||
+    isEmptyUndefined(newProduct.description)
+  ) {
+    isValid = false;
+  }
+
+  if (
+    typeof newProduct.count !== "number" ||
+    typeof newProduct.price !== "number"
+  ) {
+    isValid = false;
+  }
+  return isValid;
+};
+
 const createProduct = async (newProduct) => {
   const postgressClient = await connectDb();
 
@@ -110,7 +141,9 @@ const createProduct = async (newProduct) => {
     return await genericCatchTrap(postgressClient);
   }
 
-  if (!newProduct) {
+  console.log({ isValid: validateNewProduct(newProduct) });
+
+  if (!validateNewProduct(newProduct)) {
     return await formatJSONResponse(
       { message: "Product Details not present or not correct!!" },
       HTTPSTATUSCODES.INVALIDDATA
