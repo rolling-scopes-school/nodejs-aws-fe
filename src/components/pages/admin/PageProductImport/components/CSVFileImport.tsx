@@ -39,7 +39,7 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         }
       })
       console.log('File to upload: ', file.name)
-      //Todo response.data will be a signedUrl
+      //response.data will contain  a preSignedPutUrl
       console.log('Uploading to: ', response.data)
       const result = await fetch(response.data.preSignedPutUrl, {
         method: 'PUT',
