@@ -109,8 +109,11 @@ export default function PageProductForm() {
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
-      .then(() => history.push('/admin/products'));
+    axios.post(`${API_PATHS.product}`,productToSave)
+      .then((response) => {
+        console.log(response)
+        return history.push('/admin/products')
+      });
   };
 
   useEffect(() => {
@@ -130,7 +133,7 @@ export default function PageProductForm() {
   return (
     <PaperLayout>
       <Typography component="h1" variant="h4" align="center">
-        {id ? 'Edit product' : 'Create new product'}
+        {id ? 'Edit product' : 'XXXXXXXXXXXXXXXXXXXXXXX'}
       </Typography>
       <Formik
         initialValues={product || emptyValues}
