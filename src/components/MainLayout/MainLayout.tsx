@@ -40,6 +40,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           Thank you for your purchase!
           <br />
           Ossset test for automatic deployment
+          <br />
+          This is on CloudFront now
         </Typography>
         <Copyright />
       </Box>
