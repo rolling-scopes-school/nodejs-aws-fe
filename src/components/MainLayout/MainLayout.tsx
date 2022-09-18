@@ -38,6 +38,8 @@ const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           component="p"
         >
           Thank you for your purchase!
+          <br />
+          Ossset test for automatic deployment
         </Typography>
         <Copyright />
       </Box>
