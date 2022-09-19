@@ -1,4 +1,9 @@
+#### my manually deployed web store https://d28mg3ita6k4fi.cloudfront.net/
+### my serverless deployed web store https://db68v1culg9b4.cloudfront.net/
+### both seem to have the same issue with CORS
 # React-shop-cloudfront
+
+
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
 
