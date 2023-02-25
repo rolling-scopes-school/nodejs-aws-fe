@@ -1,58 +1,18 @@
 [
   {
     "count": 4,
-    "description": "Short Product Description1",
+    "description": "he AS73 is the kind of semi-hollow that can tackle just about any genre of music you throw at it. The pickups are mounted into a sustain block for increased sustain and feedback elimination while the 17th fret joint offers comfortable access to higher notes. The AS73 features a select-grade linden top, back, and sides.",
     "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
-    "price": 2.4,
-    "title": "ProductOne"
+    "price": 449.30,
+    "title": "Ibanez Artcore AS73 - Tobacco Brown"
   },
-  {
-    "count": 6,
-    "description": "Short Product Description3",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a0",
-    "price": 10,
-    "title": "ProductNew"
-  },
-  {
-    "count": 7,
-    "description": "Short Product Description2",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a2",
-    "price": 23,
-    "title": "ProductTop"
-  },
-  {
-    "count": 12,
-    "description": "Short Product Description7",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductTitle"
-  },
-  {
-    "count": 7,
-    "description": "Short Product Description2",
-    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80a3",
-    "price": 23,
-    "title": "Product"
-  },
-  {
-    "count": 8,
-    "description": "Short Product Description4",
-    "id": "7567ec4b-b10c-48c5-9345-fc73348a80a1",
-    "price": 15,
-    "title": "ProductTest"
-  },
-  {
-    "count": 2,
-    "description": "Short Product Descriptio1",
-    "id": "7567ec4b-b10c-48c5-9445-fc73c48a80a2",
-    "price": 23,
-    "title": "Product2"
-  },
-  {
-    "count": 3,
-    "description": "Short Product Description7",
-    "id": "7567ec4b-b10c-45c5-9345-fc73c48a80a1",
-    "price": 15,
-    "title": "ProductName"
+    {
+    "count": 4,
+    "description": "As the crown jewel of Ibanez, the Prestige line represents the passion and pride of Japanese luthiery. These guitars, produced exclusively in Japan, have earned worldwide acclaim and respect throughout the industry for their craftsmanship, quality, and innovation. Combine this with the classic Ibanez RG design and you have an instrument that truly represents a cornerstone of the Ibanez legacy. ",
+    "id": "7567ec4b-b10c-48c5-9345-fc73c48a80aa",
+    "price": 1449.30,
+    "title": "Ibanez RG652AHMFX Prestige"
   }
 ]
+
+
