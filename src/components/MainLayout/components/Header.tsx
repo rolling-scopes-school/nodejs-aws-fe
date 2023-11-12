@@ -27,14 +27,17 @@ export default function Header() {
     <AppBar position="relative">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          <Link
-            component={RouterLink}
-            sx={{ color: "inherit" }}
-            underline="none"
-            to="/"
-          >
-            My Store!
-          </Link>
+          <div style={{ display: 'flex'}}>
+            <Link
+                style={{ margin: 'auto', transform: 'translateX(50%)'}}
+                component={RouterLink}
+                sx={{ color: "inherit" }}
+                underline="none"
+                to="/"
+            >
+              USELESS THINGS STORE
+            </Link>
+          </div>
         </Typography>
 
         {auth && (
