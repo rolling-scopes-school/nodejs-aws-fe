@@ -29,7 +29,7 @@ export default function Header() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <div style={{ display: 'flex'}}>
             <Link
-                style={{ margin: 'auto', transform: 'translateX(50%)'}}
+                style={{ margin: 'auto', transform: 'translateX(25%)'}}
                 component={RouterLink}
                 sx={{ color: "inherit" }}
                 underline="none"
