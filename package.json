@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "start": "vite",
+    "deploy": "sdk deploy",
+    "destroy": "sdk destroy",
+    "bootstrap": "cdk bootstrap --profile=default",
     "build": "tsc && vite build",
     "preview": "npm run build && vite preview",
     "test": "vitest",
