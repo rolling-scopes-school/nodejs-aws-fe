@@ -1,0 +1,18 @@
+{
+  "app": "npx ts-node bin/aws-dev.ts",
+  "context": {
+    "@aws-cdk/core:newStyleStackSynthesis": true
+  },
+  "build": "npm run build",
+  "deploy": {
+    "commands": [
+      "npm run build",
+      "cdk deploy"
+    ]
+  },
+  "destroy": {
+    "commands": [
+      "cdk destroy --force"
+    ]
+  }
+}
