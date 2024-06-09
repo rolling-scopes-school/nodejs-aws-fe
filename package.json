@@ -2,6 +2,9 @@
   "name": "my-store-app",
   "version": "1.0.0",
   "private": true,
+  "bin": {
+    "aws-cdk-init": "bin/aws-cdk-init.js"
+  },
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
@@ -9,6 +12,8 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "cdk:deploy": "npm run build && cdk deploy",
+    "cdk:destroy": "cdk destroy",
     "lint": "eslint --ignore-path .gitignore --fix src",
     "prettier": "prettier src --write"
   },
@@ -19,24 +24,29 @@
     "@mui/material": "^5.8.7",
     "@mui/styles": "^5.8.7",
     "@types/yup": "^0.29.14",
+    "aws-cdk-lib": "2.145.0",
     "axios": "^0.27.2",
+    "constructs": "^10.0.0",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.1",
     "react-router-dom": "^6.3.0",
+    "source-map-support": "^0.5.21",
     "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.1",
+    "@types/node": "20.12.7",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-react": "^1.3.2",
     "@vitest/ui": "^0.18.0",
+    "aws-cdk": "2.145.0",
     "c8": "^7.11.3",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
@@ -45,6 +55,7 @@
     "jsdom": "^20.0.0",
     "msw": "^0.43.1",
     "prettier": "2.7.1",
+    "tsx": "^4.15.1",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
     "vitest": "^0.17.1"

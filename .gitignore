@@ -24,3 +24,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
