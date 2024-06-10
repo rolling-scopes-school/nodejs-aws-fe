@@ -1,0 +1,29 @@
+{
+  "name": "cdk",
+  "version": "0.1.0",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "invalidate": "dotenv -e .env -- sh -c 'aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths \"/*\"'",
+    "deploy": "npm run build && cdk deploy && npm run invalidate",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.12.7",
+    "aws-cdk": "2.144.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.4.5"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.144.0",
+    "constructs": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "dotenv-cli": "^7.4.2"
+  }
+}
