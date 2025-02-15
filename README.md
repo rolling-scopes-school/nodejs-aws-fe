@@ -1,8 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Hosted Links
+- **S3 Website URL**: http://mikalai-bucket-app.s3-website.eu-north-1.amazonaws.com  
+- **CloudFront URL**: https://d39g02ip40jcxv.cloudfront.net
+
 ## Available Scripts
 
-In the project directory, you can run:  
+In the project directory, you can open git bash or command prompt and run: 
 You can use NPM instead of YARN (Up to you)  
 
 ### `yarn start` OR `npm run start`

@@ -20,7 +20,7 @@ export type OrderItem = Yup.InferType<typeof OrderItemSchema>;
 
 export const OrderSchema = Yup.object({
   id: Yup.string().required(),
-  items: Yup.array().of(OrderItemSchema),
+  items: Yup.array().of(OrderItemSchema).required(),
   address: AddressSchema,
   status: Yup.string().required(),
 }).defined();
