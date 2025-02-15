@@ -2,11 +2,10 @@
 
 ## Task 2.1 - Manual Deployment
 
-- [S3 Website URL (403)](http://gleb-shop-manual-deployment.s3-website.eu-north-1.amazonaws.com/)
+- [S3 Website URL](http://gleb-shop-manual-deployment.s3-website.eu-north-1.amazonaws.com/)
 - [CloudFront URL](https://d2831xnr6wggvg.cloudfront.net)
 
 ## Task 2.2 - Automated Deployment
-
 - [CloudFront URL](https://d1g6tj2zsj0kkj.cloudfront.net/)
 
 # React-shop-cloudfront
