@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "cloudformation:*",
+                "cloudfront:*",
+                "iam:*",
+                "lambda:*",
+                "apigateway:*",
+                "logs:*",
+                "route53:*",
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeSecurityGroups",
+                "ssm:GetParameters"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

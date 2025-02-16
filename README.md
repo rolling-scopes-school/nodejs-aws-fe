@@ -1,45 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AWS S3 & CloudFront Deployment
+
+## Deployed Application Links
+
+- **CloudFront URL:** [https://d1ahyogkj7onzu.cloudfront.net/](https://d1ahyogkj7onzu.cloudfront.net/)
+- **S3 Website URL:** [https://nodejs-aws-shop-react-438465144658-eu-west-1.s3.eu-west-1.amazonaws.com/](https://nodejs-aws-shop-react-438465144658-eu-west-1.s3.eu-west-1.amazonaws.com/) _(should return 403 Access Denied)_
+
+## Deployment Steps
+
+### Manual Deployment
+
+1. Created an S3 bucket and configured it for website hosting.
+2. Uploaded the MyShop! application manually.
+3. Configured CloudFront to serve the app securely.
+4. Invalidated CloudFront cache after making UI changes.
+
+### Automated Deployment with AWS CDK
+
+1. Created an AWS CDK stack to automate the deployment.
+2. The stack:
+   - Creates an S3 bucket.
+   - Configures a CloudFront distribution with OAI.
+   - Uses `BucketDeployment` to upload files automatically.
+   - Triggers CloudFront cache invalidation after deployment.
+3. Verified that `cdk destroy` removes all resources.
+
+## Important Notes!!!
+Always run bootstrap before the first deployment in a new AWS account/region
+
+- destroy and cleanup commands will remove AWS resources - use with caution
+
+- Use diff before deploy to review changes
+
+- quick-deploy is recommended for development iterations
+
+- Check doctor if you encounter any issues with deployment
 
 ## Available Scripts
 
-In the project directory, you can run:  
-You can use NPM instead of YARN (Up to you)  
+In the project directory, you can run the following npm commands:
 
-### `yarn start` OR `npm run start`
+### Deployment Commands
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm run deploy`
+  - Deploys the CDK stack to AWS without requiring manual approval
+  - Use this for initial deployment or updating existing resources
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- `npm run quick-deploy`
+  - Cleans the build directory and deploys the stack
+  - Useful when you want to ensure a fresh deployment
 
-### `yarn test` OR `npm run test`
+- `npm run destroy`
+  - Removes all resources created by the CDK stack
+  - Use with caution as this will delete all related AWS resources
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Setup and Maintenance
 
-### `yarn build` OR `npm run build`
+- `npm run bootstrap`
+  - Initializes the CDK toolkit stack in your AWS account
+  - Required before first deployment in a new account/region
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `npm run cleanup`
+  - Performs a complete cleanup of all resources and redeploys
+  - Useful when you need a fresh start
+  - Executes the following sequence:
+    1. Destroys the application stack
+    2. Removes CDK bootstrap resources
+    3. Cleans local CDK state
+    4. Bootstraps again
+    5. Deploys the stack
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Development and Debugging
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `npm run synth`
+  - Synthesizes CloudFormation templates from your CDK code
+  - Useful for reviewing what will be deployed
 
-### `yarn eject` OR `npm run eject`
+- `npm run diff`
+  - Shows the difference between deployed stack and current code
+  - Helpful before deploying changes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `npm run list`
+  - Lists all stacks in the application
+  - Useful for verifying stack configuration
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `npm run doctor`
+  - Checks your CDK environment for potential issues
+  - Helpful for troubleshooting
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Cleanup Commands
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `npm run clean`
+  - Removes the CDK build output directory (cdk.out)
+  - Useful when you want to ensure a clean build
 
-## Learn More
+### Usage Examples
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# First-time setup
+npm run bootstrap
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Normal deployment flow
+npm run deploy
+
+# Check changes before deployment
+npm run diff
+
+# Complete reset and redeploy
+npm run cleanup
+
+# Remove all resources
+npm run destroy
