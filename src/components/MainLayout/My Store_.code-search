@@ -1,0 +1,9 @@
+# Query: My Store!
+# ContextLines: 1
+
+1 result - 1 file
+
+nodejs-aws-shop-react\src\components\MainLayout\components\Header.tsx:
+  35            >
+  36:             MyShop! Task 2
+  37            </Link>

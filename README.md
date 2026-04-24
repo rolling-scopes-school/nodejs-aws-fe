@@ -1,3 +1,17 @@
+## Task 2 Deployment
+
+### Links
+
+- CloudFront URL: https://ddiqx6yb3n1i1.cloudfront.net/
+- S3 Website URL: https://shopspastack-shopspabucketdbbc81aa-nxlouka9tkuc.s3.eu-central-1.amazonaws.com/index.html
+
+### Notes
+
+- Application is deployed to S3.
+- CloudFront distribution is configured.
+- Direct S3 bucket access returns 403 Access Denied.
+- Deployment is automated with AWS CDK.
+
 # React-shop-cloudfront
 
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
